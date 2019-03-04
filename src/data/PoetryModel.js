@@ -5,7 +5,7 @@ const httpOptions = {
   headers: { "X-Mashape-Key": "YOUR_API_KEY" }
 };
 
-class DinnerModel extends ObservableModel {
+class PoetryModel extends ObservableModel {
   constructor() {
     super();
     this._numberOfGuests = 4;
@@ -48,6 +48,6 @@ class DinnerModel extends ObservableModel {
   }
 }
 
-// Export an instance of DinnerModel
-const modelInstance = new DinnerModel();
+// Export an instance of PoetryModel
+const modelInstance = new PoetryModel();
 export default modelInstance;
