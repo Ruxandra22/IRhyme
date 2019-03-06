@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {/* We rended diffrent component based on the path */}
+          {/* We rended different component based on the path */}
           <Route exact path="/" component={Welcome} />
           <Route
             path="/search"
