@@ -6,7 +6,7 @@ class Welcome extends Component {
   render() {
     return (
       <div className="Welcome">
-        <Link to="/search">
+        <Link to="/SelectTheme">
           <button>Start planning</button>
         </Link>
       </div>

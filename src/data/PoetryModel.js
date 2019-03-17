@@ -1,8 +1,13 @@
 import ObservableModel from "./ObservableModel";
+import API_KEY_PHOTOS from "./ApiKey";
 
 const BASE_URL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com";
+const SELECTCARD_BASE_URL = "https://api.pexels.com/v1/search?per_page=2&page=1";
+const httpOptionsSelectCard = {
+  headers: { "Authorization": API_KEY_PHOTOS}
+};
 const httpOptions = {
-  headers: { "X-Mashape-Key": "YOUR_API_KEY" }
+  headers: { "Authorization": API_KEY_PHOTOS}
 };
 
 class PoetryModel extends ObservableModel {
@@ -10,7 +15,14 @@ class PoetryModel extends ObservableModel {
     super();
     this._numberOfGuests = 4;
     this.getNumberOfGuests();
+    this._SelectCards; 
   }
+
+//method to get cards according to the selected theme
+getSelectCards(){
+  const url = `${SELECTCARD_BASE_URL}&query=holiday`;
+  return fetch(url, httpOptionsSelectCard).then(this.processResponse);
+}
 
   /**
    * Get the number of guests
@@ -49,5 +61,8 @@ class PoetryModel extends ObservableModel {
 }
 
 // Export an instance of PoetryModel
-const modelInstance = new PoetryModel();
+/*const modelInstance = new PoetryModel();
+export default modelInstance;*/
+
+export const modelInstance = new PoetryModel();
 export default modelInstance;
