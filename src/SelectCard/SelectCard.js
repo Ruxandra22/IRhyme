@@ -14,7 +14,8 @@ class Cards extends Component {
       // e.g. API data loading or error 
       this.state = {
         status: 'INITIAL',
-        query: "holiday"
+        query: "holiday",
+       // theme: this.props.match.params.id
       }
     }
   
@@ -29,7 +30,8 @@ class Cards extends Component {
         this.setState({
           status: 'LOADED',
           cards: cards.photos,
-          theme: this.state.query
+        //   theme: this.state.query,
+          theme: this.props.match.params.id
         })
       }).catch(() => {
         this.setState({

@@ -28,6 +28,9 @@ class App extends Component {
             path="/SelectCard"
             render={() => <SelectCard model={modelInstance} />}
           />
+
+          <Route path="/SelectCard/:id" render={(props) => <SelectCard {...props} model={modelInstance}/>}/> 
+
            <Route
             path="/EditCard"
             render={() => <EditCard model={modelInstance} />}
