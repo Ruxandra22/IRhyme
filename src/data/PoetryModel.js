@@ -19,8 +19,8 @@ class PoetryModel extends ObservableModel {
   }
 
 //method to get cards according to the selected theme
-getSelectCards(){
-  const url = `${SELECTCARD_BASE_URL}&query=holiday`;
+getSelectCards(query){
+  const url = `${SELECTCARD_BASE_URL}&query=${query}`;
   return fetch(url, httpOptionsSelectCard).then(this.processResponse);
 }
 

@@ -6,41 +6,15 @@ import 'bootstrap/dist/css/bootstrap.css' ;
 import{Container, Row, Col} from 'reactstrap';
 import { modelInstance } from '../data/PoetryModel';
 
-
-
-class DishHeader extends React.Component {
-    render() {
-      const { image } = this.props;
-      var style = {
-        backgroundImage: 'url(' + image + ')',
-      };
-      return (
-        <header style={style} id={image} className="card-header" />
-      )
-    }
-  }
   
-  class DishBody extends React.Component {
-    render() {
-      return (
-        <div className="card-body">
-  
-          <h2>{this.props.title}</h2>
-  
-          <p className="body-content">{this.props.text}</p>
-  
-        </div>
-      )
-    }
-  }
-  
-  class Dishes extends Component {
+class Cards extends Component {
     constructor(props) {
       super(props);
       // We create the state to store the various statuses
       // e.g. API data loading or error 
       this.state = {
-        status: 'INITIAL'
+        status: 'INITIAL',
+        query: "holiday"
       }
     }
   
@@ -51,11 +25,11 @@ class DishHeader extends React.Component {
     componentDidMount = () => {
       // when data is retrieved we update the state
       // this will cause the component to re-render
-      modelInstance.getSelectCards().then(dishes => {
-        {console.log('calling model',this.props)}
+      modelInstance.getSelectCards(this.state.query).then(cards => {
         this.setState({
           status: 'LOADED',
-          dishes: dishes.photos
+          cards: cards.photos,
+          theme: this.state.query
         })
       }).catch(() => {
         this.setState({
@@ -69,11 +43,11 @@ class DishHeader extends React.Component {
       // when data is retrieved we update the state
       // this will cause the component to re-render
      
-      modelInstance.getSelectCards().then(dishes => {
+      modelInstance.getSelectCards().then(cards => {
         {console.log('calling update model',this.props)}
         this.setState({
           status: 'LOADED',
-          dishes: dishes.photos
+          cards: cards.photos
         })
       }).catch(() => {
         this.setState({
@@ -83,65 +57,55 @@ class DishHeader extends React.Component {
       
     }*/
   
-    componentWillUnmount() {
-    }
+    // componentWillUnmount() {
+    // }
   
     render() {
-      let dishesList = null;
+      let cardsList = null;
   
       // depending on the state we either generate
       // useful message to the user or show the list
-      // of returned dishes
+      // of returned cards
       switch (this.state.status) {
         case 'INITIAL':
-          dishesList = <em>Loading...</em>
+          cardsList = <em>Loading...</em>
           break;
         case 'LOADED':
-          dishesList = this.state.dishes.map((dish) =>
-            <div id="dish.id"  key={dish.id} className="card">
-              {console.log('looping',dish, this.props)}
-              <Link to={{pathname: '/DishDetails/'+dish.id }}>
-                    <div className="col-md-9">
-                        <img className="img-thumbnail" src={dish.src.tiny} />
+            cardsList = this.state.cards.map((card) =>
+            <div id="card.id"  key={card.id} className="card">
+              <Link to={{pathname: '/SelectCard/'+card.id }}>
+                    <div className="col">
+                        <img className="img-thumbnail" src={card.src.tiny} />
                     </div>
               </Link>
             </div>
           )
           break;
         default:
-          dishesList = <b>Failed to load data, please try again</b>
+          cardsList = <b>Failed to load data, please try again</b>
           break;
       }
   
       return (
-        <div className="Dishes">
-          <h1> Theme name here e.g. Birthday </h1>
-          <Row>
-            {dishesList}
-          </Row>
+        <div className="Cards">
+            {/* {this.themeString = this.state.theme}
+            {console.log(this.state.theme)}
+            {this.test = this.themeString.toUpperCase()}
+            {console.log(this.test)} */}
+            {/* {this.themeString2 = this.themeString.charAt(0).toUpperCase() + this.themeString.slice(1)}
+            {console.log(this.themeString2)}  */}
+           {/* <h1> {this.themeString.charAt(0).toUpperCase() + this.themeString.slice(1)} </h1>  */}
+            <h1> {this.state.theme} </h1> 
+            <Row>
+                 {cardsList}
+            </Row>
         </div>
       );
     }
   }
   
-  export default Dishes;
+  export default Cards;
   
-  /*
-    return (
-      <div className="SelectCard">
-        <h1> Theme name here e.g. Birthday </h1>
-       
-        <Row>
-          {dishesList}
-        </Row>
-       
-        <Link to="/EditCard">
-          <button>Select Card</button>
-        </Link>
-      </div>
-    );
-  }
-}
-*/
+  
 
 
