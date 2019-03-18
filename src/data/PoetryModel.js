@@ -15,13 +15,24 @@ class PoetryModel extends ObservableModel {
     super();
     this._numberOfGuests = 4;
     this.getNumberOfGuests();
-    this._SelectCards; 
+    this.cardImage; 
   }
 
 //method to get cards according to the selected theme
 getSelectCards(query){
   const url = `${SELECTCARD_BASE_URL}&query=${query}`;
   return fetch(url, httpOptionsSelectCard).then(this.processResponse);
+}
+
+//method to set the card image what the user wants to use
+//called when the user clicks on the card image in SelectCard view
+setCardImage(cardImage){
+  this.cardImage = cardImage;
+}
+//method to get the card image what the user wants to use
+//called from EditCard and PrintCard
+getCardImage(){
+  return this.cardImage;
 }
 
   /**

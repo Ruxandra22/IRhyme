@@ -71,12 +71,15 @@ class Cards extends Component {
           cardsList = <em>Loading...</em>
           break;
         case 'LOADED':
+            console.log(this.state.cards);
             cardsList = this.state.cards.map((card) =>
             <div id="card.id"  key={card.id} className="card">
               <Link to={{pathname: '/SelectCard/'+card.id }}>
-                    <div className="col">
-                        <img className="img-thumbnail" src={card.src.tiny} />
-                    </div>
+                    {/* store the selected card in the model */}
+                    {modelInstance.setCardImage(card)}
+                    <figure>
+                        <img className="img" src={card.src.portrait} />
+                    </figure>
               </Link>
             </div>
           )
