@@ -1,0 +1,48 @@
+.PrintCard {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 40px;
+}
+
+.HeaderTxt{
+    padding-left: 140px;
+    padding-right: 140px;
+}
+
+.BodyTxt{
+    margin-left: 140px;
+    margin-right: 140px;
+    padding-left: 100px;
+    padding-right: 100px;
+    line-height: 150%;
+}
+
+.PrintBtn{
+    margin-left: 5;
+    margin-right: 5;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom:15px;
+
+    font-size: 16px; 
+    color: white;
+    background-color: #6698cb;
+    border-radius: 4px;
+    border-color: white;
+}
+
+.OpenCard{
+    height: 400px;
+    margin:20px;
+    padding: 20px
+ }
+
+.ClosedCard{
+   height: 400px;
+   margin:20px;
+   padding: 20px
+}
