@@ -5,6 +5,7 @@ import modelInstance from "./data/PoetryModel";
 import SelectTheme from "./SelectTheme/SelectTheme";
 import SelectCard from "./SelectCard/SelectCard";
 import EditCard from "./EditCard/EditCard";
+import PrintCard from "./PrintCard/PrintCard";
 import "./App.css";
 
 class App extends Component {
@@ -14,28 +15,29 @@ class App extends Component {
         };
     }
 
-    render() {
-        return (
-            <div className="App">
-                <header className="App-header">
-                    {/* We rended different component based on the path */}
-                    <Route exact path="/" component={Welcome} />
-                    <Route
-                        path="/SelectTheme"
-                        render={() => <SelectTheme model={modelInstance} />}
-                    />
-                    <Route
-                        path="/SelectCard"
-                        render={() => <SelectCard model={modelInstance} />}
-                    />
-                    <Route
-                        path="/EditCard"
-                        render={() => <EditCard model={modelInstance} />}
-                    />
-                </header>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          {/* We rended different component based on the path */}
+          <Route exact path="/" component={Welcome} />
+          <Route
+            path="/SelectTheme"
+            render={() => <SelectTheme model={modelInstance} />}
+          />
+          <Route
+            path="/SelectCard"
+            render={() => <SelectCard model={modelInstance} />}
+          />
+           <Route
+            path="/EditCard"
+            render={() => <EditCard model={modelInstance} />}
+          />
+          <Route path="/PrintCard" render={() => <PrintCard model={modelInstance}/>}/>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
