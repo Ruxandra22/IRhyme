@@ -5,14 +5,15 @@ import modelInstance from "./data/PoetryModel";
 import SelectTheme from "./SelectTheme/SelectTheme";
 import SelectCard from "./SelectCard/SelectCard";
 import EditCard from "./EditCard/EditCard";
+import PrintCard from "./PrintCard/PrintCard";
 import "./App.css";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+        };
+    }
 
   render() {
     return (
@@ -35,6 +36,7 @@ class App extends Component {
             path="/EditCard"
             render={() => <EditCard model={modelInstance} />}
           />
+          <Route path="/PrintCard" render={() => <PrintCard model={modelInstance}/>}/>
         </header>
       </div>
     );
