@@ -3,10 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.9",
+    "@emotion/styled": "^10.0.9",
+    "emotion": "^10.0.9",
+    "immutable": "^4.0.0-rc.12",
     "react": "^16.8.1",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.1",
+    "react-emotion": "^10.0.0",
+    "react-icons-kit": "^1.2.1",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "slate": "^0.44.12",
+    "slate-react": "^0.21.18"
   },
   "scripts": {
     "start": "react-scripts start",

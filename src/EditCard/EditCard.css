@@ -1,0 +1,50 @@
+@import url('//cdn.jsdelivr.net/font-zero-width/1.0.0/zero-width.css'); 
+
+body {
+    background: #eee;
+}
+
+.high {
+    height:0px;
+}
+@media (min-width: 768px) {
+    .high {
+      height: 39px;
+    }
+}
+
+.pad_10 {
+    padding: 10px;
+}
+
+
+.white {
+    background: white;
+}
+.pad_50 {
+    padding: 50px;
+}
+.figure1 {  
+    width: 100%;
+    padding-bottom: 150%;  
+    overflow: hidden;
+    position: relative;
+}
+.figure1_child {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+}
+.figure1_button {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+.figure1_image {
+    display:block;
+    height:100%;  
+    margin:0;
+}
+.image_bcg {
+    background-size: cover;
+    background-position: center; 
+}
