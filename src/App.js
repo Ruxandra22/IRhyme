@@ -3,6 +3,9 @@ import { Route } from "react-router-dom";
 import Welcome from "./Welcome/Welcome";
 import modelInstance from "./data/PoetryModel";
 import SelectTheme from "./SelectTheme/SelectTheme";
+import SelectCard from "./SelectCard/SelectCard";
+import EditCard from "./EditCard/EditCard";
+import PrintCard from "./PrintCard/PrintCard";
 import "./App.css";
 
 class App extends Component {
@@ -19,9 +22,18 @@ class App extends Component {
           {/* We rended different component based on the path */}
           <Route exact path="/" component={Welcome} />
           <Route
-            path="/search"
+            path="/SelectTheme"
             render={() => <SelectTheme model={modelInstance} />}
           />
+          <Route
+            path="/SelectCard"
+            render={() => <SelectCard model={modelInstance} />}
+          />
+           <Route
+            path="/EditCard"
+            render={() => <EditCard model={modelInstance} />}
+          />
+          <Route path="/PrintCard" render={() => <PrintCard model={modelInstance}/>}/> 
         </header>
       </div>
     );

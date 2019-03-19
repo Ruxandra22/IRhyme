@@ -4,3 +4,104 @@
     text-align: center;
     padding: 15px;
 }
+.Welcome {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 40px;
+}
+
+.HeaderTxt{
+    padding-left: 140px;
+    padding-right: 140px;
+}
+
+.BodyTxt{
+    margin-left: 140px;
+    margin-right: 140px;
+    padding-left: 100px;
+    padding-right: 100px;
+    line-height: 150%;
+}
+
+.CreateBtn{
+    margin-left: 5;
+    margin-right: 5;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom:15px;
+
+    font-size: 16px; 
+    color: white;
+    background-color: #6698cb;
+    border-radius: 4px;
+    border-color: white;
+}
+
+.Card{
+    width:360; 
+    height:420;
+    padding: 0px;
+    background-image: url("../images/EmptyCard280x420.png");
+    background-repeat: no-repeat;
+ }
+
+.OpenCard{
+    height: 400px;
+    margin:20px;
+    padding: 20px
+ }
+
+.ClosedCard{
+   height: 400px;
+   margin:20px;
+   padding: 20px
+}
+
+/* .CropResize{
+    width: 350;
+    height: 420;
+    overflow: hidden;
+}
+
+.CropResize img{
+    display:block;
+    width:100%;
+    margin:-21.875% 0;
+} */
+
+.Reposition{
+    margin-left:-30;
+    padding:40;
+}
+
+figure{  
+    width:280px;
+    overflow: hidden;
+    margin:0;  
+  }
+  figure img{
+    display:block;
+    width:100%;  
+    margin:0;
+  }
+
+
+  
+  /* .change-ratio img{
+     /* margin:-20% 0; */
+     /* width:120%; */
+  /* } */ 
+
+  /* .CropResize{
+      object-fit: cover 
+  } */
+
+  /* .Resize{
+      width:280;
+      overflow: hidden;
+      height:auto;
+  } */
