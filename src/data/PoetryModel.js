@@ -1,43 +1,46 @@
 import ObservableModel from "./ObservableModel";
+import API_KEY_PHOTOS from "./ApiKey";
 
-const BASE_URL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com";
+const SELECTTHEME_BASE_URL= "https://api.pexels.com/v1";
+const SELECTCARD_BASE_URL = "https://api.pexels.com/v1/search?per_page=2&page=1";
 const httpOptions = {
-  headers: { "X-Mashape-Key": "YOUR_API_KEY" }
+ headers: { "Authorization": API_KEY_PHOTOS}
 };
 
 class PoetryModel extends ObservableModel {
+  themes = ["Birthday", "Wedding", "Love", "Travel", "Mother's Day", "Christmas"];
+
   constructor() {
     super();
-    this._numberOfGuests = 4;
-    this.getNumberOfGuests();
+    this.cardImage; 
+    this.urlThemePhotosList = [];
   }
 
-  /**
-   * Get the number of guests
-   * @returns {number}
-   */
-  getNumberOfGuests() {
-    return this._numberOfGuests;
+//method to get cards according to the selected theme
+getSelectCards(query){
+  const url = `${SELECTCARD_BASE_URL}&query=${query}`;
+  return fetch(url, httpOptions).then(this.processResponse);
+}
+
+//method to set the card image what the user wants to use
+//called when the user clicks on the card image in SelectCard view
+setCardImage(cardImage){
+  this.cardImage = cardImage;
+}
+//method to get the card image what the user wants to use
+//called from EditCard and PrintCard
+getCardImage(){
+  return this.cardImage;
+}
+
+//From Ruxi
+  getUrlThemePhotosList() {
+      return this.urlThemePhotosList;
   }
 
-  /**
-   * Set number of guests
-   * @param {number} num
-   */
-  setNumberOfGuests(num) {
-    this._numberOfGuests = num;
-    this.notifyObservers();
-  }
-
-  // API methods
-
-  /**
-   * Do an API call to the search API endpoint.
-   * @returns {Promise<any>}
-   */
-  getAllDishes() {
-    const url = `${BASE_URL}/recipes/search`;
-    return fetch(url, httpOptions).then(this.processResponse);
+  getThemePhoto(theme) {
+      const url = `${SELECTTHEME_BASE_URL}/search?query=` + theme + `&per_page=1&page=1`;
+      return fetch(url, httpOptions).then(this.processResponse);
   }
 
   processResponse(response) {
@@ -49,5 +52,8 @@ class PoetryModel extends ObservableModel {
 }
 
 // Export an instance of PoetryModel
-const modelInstance = new PoetryModel();
+/*const modelInstance = new PoetryModel();
+export default modelInstance;*/
+
+export const modelInstance = new PoetryModel();
 export default modelInstance;
