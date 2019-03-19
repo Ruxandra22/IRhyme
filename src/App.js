@@ -8,34 +8,34 @@ import EditCard from "./EditCard/EditCard";
 import "./App.css";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+        };
+    }
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          {/* We rended different component based on the path */}
-          <Route exact path="/" component={Welcome} />
-          <Route
-            path="/SelectTheme"
-            render={() => <SelectTheme model={modelInstance} />}
-          />
-          <Route
-            path="/SelectCard"
-            render={() => <SelectCard model={modelInstance} />}
-          />
-           <Route
-            path="/EditCard"
-            render={() => <EditCard model={modelInstance} />}
-          />
-        </header>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="App">
+                <header className="App-header">
+                    {/* We rended different component based on the path */}
+                    <Route exact path="/" component={Welcome} />
+                    <Route
+                        path="/SelectTheme"
+                        render={() => <SelectTheme model={modelInstance} />}
+                    />
+                    <Route
+                        path="/SelectCard"
+                        render={() => <SelectCard model={modelInstance} />}
+                    />
+                    <Route
+                        path="/EditCard"
+                        render={() => <EditCard model={modelInstance} />}
+                    />
+                </header>
+            </div>
+        );
+    }
 }
 
 export default App;
