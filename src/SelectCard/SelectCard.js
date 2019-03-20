@@ -14,8 +14,7 @@ class Cards extends Component {
       // e.g. API data loading or error 
       this.state = {
         status: 'INITIAL',
-        query: "holiday",
-       // theme: this.props.match.params.id
+        theme: this.props.match.params.id
       }
     }
   
@@ -23,14 +22,13 @@ class Cards extends Component {
     // this methods is called by React lifecycle when the 
     // component is actually shown to the user (mounted to DOM)
     // that's a good place to call the API and get the data
-    componentDidMount = () => {
+    componentDidMount(){
       // when data is retrieved we update the state
       // this will cause the component to re-render
-      modelInstance.getSelectCards(this.state.query).then(cards => {
+      modelInstance.getSelectCards(this.state.theme).then(cards => {
         this.setState({
           status: 'LOADED',
           cards: cards.photos,
-        //   theme: this.state.query,
           theme: this.props.match.params.id
         })
       }).catch(() => {
@@ -76,11 +74,12 @@ class Cards extends Component {
             console.log(this.state.cards);
             cardsList = this.state.cards.map((card) =>
             <div id="card.id"  key={card.id} className="card">
-              <Link to={{pathname: '/SelectCard/'+card.id }}>
+              <Link to={{pathname: '/EditCard' }}>
                     {/* store the selected card in the model */}
                     {modelInstance.setCardImage(card)}
                     <figure>
                         <img className="img" src={card.src.portrait} />
+                        <div align="center" className="caption"> <p>Select to edit picture</p> </div>
                     </figure>
               </Link>
             </div>
@@ -93,13 +92,6 @@ class Cards extends Component {
   
       return (
         <div className="Cards">
-            {/* {this.themeString = this.state.theme}
-            {console.log(this.state.theme)}
-            {this.test = this.themeString.toUpperCase()}
-            {console.log(this.test)} */}
-            {/* {this.themeString2 = this.themeString.charAt(0).toUpperCase() + this.themeString.slice(1)}
-            {console.log(this.themeString2)}  */}
-           {/* <h1> {this.themeString.charAt(0).toUpperCase() + this.themeString.slice(1)} </h1>  */}
             <h1> {this.state.theme} </h1> 
             <Row>
                  {cardsList}

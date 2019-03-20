@@ -11,6 +11,8 @@ import { Button1, Icon, Toolbar } from './Comps'
 import initialValue from './value.json'
 import initialValue2 from './value2.json'
 
+import { Link } from "react-router-dom";
+
 //import modelInstance from "./data/PoetryModel";
 import "./EditCard.css";
 
@@ -272,6 +274,11 @@ class EditCard extends Component {
                   <RichTextEditor />
                 </Col>
             </Row>
+            <Row noGutters={false} className="pad_10" aligh="center">
+                <Link to="/PrintCard">
+                <button align="center" className="CreateBtn">Print Card!</button>
+                </Link>
+             </Row>
           </Container>
         </div>
       );

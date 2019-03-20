@@ -25,10 +25,6 @@ class App extends Component {
             path="/SelectTheme"
             render={() => <SelectTheme model={modelInstance} />}
           />
-          <Route
-            path="/SelectCard"
-            render={() => <SelectCard model={modelInstance} />}
-          />
 
           <Route path="/SelectCard/:id" render={(props) => <SelectCard {...props} model={modelInstance}/>}/> 
 
