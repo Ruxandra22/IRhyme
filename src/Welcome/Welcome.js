@@ -5,7 +5,7 @@ import img1 from '../images/EmptyCard280x420.png';
 import img2 from '../images/OpenCard.jpg';
 import img3 from '../images/Overlay.jpg';
 import 'bootstrap/dist/css/bootstrap.css' ;
-
+import EditCard from "../EditCard/EditCard";
 
 class Welcome extends Component {
 
