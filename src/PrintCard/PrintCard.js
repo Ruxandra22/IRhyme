@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./PrintCard.css";
-import img1 from '../images/ClosedCard.png';
+import img1 from '../images/EmptyCard280x420.png';
 import img2 from '../images/OpenCard.jpg';
 import img3 from '../images/Overlay.jpg';
-//import { modelInstance } from '../data/PoetryModel';
+import { modelInstance } from '../data/PoetryModel';
+import 'bootstrap/dist/css/bootstrap.css' ;
 
 class Printcard extends Component {
 
@@ -12,7 +13,7 @@ class Printcard extends Component {
 //   componentDidMount = () => {
 //     this.props.model.addObserver(this)
   
-//     modelInstance.getCardImage(this.state.dishCard).then(img => {
+//     modelInstance.getCardImage(this.state.cardImage).then(img => {
 //       {console.log('img :) '+img)}
 //       this.setState({
 //         status: 'LOADED',
@@ -36,8 +37,10 @@ class Printcard extends Component {
                 <p className="BodyTxt">Use A5 size photo paper to print this card.</p>
                 </div>
                 <div className="Row">
-                    <img className="ClosedCard" src={img1}></img>
-                    <img className="OpenCard" src={img2}></img>
+                    <div className="Parent">
+                        <img className="image1" src={img1}/>
+                        <img className="image2" src={img3}/>
+                    </div>
                 </div>
                 <div class="card flex-md-row mb-4 box-shadow h-md-250">
                     <figure>
