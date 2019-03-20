@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Welcome.css";
-import img1 from '../images/ClosedCard.png';
+import img1 from '../images/EmptyCard280x420.png';
 import img2 from '../images/OpenCard.jpg';
 import img3 from '../images/Overlay.jpg';
 import 'bootstrap/dist/css/bootstrap.css' ;
@@ -18,14 +18,22 @@ class Welcome extends Component {
         </div>
         {/* <div className="Row" style={{width:360, height:420, backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')'}}> */}
         <div className="Row">
-            <div className="Column Card">
+            {/* <div className="Column Card">
               <figure>
                       <img src={img3}/>
               </figure>  
-            </div>  
+            </div>   */}
             <div className="Column">
-              <img className="OpenCard" src={img2}></img>
-            </div>  
+              <div className="Parent-div">
+                <img className="img1" src={img1}/>
+                <img className="img3" src={img3}/>
+              </div>
+            </div>
+            <div className="Column">
+              <div className="Column">
+                <img className="OpenCard" src={img2}></img>
+              </div>  
+            </div>
         </div>  
         <div>
             <div>
