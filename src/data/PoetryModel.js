@@ -8,7 +8,7 @@ const httpOptions = {
 };
 
 class PoetryModel extends ObservableModel {
-    themes = ["Birthday", "Wedding", "Love", "Travel", "Mother's Day", "Christmas"];
+    themes = ["birthday", "wedding", "love", "travel", "mother's Day", "christmas"];
 
     constructor() {
         super();

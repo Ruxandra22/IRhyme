@@ -23,9 +23,11 @@ class SelectTheme extends Component {
         // map which has the theme card as key and the image as value
         this.urlThemePhotosMap = new Map();
         for(let i = 0; i < modelInstance.themes.length; i++) {
-            modelInstance.getThemePhoto(modelInstance.themes[i])
+            let theme = modelInstance.themes[i];
+            modelInstance.getThemePhoto(theme)
                 .then(themePhoto => {
-                    this.urlThemePhotosMap.set(modelInstance.themes[i], themePhoto.photos[0]);
+                    this.urlThemePhotosMap.set(theme.charAt(0).toUpperCase() +
+                        theme.substr(1, theme.length - 1), themePhoto.photos[0]);
                     this.setState({
                        photo: themePhoto.photos[0],
                        photosMap: this.urlThemePhotosMap,
@@ -42,16 +44,16 @@ class SelectTheme extends Component {
         let images;
         if(this.state.photosMap != null) {
             images = Array.from(this.state.photosMap).map(([themeKey, valuePhoto]) =>
-                <div className="themeCard">
+                <div key={themeKey} className="displayPhotos">
                     <Link to={{pathname: '/SelectCard/' + themeKey}}>
-                        {/*<div className="col-sm-2">*/}
+                        <div alogn="center" className="col-sm-9">
                             <figure className="change-ratio">
-                                <img src={valuePhoto.src.portrait}/>
+                                <img className="themePhoto" src={valuePhoto.src.portrait}/>
                                 <div align="center" className="caption">
                                     <p>{themeKey}</p>
                                 </div>
                             </figure>
-                        {/*</div>*/}
+                        </div>
                     </Link>
                 </div>
             )
