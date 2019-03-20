@@ -8,17 +8,19 @@ The first step was to create the prototype, which can be seen in the ''Prototye 
 
 So far, we managed to:
 - implement all views
-- used Pexels API ([Pexels API](https://www.pexels.com/api/)) to make the calls for receiving images needed fot the SelectTheme and SelectCard views
+- used Pexels API ([Pexels API](https://www.pexels.com/api/)) to make the calls for receiving images needed for the SelectTheme and SelectCard views
 - created a layout for the cards
-- created the text editor for the EditCard view
+- created the text editor for the EditCard view - semi-functional at the moment
 - used REACT to implement the features
+
+
 
 ### What we plan to do
 
 For the next steps in or project, we want to:
 
   - implement the poem generation feature in the EditCard view
-  - implement features that will enance the user experience with our website, such as search engine, history in order to see the past created cards, better layout, loading icons.
+  - implement features that will enance the user experience with our website, such as search engine, history in order to see the past created cards, better layout, loading icons, some buttons which are missing at the moment etc.
 
 
 
@@ -30,7 +32,7 @@ Our project is divided in separate folders for each view (Welcome, SelectTheme, 
  - <b><i>SelectTheme</i></b>: separate pictures for the themes (''Birthday'', ''Wedding'', ''Love'', ''Travel'', ''Mother's Day'', ''Christmas'') are shown. The pictures are fetched using an API call and the data from it is retrieved in the componentDidMount() method and saved in the state, which is used in the render method to display all the pictures with a specific theme.
  - <b><i>SelectCard</i></b>: specific pictures with the selected theme are shown in this view. The pictures are fetched from the API and the pictures are displayed in the render method.
  - <b><i>EditCard</i></b>: contains the code for the text editor for the gift cards. (TODO: add more info)
- - <b><i>PrintCard</i></b>: contains the code for the final version of the selected and edited card, seen in two possible views: closed card and open card.
+ - <b><i>PrintCard</i></b>: contains the code for the final version of the selected and edited card, seen in two possible views: closed card and open card. In this view the card could be finally exported as PDF for printing. 
 
 Another folder is ''data'' and contains:
 
@@ -41,3 +43,4 @@ Other files:
 
   - <b><i>App.js</i></b>: the file that coordinates what views are displayed
   - <b><i>index.js</i></b>: the main file that starts the application
+  - <b><i>PoetryModel.js</i></b>: takes care of the back-end and API calls
