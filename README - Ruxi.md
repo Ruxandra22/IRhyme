@@ -36,11 +36,11 @@ Our project is divided in separate folders for each view (Welcome, SelectTheme, 
 
 Another folder is ''data'' and contains:
 
-  - <b><i>PoetryModel</i></b>: here are the methods used for retrieving data for our gift cards
+  - <b><i>PoetryModel.js</i></b>: takes care of the back-end and API calls
   - <b><i>ObservableModel:</i></b>: used for the observable pattern
 
 Other files:
 
   - <b><i>App.js</i></b>: the file that coordinates what views are displayed
   - <b><i>index.js</i></b>: the main file that starts the application
-  - <b><i>PoetryModel.js</i></b>: takes care of the back-end and API calls
+
