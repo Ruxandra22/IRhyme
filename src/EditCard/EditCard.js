@@ -145,12 +145,13 @@ class RichTextEditor extends Component {
                 <Editor
                   className="pad_50"
                   spellCheck
+                  autoFocus
                   placeholder="..."
                   ref={this.ref2}
                   value={this.state.value2}
                   onChange={this.onChange2}
                   onKeyDown={this.onKeyDown2}
-                  renderMark={this.renderMark2}
+                  renderMark={this.renderMark}
                 />
               </div>
               <Button className="figure1_button" variant="outline-info" onClick={this.generatePoem}>
@@ -187,21 +188,6 @@ class RichTextEditor extends Component {
         return next()
     }
   }
-  renderMark2 = (props, editor, next) => {
-    const { children, mark, attributes } = props
-    console.log(editor)
-    switch (mark.type) {
-      case 'bold':
-        return <strong {...attributes}>{children}</strong>
-      case 'italic':
-        return <em {...attributes}>{children}</em>
-      case 'underlined':
-        return <u {...attributes}>{children}</u>
-      default:
-        return next()
-    }
-  }
-
   onChange = ({ value }) => {
     this.setActive(1);
     this.setState({ value })
@@ -213,7 +199,6 @@ class RichTextEditor extends Component {
 
   onKeyDown = (event, editor, next) => {
     let mark
-    this.setActive(1);
     if (isBoldHotkey(event)) {
       mark = 'bold'
     } else if (isItalicHotkey(event)) {
@@ -229,7 +214,6 @@ class RichTextEditor extends Component {
   } 
   onKeyDown2 = (event, editor, next) => {
     let mark
-    this.setActive(2);
     if (isBoldHotkey(event)) {
       mark = 'bold'
     } else if (isItalicHotkey(event)) {
