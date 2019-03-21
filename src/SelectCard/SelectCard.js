@@ -37,31 +37,11 @@ class Cards extends Component {
         })
       })
     }
-  
-  
-   /* componentDidUpdate = (prevProps, prevState) => {
-      // when data is retrieved we update the state
-      // this will cause the component to re-render
-     
-      modelInstance.getSelectCards().then(cards => {
-        {console.log('calling update model',this.props)}
-        this.setState({
-          status: 'LOADED',
-          cards: cards.photos
-        })
-      }).catch(() => {
-        this.setState({
-          status: 'ERROR'
-        })
-      })
-      
-    }*/
-  
-    // componentWillUnmount() {
-    // }
-  
+
+
     render() {
       let cardsList = null;
+      let imageUrl = null;
   
       // depending on the state we either generate
       // useful message to the user or show the list
@@ -74,16 +54,14 @@ class Cards extends Component {
             console.log(this.state.cards);
             cardsList = this.state.cards.map((card) =>
             <div id="card.id"  key={card.id} className="card">
-              <Link to={{pathname: '/EditCard' }}>
-                    {/* store the selected card in the model */}
-                    {modelInstance.setCardImage(card)}
+                  <Link to={{pathname: '/EditCard/' + card.id}}>  
                     <figure>
                         <img className="img" src={card.src.portrait} />
                         <div align="center" className="caption"> <p>Select to edit picture</p> </div>
                     </figure>
-              </Link>
+                  </Link>  
             </div>
-          )
+            )
           break;
         default:
           cardsList = <b>Failed to load data, please try again</b>

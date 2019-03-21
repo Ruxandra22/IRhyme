@@ -9,11 +9,13 @@ const httpOptions = {
 
 class PoetryModel extends ObservableModel {
     themes = ["birthday", "wedding", "love", "travel", "mother's Day", "christmas"];
-
+    
     constructor() {
         super();
         this.cardImage;
         this.urlThemePhotosList = [];
+        this.poemText = 'I wandered lonely as a cloud. That floats on high o’er vales and hills. When all at once I saw a crowd. A host, of golden daffodils. Beside the lake, beneath the trees,Fluttering and dancing in the breeze.';
+
     }
 
     //method to get cards according to the selected theme
@@ -30,8 +32,14 @@ class PoetryModel extends ObservableModel {
 
     //method to get the card image what the user wants to use
     //called from EditCard and PrintCard
-    getCardImage(){
-        return this.cardImage;
+    getCardImage(id){
+        const url = `${SELECTTHEME_BASE_URL}/photos/`+ id;
+        console.log("ID",id);
+        return fetch(url, httpOptions).then(this.processResponse);
+    }
+
+    getPoetryTxt(){
+        return this.poemText;
     }
 
     getUrlThemePhotosList() {

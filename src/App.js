@@ -29,10 +29,10 @@ class App extends Component {
           <Route path="/SelectCard/:id" render={(props) => <SelectCard {...props} model={modelInstance}/>}/> 
 
            <Route
-            path="/EditCard"
-            render={() => <EditCard model={modelInstance} />}
+            path="/EditCard/:id"
+            render={(props) => <EditCard {...props} model={modelInstance} />}
           />
-          <Route path="/PrintCard" render={() => <PrintCard model={modelInstance}/>}/>
+          <Route path="/PrintCard/:id" render={(props) => <PrintCard {...props} model={modelInstance}/>}/>
         </header>
       </div>
     );
