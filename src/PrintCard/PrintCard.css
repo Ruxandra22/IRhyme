@@ -4,19 +4,6 @@
     margin: 40px;
 }
 
-.HeaderTxt{
-    padding-left: 140px;
-    padding-right: 140px;
-}
-
-.BodyTxt{
-    margin-left: 140px;
-    margin-right: 140px;
-    padding-left: 100px;
-    padding-right: 100px;
-    line-height: 150%;
-}
-
 .PrintBtn{
     margin-left: 5;
     margin-right: 5;
@@ -47,21 +34,12 @@
    padding: 20px
 }
 
-.Parent {
-    position: relative;
-    top: 0px;
-    left: 0px;
+  .figure{  
+    width:300px;
+    overflow: hidden;
+    margin:0;  
   }
-
-  .image1 {
-    position: relative;
-    top: 0px;
-    left: 0px;
-    height:350px;
-  }
-  .image2 {
-    position: absolute;
-    top: 3px;
-    left: 532px;
-    width:228px;
+  .figureImg{
+    width:280px;  
+    margin-left:-75px;
   }

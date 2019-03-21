@@ -13,7 +13,7 @@ import initialValue2 from './value2.json'
 
 import { Link } from "react-router-dom";
 
-//import modelInstance from "./data/PoetryModel";
+import modelInstance from "../data/PoetryModel";
 import "./EditCard.css";
 
 const DEFAULT_NODE = 'paragraph'
@@ -27,7 +27,7 @@ class RichTextEditor extends Component {
     value: Value.fromJSON(initialValue),
     value2: Value.fromJSON(initialValue2),
     buttonPressed: false, 
-    active: 1,
+    active: 1
   }
   hasMark = type => {
     if (this.state.active === 1) {
@@ -116,7 +116,7 @@ class RichTextEditor extends Component {
     this.setState({
       value2: Value.fromJSON(edit),
       buttonPressed: true,
-      active: 2
+      active: 2,
     });
   
   }
@@ -243,7 +243,16 @@ class EditCard extends Component {
     constructor(props) {
       super(props);
       this.state = {
+        status: 'INITIAL',
+        cardId: this.props.match.params.id
       };
+    }
+
+    componentDidMount = () => {
+      this.setState({
+        status: 'LOADED',
+        cardId: this.props.match.params.id
+     })
     }
   
     render() {
@@ -252,14 +261,14 @@ class EditCard extends Component {
           <Container fluid={true}>
             <Row noGutters={false} className="pad_10">
                 <Col md={{span: 4, offset:2}}>
-                  <ImageCard />
+                  <ImageCard cardId={this.state.cardId}/>
                 </Col>
                 <Col md={4} align="center" >
                   <RichTextEditor />
                 </Col>
             </Row>
             <Row noGutters={false} className="pad_10" aligh="center">
-                <Link to="/PrintCard">
+                <Link to={{pathname: '/PrintCard/' + this.state.cardId}}>
                 <button align="center" className="CreateBtn">Print Card!</button>
                 </Link>
              </Row>
@@ -273,14 +282,30 @@ class EditCard extends Component {
     constructor(props) {
       super(props);
       this.state = {
+        cardId : this.props.cardId,
+        url: null
       };
     }
-  
+
+    componentDidMount = () => {
+      modelInstance.getCardImage(this.state.cardId).then(card => {
+        this.setState({
+          status: 'LOADED',
+          url: card.src.portrait
+        })
+      }).catch(() => {
+        this.setState({
+          status: 'ERROR',
+        })
+      })
+    }
+
     render() {
+     
       return (
         <div>
           <React.Fragment>
-            <div className="high"></div><div className="figure1 image_bcg" style={{backgroundImage : `url(${'http://isha.sadhguru.org/blog/wp-content/uploads/2016/05/natures-temples.jpg'})`}}>
+            <div className="high"></div><div className="figure1 image_bcg" style={{backgroundImage : `url(${this.state.url})`}}>
               <div className="figure1_child">
                 
               </div>
