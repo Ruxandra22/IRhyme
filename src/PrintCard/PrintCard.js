@@ -60,7 +60,11 @@ class PrintCard extends Component {
                           </div>
                           <div className="col-xl-5 col-md-11 mt-3 text">
                               <strong className="mb-2 text-primary">Dear Friend</strong>
-                              <p> {poemGenerator.generatePoem()}</p>
+                              <p></p>
+                              <p> {poemGenerator.generatePharagraph()} </p>
+                              <p> {poemGenerator.generatePharagraph()} </p>
+                              <p> {poemGenerator.generatePharagraph()} </p>
+                              <p></p>
                               {/* <p className="mx-auto align-self-center">{this.state.cardTxt}</p> */}
                               <strong className="mb-2 text-primary">Best Wishes</strong>
                           </div>
