@@ -5,6 +5,7 @@ import img1 from '../images/EmptyCard280x420.png';
 import img2 from '../images/OpenCard.jpg';
 import img3 from '../images/Overlay.jpg';
 import { modelInstance } from '../data/PoetryModel';
+import { poemGenerator } from '../data/Poem';
 import 'bootstrap/dist/css/bootstrap.css' ;
 import{Row, Col} from 'reactstrap';
 
@@ -59,13 +60,18 @@ class PrintCard extends Component {
                           </div>
                           <div className="col-xl-5 col-md-11 mt-3 text">
                               <strong className="mb-2 text-primary">Dear Friend</strong>
-                              <p className="mx-auto align-self-center">{this.state.cardTxt}</p>
+                              <p> {poemGenerator.generatePoem()}</p>
+                              {/* <p className="mx-auto align-self-center">{this.state.cardTxt}</p> */}
                               <strong className="mb-2 text-primary">Best Wishes</strong>
                           </div>
                       </div>
                   </div>
                 </Col>
-             </Row>     
+             </Row>   
+             {/* <Row>
+               <p> {poemGenerator.printPoem()}</p>
+               <p> {poemGenerator.generatePoem()}</p>
+             </Row>   */}
 
                 <Link to="/search">
                     <button className="PrintBtn">Print my Card!</button>
