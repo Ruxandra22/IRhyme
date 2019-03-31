@@ -4,6 +4,10 @@
     margin: 40px;
 }
 
+.PrintCardText{
+  padding: 20px;
+}
+
 .PrintBtn{
     margin-left: 5;
     margin-right: 5;
@@ -38,9 +42,18 @@
     width:300px;
     overflow: hidden;
     margin:0;  
-}
-
-.figureImg{
+    margin-left: -75px;
+  }
+  .figureImg{
     width:280px;  
     margin-left:-75px;
-}
+  }
+
+  .card{
+    margin-left: -80px;
+  }
+
+  .text{
+    /* text-align: center; */
+    padding: 50px;
+  }
