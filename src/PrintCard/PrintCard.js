@@ -6,6 +6,7 @@ import img2 from '../images/OpenCard.jpg';
 import img3 from '../images/Overlay.jpg';
 import { modelInstance } from '../data/PoetryModel';
 import 'bootstrap/dist/css/bootstrap.css' ;
+import{Row, Col} from 'reactstrap';
 
 class PrintCard extends Component {
 
@@ -37,35 +38,34 @@ class PrintCard extends Component {
 
         return(
             <div className="PrintCard">
-                <div>
-                  <h2 >Print Card</h2> 
-                  <p>Use A5 size photo paper to print this card.</p>
+                <div className="PrintCardText">
+                  <h2>Export in PDF and print your card!</h2> 
                 </div>
-                <div className="p-3" >
+
+
+            <Row>
+                <Col>
                     <div style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')', backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
                                 <img className="figureImg" src={this.state.url}/>
                     </div>
-                </div>
-                <div className="row">
-                  <div className="col-xl-3"></div>
-                <div className="col-xl-6 col-md-6 pb-3">
-                            <div className="card">
-                                <div className="row no-gutters centered">
-                                    <div className="col-xl-6 col-md-12 p-1">
-                                      <figure className="figure">
-                                        <img className="card-img-right" src={this.state.url}/>
-                                      </figure>
-                                    </div>
-                                    <div className="col-xl-6 col-md-12 mt-4">
-                                        <strong className="mb-2 text-primary">Dear Friend</strong>
-                                        <p className="mx-auto align-self-center">{this.state.cardTxt}</p>
-                                        <strong className="mb-2 text-primary">Best Wishes</strong>
-                                    </div>
-                                </div>
-                            </div>
-                </div> 
-                <div className="col-xl-3"></div>
-                </div>      
+                </Col>
+                <Col>
+                  <div className="card">
+                      <div className="row no-gutters centered">
+                          <div className="col-xl-6 col-md-12 p-1">
+                            <figure className="figure">
+                              <img className="card-img-right" src={this.state.url}/>
+                            </figure>
+                          </div>
+                          <div className="col-xl-5 col-md-11 mt-3 text">
+                              <strong className="mb-2 text-primary">Dear Friend</strong>
+                              <p className="mx-auto align-self-center">{this.state.cardTxt}</p>
+                              <strong className="mb-2 text-primary">Best Wishes</strong>
+                          </div>
+                      </div>
+                  </div>
+                </Col>
+             </Row>     
 
                 <Link to="/search">
                     <button className="PrintBtn">Print my Card!</button>
