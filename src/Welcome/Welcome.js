@@ -17,7 +17,8 @@ class Welcome extends Component {
         </div>
         <div>
             <div className="p-3" >
-                    <div style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')', backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
+                    <div style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')',
+                        backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
                           <img className="figureImg" src={img3}/>
                     </div>
             </div>

@@ -44,30 +44,25 @@ class SelectTheme extends Component {
         let images;
         if(this.state.photosMap != null) {
             images = Array.from(this.state.photosMap).map(([themeKey, valuePhoto]) =>
-                <div key={themeKey} className="displayPhotos">
-                    <Link to={{pathname: '/SelectCard/' + themeKey}}>
-                        <div alogn="center" className="col-sm-9">
-                            <figure className="change-ratio">
+                    <div key = {themeKey} className="p-3 theme_details">
+                        <div>
+                            <Link to={{pathname: '/SelectCard/' + themeKey}}>
                                 <img className="themePhoto" src={valuePhoto.src.portrait}/>
-                                <div align="center" className="caption">
+                                <div className="caption">
                                     <p>{themeKey}</p>
                                 </div>
-                            </figure>
+                            </Link>
                         </div>
-                    </Link>
-                </div>
+                    </div>
             )
         }
 
 
         return (
             <div className="SelectTheme">
-                {/*<div className="col-sm-9"></div>*/}
-                <div className="container">
-                    <Row>
-                        {images}
-                    </Row>
-                </div>
+                <Row className="row_theme">
+                    {images}
+                </Row>
             </div>
         );
     }

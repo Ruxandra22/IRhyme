@@ -1,20 +1,27 @@
-.change-ratio{
-    width: 280px;
+.themePhoto {
+    width: 309px;
+    height: 470px;
     overflow: hidden;
-    margin: 0;
+    /*margin-left: 50px;*/
+    /*padding-top: 25px;*/
+    /*padding-right: 30px;*/
 }
 
-.themePhoto {
-    display: block;
-    width: 100%;
-    margin: 0;
+.theme_details {
+    margin-top: 25px;
+    margin-right: 90px;
 }
 
 .caption {
     color: darkgreen;
+    text-align: center;
 }
 
-.displayPhotos {
-    margin-top: 100px;
-    alignment: center;
+.select_theme {
+    text-align: center;
+}
+
+.row_theme {
+    padding-top: 50px;
+    padding-left: 100px;
 }

@@ -5,13 +5,24 @@
     padding: 15px;
 }
 
-figure{  
-    width:180px;
+.photo {
+    width: 308.5px;
+    height: 470px;
     overflow: hidden;
-    margin:0;  
-  }
-  figure img{
-    display:block;
-    width:100%;  
-    margin:0;
-  }
+    /*margin-left: 50px;*/
+    padding-top: 25px;
+    padding-right: 30px;
+}
+
+.background_card {
+    margin-right: 50px;
+    width: 360px;
+}
+
+.cards_row {
+    padding-left: 100px;
+}
+
+.title_select_card {
+    text-align: center;
+}

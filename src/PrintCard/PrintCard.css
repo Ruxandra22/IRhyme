@@ -34,12 +34,13 @@
    padding: 20px
 }
 
-  .figure{  
+.figure{
     width:300px;
     overflow: hidden;
     margin:0;  
-  }
-  .figureImg{
+}
+
+.figureImg{
     width:280px;  
     margin-left:-75px;
-  }
+}

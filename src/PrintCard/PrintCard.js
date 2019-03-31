@@ -38,11 +38,12 @@ class PrintCard extends Component {
         return(
             <div className="PrintCard">
                 <div>
-                  <h2 >Print Card</h2> 
+                  <h2 >Print Card</h2>
                   <p>Use A5 size photo paper to print this card.</p>
                 </div>
                 <div className="p-3" >
-                    <div style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')', backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
+                    <div style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')',
+                        backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
                                 <img className="figureImg" src={this.state.url}/>
                     </div>
                 </div>

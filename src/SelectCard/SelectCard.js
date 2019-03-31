@@ -53,14 +53,14 @@ class Cards extends Component {
         case 'LOADED':
             console.log(this.state.cards);
             cardsList = this.state.cards.map((card) =>
-            <div id="card.id"  key={card.id} className="card">
-                  <Link to={{pathname: '/EditCard/' + card.id}}>  
-                    <figure>
-                        <img className="img" src={card.src.portrait} />
-                        <div align="center" className="caption"> <p>Select to edit picture</p> </div>
-                    </figure>
-                  </Link>  
-            </div>
+                <div key = {card.id} className="p-3">
+                    <div className="background_card" style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')',
+                        backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
+                        <Link to={{pathname: '/EditCard/' + card.id}}>
+                            <img className="photo" src={card.src.portrait}/>
+                        </Link>
+                    </div>
+                </div>
             )
           break;
         default:
@@ -70,10 +70,12 @@ class Cards extends Component {
   
       return (
         <div className="Cards">
-            <h1> {this.state.theme} </h1> 
-            <Row>
-                 {cardsList}
-            </Row>
+            <h1 className={"title_select_card"}> {this.state.theme} </h1>
+            {/*<div className="container">*/}
+                <Row className="cards_row">
+                     {cardsList}
+                </Row>
+            {/*</div>*/}
         </div>
       );
     }

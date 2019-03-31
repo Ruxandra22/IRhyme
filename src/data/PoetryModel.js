@@ -2,7 +2,7 @@ import ObservableModel from "./ObservableModel";
 import API_KEY_PHOTOS from "./ApiKey";
 
 const SELECTTHEME_BASE_URL= "https://api.pexels.com/v1";
-const SELECTCARD_BASE_URL = "https://api.pexels.com/v1/search?per_page=2&page=1";
+const SELECTCARD_BASE_URL = "https://api.pexels.com/v1/search?per_page=3&page=1";
 const httpOptions = {
     headers: { "Authorization": API_KEY_PHOTOS}
 };
