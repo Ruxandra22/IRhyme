@@ -15,6 +15,7 @@
     "react-icons-kit": "^1.2.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
+    "react-to-print": "^2.0.0-alpha.7",
     "reactstrap": "^7.1.0",
     "slate": "^0.44.12",
     "slate-react": "^0.21.18"
