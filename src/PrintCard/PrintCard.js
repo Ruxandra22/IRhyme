@@ -101,7 +101,7 @@ class PrintCard extends Component {
              </Row>   */}
 
                 <Link to="/search">
-                    <button className="PrintBtn">Print my Card!</button>
+                    <button className="PrintBtn">Print Card!</button>
                 </Link>
             </div>
 

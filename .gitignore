@@ -24,8 +24,8 @@ yarn-error.log*
 # API key
 /src/data/ApiKey.js
 
-#extra image which is not needed
-src/images/OpenCard_Original.jpg
+#not needed image
+src/images/OpenCard2.jpg
 
 #firebase
 .firebase/hosting.YnVpbGQ.cache

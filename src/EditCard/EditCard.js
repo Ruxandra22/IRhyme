@@ -14,6 +14,7 @@ import initialValue2 from './value2.json'
 import { Link } from "react-router-dom";
 
 import modelInstance from "../data/PoetryModel";
+import { poemGenerator } from '../data/Poem';
 import "./EditCard.css";
 
 const DEFAULT_NODE = 'paragraph'
@@ -51,65 +52,150 @@ class RichTextEditor extends Component {
 
   generatePoem = () => {
     //TODO: get poem from AI here
+
+    
     const edit = {
       "document": {
         "nodes": [
+          //{
+          //   "object": "block",
+          //   "type": "paragraph",
+          //   "nodes": [
+          //     {
+          //       "object": "text",
+          //       "leaves": [
+          //         {
+          //           // "text": "A cheery hello on your birthday,"
+          //            "text": poemGenerator.p1()
+          //            //  "text": "test test test "
+          //         }
+          //       ]
+          //     }
+          //   ]
+          // },
+          // {
+          //   "object": "block",
+          //   "type": "paragraph",
+          //   "nodes": [
+          //     {
+          //       "object": "text",
+          //       "leaves": [
+          //         {
+          //           //"text": "And wishes for everything bright,"
+          //           "text": poemGenerator.p2()
+          //         }
+          //       ]
+          //     }
+          //   ]
+          // },
+          // {
+          //   "object": "block",
+          //   "type": "paragraph",
+          //   "nodes": [
+          //     {
+          //       "object": "text",
+          //       "leaves": [
+          //         {
+          //           //"text": "May you know joy and wonder,"
+          //           "text": poemGenerator.p3()
+          //         }
+          //       ]
+          //     }
+          //   ]
+          // },
+          // {
+          //   "object": "block",
+          //   "type": "paragraph",
+          //   "nodes": [
+          //     {
+          //       "object": "text",
+          //       "leaves": [
+          //         {
+          //           //"text": "Morning, noon and night."
+          //           "text": poemGenerator.p4()
+          //         }
+          //       ]
+          //     }
+          //   ]
+          // },
+          //new line start
           {
             "object": "block",
-            "type": "paragraph",
+            "type": "newline",
             "nodes": [
               {
                 "object": "text",
                 "leaves": [
                   {
-                    "text": "A cheery hello on your birthday,"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "object": "block",
-            "type": "paragraph",
-            "nodes": [
-              {
-                "object": "text",
-                "leaves": [
-                  {
-                    "text": "And wishes for everything bright,"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "object": "block",
-            "type": "paragraph",
-            "nodes": [
-              {
-                "object": "text",
-                "leaves": [
-                  {
-                    "text": "May you know joy and wonder,"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "object": "block",
-            "type": "paragraph",
-            "nodes": [
-              {
-                "object": "text",
-                "leaves": [
-                  {
-                    "text": "Morning, noon and night."
+                    "text": "   "
+                    //"text": poemGenerator.p3()
                   }
                 ]
               }
             ]
           }
+          ,
+          //new line end
+          //new block start
+          {
+            "object": "block",
+            "type": "pharagraph",
+            "nodes": [
+              {
+                "object": "text",
+                "leaves": [
+                  {
+                    //"text": "  test tets  "
+                    "text": poemGenerator.p1()
+                  },
+                  {
+                   // "text": "Morning, noon and night. \n"
+                    "text": poemGenerator.p2()
+                  },
+                  {
+                   // "text": "Morning, noon and night. \n"
+                    "text": poemGenerator.p3()
+                  }
+                  ,
+                  {
+                   // "text": "Morning, noon and night. \n"
+                    "text": poemGenerator.p4()
+                  }
+                ]
+              }
+            ]
+          },
+           //new block end
+            //new block start
+          {
+            "object": "block",
+            "type": "pharagraph",
+            "nodes": [
+              {
+                "object": "text",
+                "leaves": [
+                  {
+                    //"text": "  test tets  "
+                    "text": poemGenerator.p1()
+                  },
+                  {
+                   // "text": "Morning, noon and night. \n"
+                    "text": poemGenerator.p2()
+                  },
+                  {
+                   // "text": "Morning, noon and night. \n"
+                    "text": poemGenerator.p3()
+                  }
+                  ,
+                  {
+                   // "text": "Morning, noon and night. \n"
+                    "text": poemGenerator.p4()
+                  }
+                ]
+              }
+            ]
+          }
+           //new block end
         ]
       }
     };
@@ -128,6 +214,9 @@ class RichTextEditor extends Component {
               {this.renderMarkButton('bold', 'format_bold')}
               {this.renderMarkButton('italic', 'format_italic')}
               {this.renderMarkButton('underlined', 'format_underlined')}
+              <Button className="figure1_button" variant="outline-info" onClick={this.generatePoem}>
+                {this.state.buttonPressed? "Regenerate AI poem": "Generate AI poem"}
+              </Button>
             </Toolbar>
             <div className="figure1 white">
               <div className="figure1_child">
@@ -154,9 +243,9 @@ class RichTextEditor extends Component {
                   renderMark={this.renderMark}
                 />
               </div>
-              <Button className="figure1_button" variant="outline-info" onClick={this.generatePoem}>
+              {/* <Button className="figure1_button" variant="outline-info" onClick={this.generatePoem}>
                 {this.state.buttonPressed? "Regenerate AI poem": "Generate AI poem"}
-              </Button>
+              </Button> */}
             </div>
       </React.Fragment>
     )
@@ -257,8 +346,8 @@ class EditCard extends Component {
   
     render() {
       return (
-        <div>
-          <Container fluid={true}>
+        <div className="PrintCard">
+          {/* <Container fluid={true}> */}
             <Row noGutters={false} className="pad_10">
                 <Col md={{span: 4, offset:2}}>
                   <ImageCard cardId={this.state.cardId}/>
@@ -267,12 +356,13 @@ class EditCard extends Component {
                   <RichTextEditor />
                 </Col>
             </Row>
-            <Row noGutters={false} className="pad_10" aligh="center">
+            {/* <Row noGutters={false} className="pad_10" aligh="center"> */}
+            {/* <Row> */}
                 <Link to={{pathname: '/PrintCard/' + this.state.cardId}}>
-                <button align="center" className="CreateBtn">Print Card!</button>
+                    <button align="center" className="CreateBtn">Preview Card!</button>
                 </Link>
-             </Row>
-          </Container>
+            {/* </Row> */}
+          {/* </Container> */}
         </div>
       );
     }
