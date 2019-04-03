@@ -215,7 +215,8 @@ class RichTextEditor extends Component {
               {this.renderMarkButton('italic', 'format_italic')}
               {this.renderMarkButton('underlined', 'format_underlined')}
               <Button className="figure1_button" variant="outline-info" onClick={this.generatePoem}>
-                {this.state.buttonPressed? "Regenerate AI poem": "Generate AI poem"}
+                {/* {this.state.buttonPressed? "Regenerate AI poem": "Generate AI poem"} */}
+                {this.state.buttonPressed? "Generate AI poem": "Generate AI poem"} 
               </Button>
             </Toolbar>
             <div className="figure1 white">
@@ -242,6 +243,17 @@ class RichTextEditor extends Component {
                   onKeyDown={this.onKeyDown2}
                   renderMark={this.renderMark}
                 />
+                   {/* <Editor
+                  className="pad_50"
+                  spellCheck
+                  autoFocus
+                  placeholder="..."
+                  ref={this.ref}
+                  value={this.state.value}
+                  onChange={this.onChange}
+                  onKeyDown={this.onKeyDown}
+                  renderMark={this.renderMark}
+                /> */}
               </div>
               {/* <Button className="figure1_button" variant="outline-info" onClick={this.generatePoem}>
                 {this.state.buttonPressed? "Regenerate AI poem": "Generate AI poem"}
