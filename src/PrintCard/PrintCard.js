@@ -33,16 +33,16 @@ class PrintCard extends Component {
             })
           })
 
-          poemGenerator.getWords("love").then(word => {
-            this.setState({
-              status: 'LOADED',
-              poemText: word.word,
-            })
-          }).catch(() => {
-            this.setState({
-              status: 'ERROR',
-            })
-          })
+          // poemGenerator.getWords("love").then(word => {
+          //   this.setState({
+          //     status: 'LOADED',
+          //     poemText: word.word,
+          //   })
+          // }).catch(() => {
+          //   this.setState({
+          //     status: 'ERROR',
+          //   })
+          // })
 
       }   
 
@@ -72,13 +72,13 @@ class PrintCard extends Component {
                           <div className="col-xl-5 col-md-11 mt-3 text">
                               <strong className="mb-2 text-primary">Dear Friend</strong>
                               <p></p>
-                              <p> {poemGenerator.generatePharagraph()} </p>
-                              <p> {poemGenerator.generatePharagraph()} </p>
+                              {/* <p> {poemGenerator.generatePharagraph()} </p>
+                              <p> {poemGenerator.generatePharagraph()} </p> */}
                               {/* <p> {poemGenerator.generatePharagraph()} </p> */}
                               {/* <p>
                                  {this.state.poemText}
                               </p> */}
-                              {/* <p>{poemGenerator.p1()}</p>
+                              <p>{poemGenerator.p1()}</p>
                               <p>{poemGenerator.p2()}</p>
                               <p>{poemGenerator.p3()}</p>
                               <p>{poemGenerator.p4()}</p>
@@ -86,7 +86,7 @@ class PrintCard extends Component {
                               <p>{poemGenerator.p1()}</p>
                               <p>{poemGenerator.p2()}</p>
                               <p>{poemGenerator.p2()}</p>
-                              <p>{poemGenerator.p4()}</p> */}
+                              <p>{poemGenerator.p4()}</p>
 
                               {/* <p className="mx-auto align-self-center">{this.state.cardTxt}</p> */}
                               <strong className="mb-2 text-primary">Best Wishes</strong>

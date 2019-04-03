@@ -3,8 +3,12 @@ import API_KEY_PHOTOS from "./ApiKey";
 
 const SELECTTHEME_BASE_URL= "https://api.pexels.com/v1";
 const SELECTCARD_BASE_URL = "https://api.pexels.com/v1/search?per_page=3&page=1";
+const WORD_BASE_URL = "api.datamuse.com/words?topics=love";
 const httpOptions = {
     headers: { "Authorization": API_KEY_PHOTOS}
+};
+const httpOptions2 = {
+    headers: { "Authorization": null}
 };
 
 class PoetryModel extends ObservableModel {
@@ -50,11 +54,19 @@ class PoetryModel extends ObservableModel {
         return fetch(url, httpOptions).then(this.processResponse);
     }
 
+    getWord(wordTheme){
+        const url2 = 'api.datamuse.com/words?topics=love';
+        return fetch(WORD_BASE_URL, httpOptions2).then(this.processResponse2);
+    }
+
     processResponse(response) {
         if (response.ok) {
             return response.json();
         }
         throw response;
+    }
+    processResponse2(response) {
+            return response;
     }
 }
 

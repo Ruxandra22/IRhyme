@@ -28,7 +28,8 @@ class RichTextEditor extends Component {
     value: Value.fromJSON(initialValue),
     value2: Value.fromJSON(initialValue2),
     buttonPressed: false, 
-    active: 1
+    active: 1,
+    poemWord: ""
   }
   hasMark = type => {
     if (this.state.active === 1) {
@@ -52,6 +53,18 @@ class RichTextEditor extends Component {
 
   generatePoem = () => {
     //TODO: get poem from AI here
+
+
+    //poemGenerator.getWords("love");
+    modelInstance.getWord("love")
+    .then(word => {
+      console.log("test test : " ,word)
+        this.setState({
+          poemWord: word,
+        });
+    }).catch(error => {
+        console.error(error);
+    });
 
     
     const edit = {
