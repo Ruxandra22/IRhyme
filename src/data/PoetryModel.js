@@ -34,7 +34,6 @@ class PoetryModel extends ObservableModel {
     //called from EditCard and PrintCard
     getCardImage(id){
         const url = `${SELECTTHEME_BASE_URL}/photos/`+ id;
-        console.log("ID",id);
         return fetch(url, httpOptions).then(this.processResponse);
     }
 

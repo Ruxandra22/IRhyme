@@ -25,7 +25,18 @@ class PrintCard extends Component {
         modelInstance.getCardImage(this.props.match.params.id).then(card => {
             this.setState({
               status: 'LOADED',
-              url: card.src.portrait,
+              cardImage: card.src.portrait,
+            })
+          }).catch(() => {
+            this.setState({
+              status: 'ERROR',
+            })
+          })
+
+          poemGenerator.getWords("love").then(word => {
+            this.setState({
+              status: 'LOADED',
+              poemText: word.word,
             })
           }).catch(() => {
             this.setState({
@@ -47,7 +58,7 @@ class PrintCard extends Component {
             <Row>
                 <Col>
                     <div style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')', backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
-                                <img className="figureImg" src={this.state.url}/>
+                                <img className="figureImg" src={this.state.cardImage}/>
                     </div>
                 </Col>
                 <Col>
@@ -55,7 +66,7 @@ class PrintCard extends Component {
                       <div className="row no-gutters centered">
                           <div className="col-xl-6 col-md-12 p-1">
                             <figure className="figure">
-                              <img className="card-img-right" src={this.state.url}/>
+                              <img className="card-img-right" src={this.state.cardImage}/>
                             </figure>
                           </div>
                           <div className="col-xl-5 col-md-11 mt-3 text">
@@ -63,8 +74,20 @@ class PrintCard extends Component {
                               <p></p>
                               <p> {poemGenerator.generatePharagraph()} </p>
                               <p> {poemGenerator.generatePharagraph()} </p>
-                              <p> {poemGenerator.generatePharagraph()} </p>
-                              <p></p>
+                              {/* <p> {poemGenerator.generatePharagraph()} </p> */}
+                              {/* <p>
+                                 {this.state.poemText}
+                              </p> */}
+                              {/* <p>{poemGenerator.p1()}</p>
+                              <p>{poemGenerator.p2()}</p>
+                              <p>{poemGenerator.p3()}</p>
+                              <p>{poemGenerator.p4()}</p>
+                              
+                              <p>{poemGenerator.p1()}</p>
+                              <p>{poemGenerator.p2()}</p>
+                              <p>{poemGenerator.p2()}</p>
+                              <p>{poemGenerator.p4()}</p> */}
+
                               {/* <p className="mx-auto align-self-center">{this.state.cardTxt}</p> */}
                               <strong className="mb-2 text-primary">Best Wishes</strong>
                           </div>
