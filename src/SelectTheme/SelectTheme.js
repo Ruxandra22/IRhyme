@@ -14,6 +14,7 @@ class SelectTheme extends Component {
         this.state = {
             // status: "LOADING",
             urlPhotos: [],
+            poemWord: "didnt work )= "
         }
     }
 
@@ -37,6 +38,7 @@ class SelectTheme extends Component {
                 console.error(error);
             });
         }
+      
     }
 
     render() {

@@ -28,8 +28,7 @@ class RichTextEditor extends Component {
     value: Value.fromJSON(initialValue),
     value2: Value.fromJSON(initialValue2),
     buttonPressed: false, 
-    active: 1,
-    poemWord: ""
+    active: 1
   }
   hasMark = type => {
     if (this.state.active === 1) {
@@ -53,18 +52,6 @@ class RichTextEditor extends Component {
 
   generatePoem = () => {
     //TODO: get poem from AI here
-
-
-    //poemGenerator.getWords("love");
-    modelInstance.getWord("love")
-    .then(word => {
-      console.log("test test : " ,word)
-        this.setState({
-          poemWord: word,
-        });
-    }).catch(error => {
-        console.error(error);
-    });
 
     
     const edit = {
@@ -358,7 +345,8 @@ class EditCard extends Component {
       super(props);
       this.state = {
         status: 'INITIAL',
-        cardId: this.props.match.params.id
+        cardId: this.props.match.params.id,
+        poemWord: "not working"
       };
     }
 
@@ -366,7 +354,19 @@ class EditCard extends Component {
       this.setState({
         status: 'LOADED',
         cardId: this.props.match.params.id
-     })
+     });
+
+
+     modelInstance.getWord("love")
+     .then(word => {
+       console.log("test test : " ,word)
+         this.setState({
+           poemWord: word.word,
+         });
+     }).catch(error => {
+         console.error(error);
+     });
+
     }
   
     render() {
@@ -383,6 +383,8 @@ class EditCard extends Component {
             </Row>
             {/* <Row noGutters={false} className="pad_10" aligh="center"> */}
             {/* <Row> */}
+              <p> bigiyfufbigy </p>
+              <p> {this.state.poemWord} </p>
                 <Link to={{pathname: '/PrintCard/' + this.state.cardId}}>
                     <button align="center" className="CreateBtn">Preview Card!</button>
                 </Link>

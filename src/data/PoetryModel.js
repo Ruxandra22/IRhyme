@@ -3,7 +3,7 @@ import API_KEY_PHOTOS from "./ApiKey";
 
 const SELECTTHEME_BASE_URL= "https://api.pexels.com/v1";
 const SELECTCARD_BASE_URL = "https://api.pexels.com/v1/search?per_page=3&page=1";
-const WORD_BASE_URL = "api.datamuse.com/words?topics=love";
+const WORD_BASE_URL = "https://api.datamuse.com/words?";
 const httpOptions = {
     headers: { "Authorization": API_KEY_PHOTOS}
 };
@@ -55,8 +55,12 @@ class PoetryModel extends ObservableModel {
     }
 
     getWord(wordTheme){
-        const url2 = 'api.datamuse.com/words?topics=love';
-        return fetch(WORD_BASE_URL, httpOptions2).then(this.processResponse2);
+        var request = new Request(`${WORD_BASE_URL}topics=` + wordTheme, {
+        method: 'GET'
+       // mode: "no-cors"
+       });
+       // const url = `${WORD_BASE_URL}topics=` + wordTheme;
+        return fetch(request).then(this.processResponse);
     }
 
     processResponse(response) {
@@ -65,8 +69,9 @@ class PoetryModel extends ObservableModel {
         }
         throw response;
     }
+
     processResponse2(response) {
-            return response;
+            return response.json();
     }
 }
 
