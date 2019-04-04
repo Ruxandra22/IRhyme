@@ -7,7 +7,7 @@
 .Welcome {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin: 40px;
+    margin-top: 20px;
 }
 
 .CreateBtn{
@@ -28,17 +28,9 @@
     border-color: white;
 }
 
-.OpenCard{
-    height: 400px;
-    margin-top:-100px;
-    padding: 20px
+.OpenCardWelcome{
+    margin-top:20px;
  }
-
-.ClosedCard{
-   height: 400px;
-   margin:20px;
-   padding: 20px
-}
 
   .figureImg{
     width:280px;  
