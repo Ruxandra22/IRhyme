@@ -7,7 +7,7 @@
 .Welcome {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin: 40px;
+    margin-top: 20px;
 }
 
 .CreateBtn{
@@ -27,23 +27,13 @@
     border-radius: 4px;
     border-color: white;
 }
-/* 
-.OpenCard{
-    height: 400px;
-    margin-top:-10px; 
-    padding: 20px
- } */
 
+.OpenCardWelcome{
+    margin-top:20px;
+ }
 
-  /* .figureImg{
-    height: 400px;
+  .figureImg{
     width:280px;  
-    margin-left:-90px;
-  } */
-
-  .Card{
-    height: 400px;
-    width:280px;  
-    margin-left:-75px;
+    margin-left:-150px;
     margin-right:-75px;
   }

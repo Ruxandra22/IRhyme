@@ -27,26 +27,33 @@
 }
 
 .OpenCard{
-    height: 400px;
-    margin:20px;
-    padding: 20px
+    height: 420px;
+    margin:100px;
+    padding: 20px;
  }
 
 .ClosedCard{
    height: 400px;
    margin:20px;
    padding: 20px
-}
+  }
 
 .figure{
     width:300px;
     overflow: hidden;
     margin:0;  
     margin-left: -75px;
+    opacity:0.2;
   }
-  .figureImg{
+  .figureImg1{
+    width:280px;  
+    margin-left:300px;
+  }
+
+  .figureImg2{
     width:280px;  
     margin-left:-75px;
+    opacity:0.2;
   }
 
   .card{

@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./PrintCard.css";
-import img1 from '../images/EmptyCard280x420.png';
-import img2 from '../images/OpenCard.jpg';
-import img3 from '../images/Overlay.jpg';
 import { modelInstance } from '../data/PoetryModel';
 import { poemGenerator } from '../data/Poem';
 import 'bootstrap/dist/css/bootstrap.css' ;
@@ -109,5 +106,6 @@ class PrintCard extends Component {
     }
 
 }
+
 
 export default PrintCard;
