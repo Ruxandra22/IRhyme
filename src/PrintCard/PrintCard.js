@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./PrintCard.css";
-import img1 from '../images/EmptyCard280x420.png';
-import img2 from '../images/OpenCard.jpg';
-import img3 from '../images/Overlay.jpg';
 import { modelInstance } from '../data/PoetryModel';
 import 'bootstrap/dist/css/bootstrap.css' ;
 import ReactToPrint from "react-to-print";
@@ -19,6 +16,21 @@ class PrintFront extends Component {
                                 <img className="figureImg1" src={this.props.url}/>
                     </div>
                 </div>  
+
+                <div className="p-3" >
+                    <div className="row" style={{ backgroundImage: 'url(' + require('../images/EmptyCard.jpg') + ')', backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
+                        <div className="col-3"></div> 
+                        <div className="col-3">       
+                                <img className="figureImg2" src={this.props.url}/>
+                        </div>  
+                        <div className="col-3 mt-5">      
+                            <strong className="text-primary">Dear Friend</strong>
+                                <p className="mr-3">{this.props.cardTxt}</p>
+                            <strong className="text-primary">Best Wishes</strong>
+                        </div>  
+                        <div className="col-3"></div>       
+                    </div>
+                </div> 
             </div>
 
         );
@@ -110,17 +122,17 @@ class PrintCard extends React.Component {
 
         <PrintFront url={this.state.url} cardTxt={this.state.cardTxt} ref={el1 => (this.componentRef1 = el1)} />
         <ReactToPrint
-          trigger={() => <button className="PrintBtn">Print front!</button>}
+          trigger={() => <button className="PrintBtn">Print card!</button>}
           content={() => this.componentRef1}
           copyStyles={() => true}
         />
-
+{/* 
         <PrintInside url={this.state.url} cardTxt={this.state.cardTxt} ref={el2 => (this.componentRef2 = el2)} />
         <ReactToPrint
           trigger={() => <button className="PrintBtn">Print Inside!</button>}
           content={() => this.componentRef2}
           copyStyles={() => true}
-        />
+        /> */}
 
       </div>
     );
