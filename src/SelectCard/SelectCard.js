@@ -5,7 +5,7 @@ import "./SelectCard.css";
 import 'bootstrap/dist/css/bootstrap.css' ;
 import{Container, Row, Col} from 'reactstrap';
 import { modelInstance } from '../data/PoetryModel';
-
+import '../App.css';
   
 class Cards extends Component {
     constructor(props) {
