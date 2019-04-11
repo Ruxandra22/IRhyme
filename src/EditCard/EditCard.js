@@ -386,7 +386,7 @@ class EditCard extends Component {
               <p> bigiyfufbigy </p>
               <p> {this.state.poemWord} </p>
                 <Link to={{pathname: '/PrintCard/' + this.state.cardId}}>
-                    <button align="center" className="CreateBtn">Preview Card!</button>
+                    <Button className="CreateBtn" variant="outline-info">Preview Card</Button>
                 </Link>
             {/* </Row> */}
           {/* </Container> */}

@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css' ;
 import{Row, Col} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import Button from "react-bootstrap/Button";
+import {Toolbar} from "../EditCard/Comps";
 
 class Welcome extends Component {
 
@@ -40,14 +41,13 @@ class Welcome extends Component {
             </div>
         </div>   
         <Link to="/SelectTheme">
-          <button className="CreateBtn">Make Card</button>
+            <Button className="CreateBtn" variant="outline-info">Make Card</Button>
         </Link>
         <div>
             <div>
                 <rect width="100" height="200" x="50" y="20" />
             </div>
             <div>
-
             </div>
         </div>
 

@@ -5,6 +5,7 @@ import { modelInstance } from '../data/PoetryModel';
 import { poemGenerator } from '../data/Poem';
 import 'bootstrap/dist/css/bootstrap.css' ;
 import{Row, Col} from 'reactstrap';
+import Button from "react-bootstrap/Button";
 
 class PrintCard extends Component {
 
@@ -98,7 +99,7 @@ class PrintCard extends Component {
              </Row>   */}
 
                 <Link to="/search">
-                    <button className="PrintBtn">Print Card!</button>
+                    <Button className="CreateBtn" variant="outline-info">Print Card</Button>
                 </Link>
             </div>
 
