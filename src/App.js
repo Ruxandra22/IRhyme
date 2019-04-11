@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import {Link, Route} from "react-router-dom";
 import Welcome from "./Welcome/Welcome";
 import modelInstance from "./data/PoetryModel";
 import SelectTheme from "./SelectTheme/SelectTheme";
@@ -21,7 +21,9 @@ class App extends Component {
       <div className="App">
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
               <a className="navbar-brand">
-                  <img src={logoImg} width={110} className="logo d-inline-block align-top" alt=""/>
+                  <Link to="/">
+                    <img src={logoImg} width={110} className="logo d-inline-block align-top" alt=""/>
+                  </Link>
               </a>
           </nav>
           <Route exact path="/" component={Welcome} />
