@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Welcome.css";
-import img1 from '../images/EmptyCard280x420.png';
+import "../App.css"
 import img2 from '../images/OpenCard.jpg';
 import img3 from '../images/Overlay.jpg';
 import 'bootstrap/dist/css/bootstrap.css' ;
 import{Row, Col} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import Button from "react-bootstrap/Button";
 
 class Welcome extends Component {
 
   render() {
     return (
       <div className="Welcome">
-
         <div className="row">
             <div className="col-xl-3 col-md-12 col-sm-12"></div>
             <div className="col-xl-6 col-md-12 col-sm-12">
@@ -41,6 +42,15 @@ class Welcome extends Component {
         <Link to="/SelectTheme">
           <button className="CreateBtn">Make Card</button>
         </Link>
+        <div>
+            <div>
+                <rect width="100" height="200" x="50" y="20" />
+            </div>
+            <div>
+
+            </div>
+        </div>
+
       </div>
     );
   }

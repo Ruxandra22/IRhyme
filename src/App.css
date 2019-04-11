@@ -1,0 +1,17 @@
+.logo {
+    /*padding-left: 50px;*/
+    margin-left: 30px;
+}
+
+.wrapper {
+    background-image: url(./images/light_background_resize.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-color: #999;
+    height: 200%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}

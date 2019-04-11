@@ -4,7 +4,7 @@ import modelInstance from "../data/PoetryModel"
 import 'bootstrap/dist/css/bootstrap.css';
 import{Row} from 'reactstrap';
 import Link from "react-router-dom/es/Link";
-
+import '../App.css';
 
 class SelectTheme extends Component {
 
@@ -58,7 +58,6 @@ class SelectTheme extends Component {
                     </div>
             )
         }
-
 
         return (
             <div className="SelectTheme">
