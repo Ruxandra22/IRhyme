@@ -6,6 +6,7 @@ import { poemGenerator } from '../data/Poem';
 import 'bootstrap/dist/css/bootstrap.css' ;
 import{Row, Col} from 'reactstrap';
 import Button from "react-bootstrap/Button";
+import firebase from "../config/dbConfig";
 
 class PrintCard extends Component {
 
@@ -14,6 +15,7 @@ class PrintCard extends Component {
         this.state = {
           cardId : this.props.match.params.id,
           url: null,
+          cardImage:"",
           cardTxt:this.props.model.getPoetryTxt()
         };
       }
@@ -42,7 +44,23 @@ class PrintCard extends Component {
           //   })
           // })
 
-      }   
+      }
+
+    addCard = e => {
+        e.preventDefault();
+        const db = firebase.firestore();
+        db.settings({
+            timestampsInSnapshots: true
+        });
+        const userRef = db.collection("cards").add({
+            picture: this.state.cardImage,
+            cardText: this.state.cardTxt
+        });
+        // this.setState({
+        //     fullname: "",
+        //     email: ""
+        // });
+    };
 
     render() {
 
@@ -101,6 +119,7 @@ class PrintCard extends Component {
                 <Link to="/search">
                     <Button className="CreateBtn" variant="outline-info">Print Card</Button>
                 </Link>
+                <Button onClick={this.addCard} variant="outline-info">Save Card</Button>
             </div>
 
         );
