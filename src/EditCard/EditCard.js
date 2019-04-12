@@ -91,16 +91,22 @@ class RichTextEditor extends Component {
 
   constructor(props) {
     super(props);
+
+    let htmlStr = localStorage.getItem('poemGreeting') ? localStorage.getItem('poemGreeting') : "<p></p>";
+    let htmlStr2 = localStorage.getItem('poem') ? localStorage.getItem('poem') : "<p></p>";
+    let htmlStr3 = localStorage.getItem('poemSignature') ? localStorage.getItem('poemSignature') : "<p></p>";
+    let butPressed = localStorage.getItem('poem') ? true : false;
+    
     this.state = {
       // values of the different parts of the editor
-      value: html.deserialize('<p></p>'),
-      value2: html.deserialize('<p></p>'),
-      value3: html.deserialize('<p></p>'),
+      value: html.deserialize(htmlStr),
+      value2: html.deserialize(htmlStr2),
+      value3: html.deserialize(htmlStr3),
       // html object of the text in the editor
-      htmlString: '<p></p>',
-      htmlString2: '<p></p>',
-      htmlString3: '<p></p>',
-      buttonPressed: false, 
+      htmlString: htmlStr,
+      htmlString2: htmlStr2,
+      htmlString3: htmlStr3,
+      buttonPressed: butPressed, 
       active: 1, 
       // color picker value
       color: "#00aabb",
@@ -195,16 +201,22 @@ class RichTextEditor extends Component {
   onChange = ({ value }) => {
     this.setActive(1);
     let htmlstring = html.serialize(value);
+    localStorage.setItem('poemGreeting', htmlstring);
+    console.log(localStorage);
     this.setState({ value, htmlString: htmlstring })
   }
   onChange2 = ({ value }) => {
     this.setActive(2);
     let htmlstring = html.serialize(value);
+    localStorage.setItem('poem', htmlstring);
+    console.log(localStorage);
     this.setState({ value2: value, htmlString2: htmlstring });
   }
   onChange3 = ({ value }) => {
     this.setActive(3);
     let htmlstring = html.serialize(value);
+    localStorage.setItem('poemSignature', htmlstring);
+    console.log(localStorage);
     this.setState({ value3: value, htmlString3: htmlstring })
   }
 
