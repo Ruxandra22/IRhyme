@@ -8,24 +8,6 @@
   padding: 20px;
 }
 
-.PrintBtn{
-    margin-left: 5;
-    margin-right: 5;
-    margin-top: 15px;
-    margin-bottom: 15px;
-  
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 15px;
-    padding-bottom:15px;
-
-    font-size: 16px; 
-    color: white;
-    background-color: #6698cb;
-    border-radius: 4px;
-    border-color: white;
-}
-
 .OpenCard{
     height: 420px;
     margin:100px;
@@ -45,14 +27,16 @@
     margin-left: -75px;
     opacity:0.2;
   }
+
   .figureImg1{
-    width:280px;  
-    margin-left:300px;
+    width:360px;  
+    margin-top: 10px;
+    margin-left:415px;
   }
 
   .figureImg2{
-    width:280px;  
-    margin-left:-75px;
+    width:360px; 
+    margin-top: 10px; 
     opacity:0.2;
   }
 
