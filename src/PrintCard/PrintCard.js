@@ -77,7 +77,7 @@ class PrintCard extends Component {
                <p> {poemGenerator.generatePoem()}</p>
              </Row>   */}
 
-                <Link to="/search">
+                <Link to="/">
                     <button className="PrintBtn">Print my Card!</button>
                 </Link>
             </div>

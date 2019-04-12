@@ -1,8 +1,7 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { css } from 'emotion'
+import React from 'react';
+import styled from '@emotion/styled';
 
-export const Button1 = styled('span')`
+export const ButtonCustom = styled('span')`
   cursor: pointer;
   color: ${props =>
     props.reversed
