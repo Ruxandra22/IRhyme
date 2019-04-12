@@ -18,6 +18,7 @@ import { isKeyHotkey } from 'is-hotkey'
 import { ButtonCustom, Icon, Toolbar } from './Comps';
 import 'rc-color-picker/assets/index.css';
 import ColorPicker from 'rc-color-picker';
+import { set } from "immutable";
 
 // constants for text editor init
 const DEFAULT_NODE = 'paragraph';
@@ -174,19 +175,22 @@ class RichTextEditor extends Component {
     }
   }
   onChange = ({ value }) => {
-    this.setActive(1);
     let htmlstring = html.serialize(value);
-    this.setState({ value, htmlString: htmlstring })
+    poemGenerator.setPoemGreeting(htmlstring);
+    this.setState({ value, htmlString: htmlstring });
+    this.setActive(1);
   }
   onChange2 = ({ value }) => {
-    this.setActive(2);
     let htmlstring = html.serialize(value);
+    poemGenerator.setPoemBody(htmlstring);
     this.setState({ value2: value, htmlString2: htmlstring });
+    this.setActive(2);
   }
   onChange3 = ({ value }) => {
-    this.setActive(3);
     let htmlstring = html.serialize(value);
+    poemGenerator.setPoemSignature(htmlstring);
     this.setState({ value3: value, htmlString3: htmlstring })
+    this.setActive(3);
   }
 
   onKeyDown = (event, editor, next) => {
@@ -338,7 +342,7 @@ class EditCard extends Component {
       this.state = {
         status: 'INITIAL',
         cardId: this.props.match.params.id,
-        poemWord: "not working"
+      //  poemWord: "not working"
       };
     }
 
@@ -349,15 +353,15 @@ class EditCard extends Component {
      });
 
 
-     modelInstance.getWord("love")
-     .then(word => {
-       console.log("test test : " ,word)
-         this.setState({
-           poemWord: word.word,
-         });
-     }).catch(error => {
-         console.error(error);
-     });
+    //  modelInstance.getWord("love")
+    //  .then(word => {
+    //    console.log("test test : " ,word)
+    //      this.setState({
+    //        poemWord: word.word,
+    //      });
+    //  }).catch(error => {
+    //      console.error(error);
+    //  });
 
     }
   

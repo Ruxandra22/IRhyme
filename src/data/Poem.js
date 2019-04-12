@@ -1,6 +1,6 @@
 import ObservableModel from "./ObservableModel";
 
-const WORDS_BASE_URL= "api.datamuse.com/words?";
+//const WORDS_BASE_URL= "api.datamuse.com/words?";
 
 
 class Poem extends ObservableModel {
@@ -21,7 +21,28 @@ class Poem extends ObservableModel {
         this.randomWords = [];
         this.poemText = 'I wandered lonely as a cloud. That floats on high o’er vales and hills. When all at once I saw a crowd. A host, of golden daffodils. Beside the lake, beneath the trees,Fluttering and dancing in the breeze.';
 
+        this.poemGreeting; 
+        console.log(this.poemGreeting);
+        // if(localStorage.getItem("PoemGreeting")){
+        //   this.PoemGreeting = JSON.parse(localStorage.getItem("PoemGreeting"));
+        //}
+
+        this.poemBody; 
+        // if(localStorage.getItem("PoemBody")){
+        //   this.PoemBody = JSON.parse(localStorage.getItem("PoemBody"));
+        // }
+
+        this.poemSignature; 
+        // if(localStorage.getItem("PoemSignature")){
+        //   this.PoemSignature = JSON.parse(localStorage.getItem("PoemSignature"));
+        // }
+
+
+      // console.log("poem greeting: ", this.PoemGreeting);
+      // console.log("poem body: ", this.PoemBody);
+      // console.log("poem signature: ", this.PoemSignature);
     }
+
 
     random(arraySize){
         var min=0; 
@@ -70,46 +91,61 @@ class Poem extends ObservableModel {
       return p4;
     }
 
-    generatePharagraph(){  
-      //this method generates whole paragrahs at once if needed
-        var p1 = new String();
-        var p2 = new String();
-        var p3 = new String();
-        var p4 = new String();
-
-        var pharagraph = new String();
-
-        p1 = p1.concat(this.verbs[this.random(this.verbs.length)], this.determinants[this.random(this.determinants.length)], this.nouns[this.random(this.nouns.length)], 
-        this.prepositions[this.random(this.prepositions.length)], this.determinants[this.random(this.determinants.length)], this.adjectives[this.random(this.adjectives.length)], 
-        this.nouns[this.random(this.nouns.length)], this.punctuations[this.random(this.punctuations.length)], this.newline[0]
-        );
-
-        p2 = p2.concat(this.verbs[this.random(this.verbs.length)], this.prepositions[this.random(this.prepositions.length)], this.determinants[this.random(this.determinants.length)],
-        this.nouns[this.random(this.nouns.length)], this.punctuations[this.random(this.punctuations.length)] , this.newline[0]
-        );
-
-        p3 = p3.concat(this.prepositions[this.random(this.prepositions.length)], this.determinants[this.random(this.determinants.length)],
-        this.nouns[this.random(this.nouns.length)], this.adverbs[this.random(this.adverbs.length)],
-        this.verbs[this.random(this.adverbs.length)], this.newline[0]
-        );
-
-        p4 = p4.concat(this.determinants[this.random(this.determinants.length)], this.nouns[this.random(this.nouns.length)], 
-        this.prepositions[this.random(this.prepositions.length)], this.determinants[this.random(this.determinants.length)],
-        this.nouns[this.random(this.nouns.length)],  this.punctuations[this.random(this.punctuations.length)], this.newline[0]
-        );
-
-        return pharagraph.concat(p1, p2, p3, p4);
+    setPoemGreeting(htmlString){
+     this.poemGreeting = htmlString;
     }
 
-    generatePoem(theme){
-        var poem = new String;
-        poem = poem.concat(this.randomWords[this.random(this.randomWords.length)],this.randomWords[this.random(this.randomWords.length)],
-        this.randomWords[this.random(this.randomWords.length)], "! \n", 
-        this.randomWords[this.random(this.randomWords.length)], this.randomWords[this.random(this.randomWords.length)], 
-        this.randomWords[this.random(this.randomWords.length)],  this.randomWords[this.random(this.randomWords.length)], ". \n"
-        );
-        return poem;
+    setPoemBody(htmlString){
+      this.poemBody = htmlString;
     }
+
+     setPoemSignature(htmlString){
+       this.poemSignature = htmlString;
+     }
+
+
+
+
+    // generatePharagraph(){  
+    //   //this method generates whole paragrahs at once if needed
+    //     var p1 = new String();
+    //     var p2 = new String();
+    //     var p3 = new String();
+    //     var p4 = new String();
+
+    //     var pharagraph = new String();
+
+    //     p1 = p1.concat(this.verbs[this.random(this.verbs.length)], this.determinants[this.random(this.determinants.length)], this.nouns[this.random(this.nouns.length)], 
+    //     this.prepositions[this.random(this.prepositions.length)], this.determinants[this.random(this.determinants.length)], this.adjectives[this.random(this.adjectives.length)], 
+    //     this.nouns[this.random(this.nouns.length)], this.punctuations[this.random(this.punctuations.length)], this.newline[0]
+    //     );
+
+    //     p2 = p2.concat(this.verbs[this.random(this.verbs.length)], this.prepositions[this.random(this.prepositions.length)], this.determinants[this.random(this.determinants.length)],
+    //     this.nouns[this.random(this.nouns.length)], this.punctuations[this.random(this.punctuations.length)] , this.newline[0]
+    //     );
+
+    //     p3 = p3.concat(this.prepositions[this.random(this.prepositions.length)], this.determinants[this.random(this.determinants.length)],
+    //     this.nouns[this.random(this.nouns.length)], this.adverbs[this.random(this.adverbs.length)],
+    //     this.verbs[this.random(this.adverbs.length)], this.newline[0]
+    //     );
+
+    //     p4 = p4.concat(this.determinants[this.random(this.determinants.length)], this.nouns[this.random(this.nouns.length)], 
+    //     this.prepositions[this.random(this.prepositions.length)], this.determinants[this.random(this.determinants.length)],
+    //     this.nouns[this.random(this.nouns.length)],  this.punctuations[this.random(this.punctuations.length)], this.newline[0]
+    //     );
+
+    //     return pharagraph.concat(p1, p2, p3, p4);
+    // }
+
+    // generatePoem(theme){
+    //     var poem = new String;
+    //     poem = poem.concat(this.randomWords[this.random(this.randomWords.length)],this.randomWords[this.random(this.randomWords.length)],
+    //     this.randomWords[this.random(this.randomWords.length)], "! \n", 
+    //     this.randomWords[this.random(this.randomWords.length)], this.randomWords[this.random(this.randomWords.length)], 
+    //     this.randomWords[this.random(this.randomWords.length)],  this.randomWords[this.random(this.randomWords.length)], ". \n"
+    //     );
+    //     return poem;
+    // }
     
 }
 

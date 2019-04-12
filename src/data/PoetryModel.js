@@ -54,14 +54,15 @@ class PoetryModel extends ObservableModel {
         return fetch(url, httpOptions).then(this.processResponse);
     }
 
-    getWord(wordTheme){
-        var request = new Request(`${WORD_BASE_URL}topics=` + wordTheme, {
-        method: 'GET'
-       // mode: "no-cors"
-       });
-       // const url = `${WORD_BASE_URL}topics=` + wordTheme;
-        return fetch(request).then(this.processResponse);
-    }
+    //FETCHING WORDS FROM EXTERNAL API FOR THE POEM - NOT WORKING ATM
+    // getWord(wordTheme){
+    //     var request = new Request(`${WORD_BASE_URL}topics=` + wordTheme, {
+    //     method: 'GET'
+    //    // mode: "no-cors"
+    //    });
+    //    // const url = `${WORD_BASE_URL}topics=` + wordTheme;
+    //     return fetch(request).then(this.processResponse);
+    // }
 
     processResponse(response) {
         if (response.ok) {
