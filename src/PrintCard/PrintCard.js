@@ -98,8 +98,8 @@ class PrintCard extends Component {
                <p> {poemGenerator.generatePoem()}</p>
              </Row>   */}
 
-                <Link to="/search">
-                    <Button className="CreateBtn" variant="outline-info">Print Card</Button>
+                <Link to="/">
+                    <button className="PrintBtn" variant="outline-info">Print Card</button>
                 </Link>
             </div>
 

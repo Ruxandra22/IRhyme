@@ -36,7 +36,7 @@ class Poem extends ObservableModel {
       p1 = p1.charAt(0).toUpperCase() + p1.slice(1);
       p1 = p1.concat( this.determinants[this.random(this.determinants.length)], this.pluralnouns[this.random(this.pluralnouns.length)], 
       this.prepositions[this.random(this.prepositions.length)], this.determinants[this.random(this.determinants.length)], this.adjectives[this.random(this.adjectives.length)], 
-      this.nouns[this.random(this.nouns.length)], this.newline[0]
+      this.nouns[this.random(this.nouns.length)] //this.newline[0]
       );
       return p1;
     }
@@ -45,7 +45,7 @@ class Poem extends ObservableModel {
       p2 = this.verbs[this.random(this.verbs.length)];
       p2 = p2.charAt(0).toUpperCase() + p2.slice(1);
       p2 = p2.concat( this.prepositions[this.random(this.prepositions.length)], this.determinants[this.random(this.determinants.length)],
-      this.nouns[this.random(this.nouns.length)], this.punctuations[this.random(this.punctuations.length)] , this.newline[0]
+      this.nouns[this.random(this.nouns.length)], this.punctuations[this.random(this.punctuations.length)]//this.newline[0]
       );
       return p2;
     }
@@ -55,7 +55,7 @@ class Poem extends ObservableModel {
       p3 = p3.charAt(0).toUpperCase() + p3.slice(1);
       p3 = p3.concat(this.determinants[this.random(this.determinants.length)],
       this.nouns[this.random(this.nouns.length)], this.adverbs[this.random(this.adverbs.length)],
-      this.verbs[this.random(this.adverbs.length)], this.newline[0]
+      this.verbs[this.random(this.adverbs.length)] //this.newline[0]
       );
       return p3;
     }
@@ -65,7 +65,7 @@ class Poem extends ObservableModel {
       p4 = p4.charAt(0).toUpperCase() + p4.slice(1);
       p4 = p4.concat(this.nouns[this.random(this.nouns.length)], 
       this.prepositions[this.random(this.prepositions.length)], this.determinants[this.random(this.determinants.length)],
-      this.nouns[this.random(this.nouns.length)],  "! ", this.newline[0]
+      this.nouns[this.random(this.nouns.length)],  "! " //this.newline[0]
       );
       return p4;
     }
