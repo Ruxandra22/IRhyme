@@ -256,6 +256,7 @@ class RichTextEditor extends Component {
     let htmlStringFinal = htmlString1 + "<p></p>" + htmlString2;
     let valueString = html.deserialize(htmlStringFinal);
     let val = Value.fromJSON(valueString);
+
     this.setState({
       value2: val,
       htmlString2: htmlStringFinal,

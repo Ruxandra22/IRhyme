@@ -23,20 +23,21 @@ class Poem extends ObservableModel {
 
         this.poemGreeting; 
         console.log(this.poemGreeting);
-        // if(localStorage.getItem("PoemGreeting")){
-        //   this.PoemGreeting = JSON.parse(localStorage.getItem("PoemGreeting"));
-        //}
+        if(localStorage.getItem("poemGreeting")){
+          this.poemGreeting = JSON.parse(localStorage.getItem("poemGreeting"));
+        }
+       
 
         this.poemBody; 
-        // if(localStorage.getItem("PoemBody")){
-        //   this.PoemBody = JSON.parse(localStorage.getItem("PoemBody"));
-        // }
+        if(localStorage.getItem("poemBody")){
+          this.poemBody = JSON.parse(localStorage.getItem("poemBody"));
+        }
+  
 
         this.poemSignature; 
-        // if(localStorage.getItem("PoemSignature")){
-        //   this.PoemSignature = JSON.parse(localStorage.getItem("PoemSignature"));
-        // }
-
+        if(localStorage.getItem("poemSignature")){
+          this.poemSignature = JSON.parse(localStorage.getItem("poemSignature"));
+        }
 
       // console.log("poem greeting: ", this.PoemGreeting);
       // console.log("poem body: ", this.PoemBody);
@@ -93,14 +94,17 @@ class Poem extends ObservableModel {
 
     setPoemGreeting(htmlString){
      this.poemGreeting = htmlString;
+     localStorage.setItem("poemGreeting", JSON.stringify(htmlString));
     }
 
     setPoemBody(htmlString){
       this.poemBody = htmlString;
+      localStorage.setItem("poemBody", JSON.stringify(htmlString));
     }
 
      setPoemSignature(htmlString){
        this.poemSignature = htmlString;
+       localStorage.setItem("poemSignature", JSON.stringify(htmlString));
      }
 
 
