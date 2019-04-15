@@ -1,37 +1,23 @@
-.cards_row {
-    padding-left: 100px;
+.historyText {
+    text-align: center;
+    padding: 30px 0 40px 0;
 }
 
-.modal {
-    font-size: 12px;
-}
-.modal > .header {
-    width: 100%;
-    border-bottom: 1px solid gray;
-    font-size: 18px;
-    text-align: center;
-    padding: 5px;
-}
-.modal > .content {
-    width: 100%;
-    padding: 10px 5px;
-}
-.modal > .actions {
-    width: 100%;
-    padding: 10px 5px;
-    margin: auto;
-    text-align: center;
-}
-.modal > .close {
-    cursor: pointer;
+.button {
     position: absolute;
-    display: block;
-    padding: 2px 5px;
-    line-height: 20px;
-    right: -10px;
-    top: -10px;
-    font-size: 24px;
-    background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid #cfcece;
+    width: 110px;
+    left:85px;
+    top: 240px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .35s ease;
+    border: solid 2px;
+}
+
+.background_card:hover .button {
+    opacity: 1;
+}
+
+.background_card {
+    position: relative;
 }

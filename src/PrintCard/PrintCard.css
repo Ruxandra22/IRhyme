@@ -28,23 +28,28 @@
     opacity:0.2;
   }
 
-  .figureImg1{
-    width:360px;  
+.figureImg1{
+    width:360px;
     margin-top: 10px;
     margin-left:415px;
-  }
+}
 
-  .figureImg2{
-    width:360px; 
-    margin-top: 10px; 
+.figureImg2{
+    width:360px;
+    margin-top: 10px;
     opacity:0.2;
-  }
+}
 
-  .card{
+.card{
     margin-left: -80px;
-  }
+}
 
-  .text{
+.text{
     /* text-align: center; */
     padding: 40px;
-  }
+}
+
+/*.saveCard {*/
+/*    float: ;*/
+/*}*/
+

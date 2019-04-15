@@ -6,6 +6,7 @@ import{Row} from 'reactstrap';
 import Link from "react-router-dom/es/Link";
 import '../App.css';
 import firebase from "../config/dbConfig";
+import Button from "react-bootstrap/Button";
 
 class SelectTheme extends Component {
 
@@ -49,9 +50,10 @@ class SelectTheme extends Component {
                         <div>
                             <Link to={{pathname: '/SelectCard/' + themeKey}}>
                                 <img className="themePhoto" src={valuePhoto.src.portrait}/>
-                                <div className="caption">
-                                    <p>{themeKey}</p>
-                                </div>
+                                <Button className="button_theme" variant="outline-info"><strong>{themeKey}</strong></Button>
+                                {/*<div className="caption">*/}
+                                {/*    <p>{themeKey}</p>*/}
+                                {/*</div>*/}
                             </Link>
                         </div>
                     </div>

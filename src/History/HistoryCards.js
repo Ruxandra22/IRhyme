@@ -6,6 +6,9 @@ import firebase from "../config/dbConfig";
 import Link from "react-router-dom/es/Link";
 import {Row} from "reactstrap";
 import Popup from 'reactjs-popup'
+import img3 from "../images/Overlay.jpg";
+import {poemGenerator} from "../data/Poem";
+import Button from "react-bootstrap/Button";
 
 class HistoryCards extends Component {
 
@@ -16,16 +19,6 @@ class HistoryCards extends Component {
             cardsList: [],
             open: false
         }
-        this.openModal = this.openModal.bind(this)
-        this.closeModal = this.closeModal.bind(this)
-    }
-
-    openModal (){
-        this.setState({ open: true })
-    }
-
-    closeModal () {
-        this.setState({ open: false })
     }
 
     componentWillMount() {
@@ -59,22 +52,31 @@ class HistoryCards extends Component {
             pictures = Array.from(this.state.cardsList).map((card) =>
                     <div className="background_card" style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')',
                         backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
+                        <img className="photo" src={card.picture}/>
                         <Popup
-                            trigger={<img className="photo" src={card.picture}/>}
+                            trigger={<Button className="button" variant="outline-info"><strong>See Details</strong></Button>}
                             modal
                             closeOnDocumentClick>
                             <span>
-                               Text here
+                                <div className = "row">
+                                    <div className = "col-xl-6 col-md-12">
+                                        <img className="figureImg2" src={card.picture} />
+                                    </div>
+                                    <div className="col-xl-6 col-md-12 mt-3 text">
+                                        <p>{card.cardText}</p>
+                                        <p>The text</p>
+                                        <p>Poem Signature</p>
+                                    </div>
+                                </div>
                             </span>
                         </Popup>
-                        {/*<p>{card.cardText}</p>*/}
                     </div>
             )
         }
 
         return (
             <div className="HistoryCards">
-                <p>These are the last 10 cards made.</p>
+                <h2 className="historyText"> Recent created cards</h2>
                 <Row className="cards_row">
                     {pictures}
                 </Row>

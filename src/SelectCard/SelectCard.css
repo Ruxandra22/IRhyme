@@ -9,9 +9,12 @@
     width: 308.5px;
     height: 470px;
     overflow: hidden;
-    /*margin-left: 50px;*/
     padding-top: 25px;
     padding-right: 30px;
+}
+
+.photo:hover {
+    opacity: 0.7;
 }
 
 .background_card {

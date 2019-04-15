@@ -54,9 +54,9 @@ class PrintCard extends Component {
     addCard = e => {
         e.preventDefault();
         const db = firebase.firestore();
-        const userRef = db.collection("cards").add({
+        db.collection("cards").add({
             picture: this.state.cardImage,
-            cardText: this.state.cardTxt
+            cardText: poemGenerator.poemSignature
         });
     };
 
@@ -155,6 +155,9 @@ class PrintCard extends Component {
                   <div className="mb5">
                     <Button className="CreateBtn" variant="outline-info" onClick={this.printDocumentFront}>Print Front</Button>
                   </div>
+                  <div className="saveCard">
+                      <Button onClick={this.addCard} variant="outline-info">Save Card</Button>
+                  </div>
                   <div id="divToPrint1" className="" style={{
                     backgroundColor: '#f5f5f5',
                     width: '210mm',
@@ -203,7 +206,7 @@ class PrintCard extends Component {
                 </div>
 
               </div>
-            <Button onClick={this.addCard} variant="outline-info">Save Card</Button>
+            {/*<Button onClick={this.addCard} variant="outline-info">Save Card</Button>*/}
            </div>
 
         );

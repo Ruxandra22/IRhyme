@@ -70,11 +70,9 @@ class Cards extends Component {
       return (
         <div className="Cards">
             <h1 className={"title_select_card"}> {this.state.theme} </h1>
-            {/*<div className="container">*/}
-                <Row className="cards_row">
-                     {cardsList}
-                </Row>
-            {/*</div>*/}
+            <Row className="cards_row">
+                 {cardsList}
+            </Row>
         </div>
       );
     }
