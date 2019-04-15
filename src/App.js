@@ -27,11 +27,9 @@ class App extends Component {
                     <img src={logoImg} width={110} className="logo d-inline-block align-top" alt=""/>
                   </Link>
               </a>
-              <a>
-                  <div className="history">
-                    <Link to="/history">Get inspired!</Link>
-                  </div>
-              </a>
+              <div className="history">
+                <Link to="/history">See what others have made!</Link>
+              </div>
           </nav>
           <Route exact path="/" component={Welcome} />
           <Route

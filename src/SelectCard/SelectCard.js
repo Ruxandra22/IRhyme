@@ -51,7 +51,6 @@ class Cards extends Component {
           cardsList = <em>Loading...</em>
           break;
         case 'LOADED':
-            console.log(this.state.cards);
             cardsList = this.state.cards.map((card) =>
                 <div key = {card.id} className="p-3">
                     <div className="background_card" style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')',

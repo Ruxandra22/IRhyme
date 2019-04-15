@@ -24,6 +24,9 @@ yarn-error.log*
 # API key
 /src/data/ApiKey.js
 
+#Firebase configuration file
+/src/config/dbConfig.js
+
 #not needed image
 src/images/OpenCard2.jpg
 

@@ -359,7 +359,6 @@ class EditCard extends Component {
 
      modelInstance.getWord("love")
      .then(word => {
-       console.log("test test : " ,word)
          this.setState({
            poemWord: word.word,
          });
