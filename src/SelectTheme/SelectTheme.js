@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import{Row} from 'reactstrap';
 import Link from "react-router-dom/es/Link";
 import '../App.css';
+import firebase from "../config/dbConfig";
 
 class SelectTheme extends Component {
 
@@ -14,7 +15,6 @@ class SelectTheme extends Component {
         this.state = {
             // status: "LOADING",
             urlPhotos: [],
-            poemWord: "didnt work )= "
         }
     }
 
@@ -38,7 +38,6 @@ class SelectTheme extends Component {
                 console.error(error);
             });
         }
-      
     }
 
     render() {

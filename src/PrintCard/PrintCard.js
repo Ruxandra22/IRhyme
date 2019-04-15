@@ -6,6 +6,7 @@ import { poemGenerator } from '../data/Poem';
 import 'bootstrap/dist/css/bootstrap.css' ;
 import{Row, Col} from 'reactstrap';
 import Button from "react-bootstrap/Button";
+import firebase from "../config/dbConfig";
 import img3 from '../images/Overlay.jpg';
 
 import jsPDF from "jspdf";
@@ -19,6 +20,7 @@ class PrintCard extends Component {
         this.state = {
           cardId : this.props.match.params.id,
           url: null,
+          cardImage:"",
           cardTxt:this.props.model.getPoetryTxt()
         };
       }
@@ -47,7 +49,23 @@ class PrintCard extends Component {
           //   })
           // })
 
-      }   
+      }
+
+    addCard = e => {
+        e.preventDefault();
+        const db = firebase.firestore();
+        db.settings({
+            timestampsInSnapshots: true
+        });
+        const userRef = db.collection("cards").add({
+            picture: this.state.cardImage,
+            cardText: this.state.cardTxt
+        });
+        // this.setState({
+        //     fullname: "",
+        //     email: ""
+        // });
+    };
 
 
       printDocumentFront() {
@@ -93,7 +111,7 @@ class PrintCard extends Component {
                   <h2>Export in PDF and print your card!</h2> 
                 </div>
 
-          {/* 
+          {/*
             <Row>
                 <Col>
                     <div style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')', backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
@@ -179,7 +197,7 @@ class PrintCard extends Component {
                                 <p>{poemGenerator.p2()}</p>
                                 <p>{poemGenerator.p3()}</p>
                                 <p>{poemGenerator.p4()}</p>
-                                
+
                                 <p>{poemGenerator.p1()}</p>
                                 <p>{poemGenerator.p2()}</p>
                                 <p>{poemGenerator.p2()}</p>
@@ -187,11 +205,12 @@ class PrintCard extends Component {
 
                                 <strong className="mb-2 text-primary">Best Wishes</strong>
                             </div>
-                      </div>     
+                      </div>
                 </div>
 
               </div>
-           </div> 
+            <Button onClick={this.addCard} variant="outline-info">Save Card</Button>
+           </div>
 
         );
     }

@@ -8,6 +8,8 @@ import EditCard from "./EditCard/EditCard";
 import PrintCard from "./PrintCard/PrintCard";
 import "./App.css";
 import logoImg from "./images/logo.png"
+import Nav from "react-bootstrap/Nav";
+import HistoryCards from "./History/HistoryCards";
 
 class App extends Component {
     constructor(props) {
@@ -25,6 +27,9 @@ class App extends Component {
                     <img src={logoImg} width={110} className="logo d-inline-block align-top" alt=""/>
                   </Link>
               </a>
+              <div className="history">
+                <Link to="/history">See what others have made!</Link>
+              </div>
           </nav>
           <Route exact path="/" component={Welcome} />
           <Route
@@ -33,11 +38,13 @@ class App extends Component {
           />
           <Route path="/SelectCard/:id" render={(props) => <SelectCard {...props} model={modelInstance}/>}/>
 
-           <Route
-            path="/EditCard/:id"
-            render={(props) => <EditCard {...props} model={modelInstance} />}
+          <Route
+              path="/EditCard/:id"
+              render={(props) => <EditCard {...props} model={modelInstance} />}
           />
           <Route path="/PrintCard/:id" render={(props) => <PrintCard {...props} model={modelInstance}/>}/>
+
+          <Route exact path="/history" component={HistoryCards} />
       </div>
     );
   }
