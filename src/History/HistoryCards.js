@@ -37,7 +37,6 @@ class HistoryCards extends Component {
             .then(snapshot => {
                 let auxList = [];
                 snapshot.forEach(doc => {
-                    console.log(doc.id, '=>', doc.data());
                     let data = doc.data();
                     if(data.picture !== "" && data.cardText !== "") {
                         auxList = this.state.cardsList;
@@ -54,7 +53,6 @@ class HistoryCards extends Component {
     }
 
     render() {
-        console.log(this.state.cardsList.length);
 
         let pictures;
         if(this.state.cardsList != null) {

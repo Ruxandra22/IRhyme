@@ -380,7 +380,7 @@ class EditCard extends Component {
             </Row>
             <Row noGutters={false} className="pad_10" align="center">
                 <Link to={{pathname: '/PrintCard/' + this.state.cardId}}>
-                <Button className="CreateBtn" variant="outline-info">Preview Card</Button>
+                  <Button className="CreateBtn" variant="outline-info">Preview Card</Button>
                 </Link>
             </Row>
           {/* </Container> */}

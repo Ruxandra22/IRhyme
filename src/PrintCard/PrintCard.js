@@ -54,17 +54,10 @@ class PrintCard extends Component {
     addCard = e => {
         e.preventDefault();
         const db = firebase.firestore();
-        db.settings({
-            timestampsInSnapshots: true
-        });
         const userRef = db.collection("cards").add({
             picture: this.state.cardImage,
             cardText: this.state.cardTxt
         });
-        // this.setState({
-        //     fullname: "",
-        //     email: ""
-        // });
     };
 
 
@@ -105,6 +98,7 @@ class PrintCard extends Component {
 
     render() {
 
+          console.log("Text: " + this.state.cardTxt);
         return(
             <div className="PrintCard">
                 <div className="PrintCardText">
