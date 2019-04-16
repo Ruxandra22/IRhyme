@@ -21,7 +21,7 @@ class Poem extends ObservableModel {
         this.randomWords = [];
         this.poemText = 'I wandered lonely as a cloud. That floats on high o’er vales and hills. When all at once I saw a crowd. A host, of golden daffodils. Beside the lake, beneath the trees,Fluttering and dancing in the breeze.';
 
-        this.poemGreeting; 
+        /*this.poemGreeting; 
         if(localStorage.getItem("poemGreeting")){
           this.poemGreeting = JSON.parse(localStorage.getItem("poemGreeting"));
         }
@@ -36,7 +36,7 @@ class Poem extends ObservableModel {
         this.poemSignature; 
         if(localStorage.getItem("poemSignature")){
           this.poemSignature = JSON.parse(localStorage.getItem("poemSignature"));
-        }
+        }*/
 
       // console.log("poem greeting: ", this.PoemGreeting);
       // console.log("poem body: ", this.PoemBody);
