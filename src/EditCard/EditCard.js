@@ -20,7 +20,7 @@ import 'rc-color-picker/assets/index.css';
 import ColorPicker from 'rc-color-picker';
 import { set } from "immutable";
 
-// constants for text editor init
+// constants for text editor initialization 
 const DEFAULT_NODE = 'paragraph';
 const isBoldHotkey = isKeyHotkey('mod+b');
 const isItalicHotkey = isKeyHotkey('mod+i');
@@ -117,7 +117,7 @@ class RichTextEditor extends Component {
       active: 1, 
       // color picker value
       color: storedColor,
-      alignValue: "left",
+      // resizing feature variables
       windowHeight: 0,
       windowWidth: 0
     }
@@ -126,8 +126,6 @@ class RichTextEditor extends Component {
 
   updateWindowDimensions() {
     this.setState({ windowWidth: window.innerWidth, windowHeight: window.innerHeight });
-    console.log(window.innerWidth);
-    console.log(window.innerHeight);
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowDimensions);
@@ -211,14 +209,12 @@ class RichTextEditor extends Component {
     this.setActive(1);
     localStorage.setItem('poemGreeting', htmlstring);
     poemGenerator.setPoemGreeting(htmlstring);
-    console.log("test get poem methods ", poemGenerator.getPoemGreeting());
     this.setState({ value, htmlString: htmlstring })
   }
   onChange2 = ({ value }) => {
     let htmlstring = html.serialize(value);
     localStorage.setItem('poemBody', htmlstring);
     poemGenerator.setPoemBody(htmlstring);
-    console.log("test get poem methods ", poemGenerator.getPoemBody());
     this.setState({ value2: value, htmlString2: htmlstring });
     this.setActive(2);
   }
@@ -226,7 +222,6 @@ class RichTextEditor extends Component {
     let htmlstring = html.serialize(value);
     localStorage.setItem('poemSignature', htmlstring);
     poemGenerator.setPoemSignature(htmlstring);
-    console.log("test get poem methods ", poemGenerator.getPoemSignature());
     this.setState({ value3: value, htmlString3: htmlstring })
     this.setActive(3);
   }
@@ -242,7 +237,6 @@ class RichTextEditor extends Component {
     } else {
       return next()
     }
-
     event.preventDefault()
     editor.toggleMark(mark)
   } 
@@ -257,7 +251,6 @@ class RichTextEditor extends Component {
     } else {
       return next()
     }
-
     event.preventDefault()
     editor.toggleMark(mark)
   } 
@@ -272,7 +265,6 @@ class RichTextEditor extends Component {
     } else {
       return next()
     }
-
     event.preventDefault()
     editor.toggleMark(mark)
   } 
@@ -301,7 +293,6 @@ class RichTextEditor extends Component {
       buttonPressed: true,
       active: 2,
     });
-    console.log(this.state.htmlString2);
   }
 
   render() {
@@ -367,7 +358,6 @@ class RichTextEditor extends Component {
                 />
               </div>
               <Button className="figure1_button" variant="outline-info" onClick={this.generatePoem}>
-                {/* {this.state.buttonPressed? "Regenerate AI poem": "Generate AI poem"} */}
                 {this.state.buttonPressed? "Regenerate AI poem": "Generate AI poem"} 
               </Button>
             </div>
@@ -383,7 +373,6 @@ class EditCard extends Component {
       this.state = {
         status: 'INITIAL',
         cardId: this.props.match.params.id,
-      //  poemWord: "not working"
       };
     }
 
@@ -392,24 +381,11 @@ class EditCard extends Component {
         status: 'LOADED',
         cardId: this.props.match.params.id
      });
-
-
-    //  modelInstance.getWord("love")
-    //  .then(word => {
-    //    console.log("test test : " ,word)
-    //      this.setState({
-    //        poemWord: word.word,
-    //      });
-    //  }).catch(error => {
-    //      console.error(error);
-    //  });
-
     }
   
     render() {
       return (
         <div className="PrintCard">
-          {/* <Container fluid={true}> */}
             <Row noGutters={false} className="pad_10">
                 <Col md={{span: 4, offset:2}}>
                   <ImageCard cardId={this.state.cardId}/>
@@ -423,7 +399,6 @@ class EditCard extends Component {
                   <Button className="CreateBtn" variant="outline-info">Preview Card</Button>
                 </Link>
             </Row>
-          {/* </Container> */}
         </div>
       );
     }
@@ -440,8 +415,6 @@ class EditCard extends Component {
     }
 
     componentDidMount = () => {
-
-      //modelInstance.setCardImage(this.state.cardId)
 
       modelInstance.getCardImage().then(card => {
         this.setState({
