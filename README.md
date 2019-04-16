@@ -3,7 +3,7 @@ IRhyme is an application, where people can design and print out custom cards for
 
 This makes it both a unique opportunity and funny one to interact with and allows them to create something truly special, a complete and mindful gift.
 
-### To test
+### To test IRhyme
 Open this link in Google Chrome  https://irhyme-5e1f8.firebaseapp.com
 Note that the code is optimised only to Google Chrome and might have some alignment problems in other browsers. 
 
@@ -12,12 +12,12 @@ Note that the code is optimised only to Google Chrome and might have some alignm
 The first step was to create the prototype, which can be seen in the ''Prototye Sketches'' folder. The images describe all the views that our website has and the steps that a user has to do in order to create a gift card (from selecting a specific gift card theme to editing it and finally, printing it).
 
 So far, we managed to:
-- implement all views
-- used Pexels API ([Pexels API](https://www.pexels.com/api/)) to make the calls for receiving images needed for the SelectTheme and SelectCard views
-- have a search function for the card themes
-- have a text editor which displays generated AI poems, allowes font change between of regular, bold, and italic, as well as allows editing the text colour
-- have a preview for the card where the card can be printed out or saved to a PDF
-- have an option to save the card to our database as an inspiration for other users
+- implement all views.
+- used Pexels API ([Pexels API](https://www.pexels.com/api/)) to make the calls for receiving images needed for the SelectTheme and SelectCard views.
+- have a search function for the card themes.
+- have a text editor which displays generated AI poems, allowes font change between of regular, bold, and italic, as well as allows editing the text colour.
+- have a preview for the card where the card can be printed out or saved to a PDF.
+- have an option to save the card to our database as an inspiration for other users.
 
 
 
@@ -33,7 +33,7 @@ For the next steps in or project, we want to:
 
 Our project is divided in separate folders for each view (Welcome, SelectTheme, SelectCard, EditCard and PrintCard) and each of them has separate files for the javascript file and for the css one.
 
-- <b><i>Welcome</i></b>: contains the code for the first view, in which the user can see an example of a gift card and a button to preceed in order to edit an original, new card
+- <b><i>Welcome</i></b>: contains the code for the first view, in which the user can see an example of a gift card and a button to preceed in order to edit a new card.
  - <b><i>SelectTheme</i></b>: separate pictures for different themes are shown. The themes can also be searched with the searchbar. The pictures are fetched using an API call and the data from it is retrieved in the componentDidMount() method and saved in the state, which is used in the render method to display all the pictures with a specific theme.
  - <b><i>SelectCard</i></b>: specific pictures with the selected theme are shown in this view. The pictures are fetched from the API and the pictures are displayed in the render method.
  - <b><i>EditCard</i></b>: contains the code for the text editor for the gift cards. The text can be edited to bold, italic and underlined. The text colour can also be changed. An AI poem can be generated and displayed. 
@@ -41,12 +41,12 @@ Our project is divided in separate folders for each view (Welcome, SelectTheme, 
 
 Another folder is ''data'' and contains:
 
-  - <b><i>PoetryModel.js</i></b>: takes care of the back-end and API calls
-  - <b><i>ObservableModel:</i></b>: used for the observable pattern
-  <b><i>Poem:</i></b>: this file is responsible for generating randomised AI poems. It generates an unique poem each time the "generate poem" button is clicked. Hence no two poems are ever the same. 
+  - <b><i>PoetryModel.js</i></b>: takes care of the back-end and API calls.
+  - <b><i>ObservableModel:</i></b>: used for the observable pattern.
+  - <b><i>Poem:</i></b>: this file is responsible for generating randomised AI poems. It generates an unique poem each time the "generate poem" button is clicked. Hence no two poems are ever the same. 
 
 Other files:
 
-  - <b><i>App.js</i></b>: the file that coordinates what views are displayed
-  - <b><i>index.js</i></b>: the main file that starts the application
+  - <b><i>App.js</i></b>: the file that coordinates what views are displayed.
+  - <b><i>index.js</i></b>: the main file that starts the application.
 
