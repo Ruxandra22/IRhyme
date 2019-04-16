@@ -429,11 +429,12 @@ class EditCard extends Component {
         cardId : this.props.cardId,
         url: null
       };
+      modelInstance.setCardImage(this.state.cardId)
     }
 
     componentDidMount = () => {
 
-      modelInstance.setCardImage(this.state.cardId)
+      //modelInstance.setCardImage(this.state.cardId)
 
       modelInstance.getCardImage().then(card => {
         this.setState({

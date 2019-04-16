@@ -34,6 +34,7 @@ class PrintInside extends Component {
 
 render() {
 
+    let cardBodyText = poemGenerator.getPoemBody();
     return(
         <div className="row">
                   <div className="row" style={{ backgroundImage: 'url(' + require('../images/A4.jpg') + ')', backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
@@ -41,11 +42,12 @@ render() {
                               <img className="figureImg12" src={this.props.url}/>
                       </div>  
                       <div className="col-6 mt-5">      
-                          <strong className="text-primary">Dear Friend</strong>
+                           <strong className="text-primary">Dear Friend</strong>
                               <p className="pr-5">{this.props.cardTxt}</p>
-                          <strong className="text-primary">Best Wishes</strong>
-                      </div>       
+                          <strong className="text-primary">Best Wishes</strong>  
+                          
                   </div>
+            </div>
         </div>
 
     );
