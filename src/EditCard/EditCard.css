@@ -45,9 +45,10 @@ body {
     align-items: center;
 }
 .figure1_button {
-    position: absolute;
+    /* position: absolute; */
     bottom: 5px;
     right: 5px;
+    align-content: center;
 }
 .figure1_image {
     display:block;
@@ -63,4 +64,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: start;
     margin: 40px;
+}
+
+.CreateBtn{
+    margin-top: 50px;
 }
