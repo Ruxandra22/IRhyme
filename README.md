@@ -3,15 +3,21 @@ IRhyme is an application, where people can design and print out custom cards for
 
 This makes it both a unique opportunity and funny one to interact with and allows them to create something truly special, a complete and mindful gift.
 
+### To test
+Open this link in Google Chrome  https://irhyme-5e1f8.firebaseapp.com
+Note that the code is optimised only to Google Chrome and might have some alignment problems in other browsers. 
+
+
 ### What we have done 
 The first step was to create the prototype, which can be seen in the ''Prototye Sketches'' folder. The images describe all the views that our website has and the steps that a user has to do in order to create a gift card (from selecting a specific gift card theme to editing it and finally, printing it).
 
 So far, we managed to:
 - implement all views
 - used Pexels API ([Pexels API](https://www.pexels.com/api/)) to make the calls for receiving images needed for the SelectTheme and SelectCard views
-- created a layout for the cards
-- created the text editor for the EditCard view - semi-functional at the moment
-- used REACT to implement the features
+- have a search function for the card themes
+- have a text editor which displays generated AI poems, allowes font change between of regular, bold, and italic, as well as allows editing the text colour
+- have a preview for the card where the card can be printed out or saved to a PDF
+- have an option to save the card to our database as an inspiration for other users
 
 
 
@@ -19,9 +25,8 @@ So far, we managed to:
 
 For the next steps in or project, we want to:
 
-  - implement the poem generation feature in the EditCard view
-  - implement features that will enance the user experience with our website, such as search engine, history in order to see the past created cards, better layout, loading icons, some buttons which are missing at the moment etc.
-
+  - improve our AI poem generator to create even better poems.
+  - a possible extention to the project is to use image recognition algorithms on the selected image to extract keywords related to the image. Then these keywords could be used in the AI poem to increase the context feeling of the card.  
 
 
 ### Project file structure 
@@ -29,15 +34,16 @@ For the next steps in or project, we want to:
 Our project is divided in separate folders for each view (Welcome, SelectTheme, SelectCard, EditCard and PrintCard) and each of them has separate files for the javascript file and for the css one.
 
 - <b><i>Welcome</i></b>: contains the code for the first view, in which the user can see an example of a gift card and a button to preceed in order to edit an original, new card
- - <b><i>SelectTheme</i></b>: separate pictures for the themes (''Birthday'', ''Wedding'', ''Love'', ''Travel'', ''Mother's Day'', ''Christmas'') are shown. The pictures are fetched using an API call and the data from it is retrieved in the componentDidMount() method and saved in the state, which is used in the render method to display all the pictures with a specific theme.
+ - <b><i>SelectTheme</i></b>: separate pictures for different themes are shown. The themes can also be searched with the searchbar. The pictures are fetched using an API call and the data from it is retrieved in the componentDidMount() method and saved in the state, which is used in the render method to display all the pictures with a specific theme.
  - <b><i>SelectCard</i></b>: specific pictures with the selected theme are shown in this view. The pictures are fetched from the API and the pictures are displayed in the render method.
- - <b><i>EditCard</i></b>: contains the code for the text editor for the gift cards. At the moment the text can be edited to bold, italic and underlined. A static poem is generated for test purposes. In the future the poem will be generated from our AI algorithm. Additionally, option to edit colours and font of the text will be added. 
- - <b><i>PrintCard</i></b>: contains the code for the final version of the selected and edited card, seen in two possible views: closed card and open card. In this view the card could be finally exported as PDF for printing. 
+ - <b><i>EditCard</i></b>: contains the code for the text editor for the gift cards. The text can be edited to bold, italic and underlined. The text colour can also be changed. An AI poem can be generated and displayed. 
+ - <b><i>PrintCard</i></b>: contains the code for the final version of the selected and edited card, seen in two possible views: closed card and open card. In this view the card can be printed out or saved as PDF. 
 
 Another folder is ''data'' and contains:
 
   - <b><i>PoetryModel.js</i></b>: takes care of the back-end and API calls
   - <b><i>ObservableModel:</i></b>: used for the observable pattern
+  <b><i>Poem:</i></b>: this file is responsible for generating randomised AI poems. It generates an unique poem each time the "generate poem" button is clicked. Hence no two poems are ever the same. 
 
 Other files:
 
