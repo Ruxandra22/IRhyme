@@ -1,13 +1,15 @@
 .historyText {
     text-align: center;
     padding: 30px 0 40px 0;
+    font-style: italic;
 }
 
 .button {
     position: absolute;
-    width: 110px;
-    left:85px;
-    top: 240px;
+    width: 130px;
+    height: 70px;
+    left: 75px;
+    top: 220px;
     text-align: center;
     opacity: 0;
     transition: opacity .35s ease;
@@ -20,4 +22,11 @@
 
 .background_card {
     position: relative;
+}
+
+.history_title {
+    text-align: center;
+    padding-bottom: 30px;
+    color: #138496;
+    font-style: italic;
 }
