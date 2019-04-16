@@ -108,6 +108,18 @@ class Poem extends ObservableModel {
 
 
 
+    getPoemGreeting(htmlString){
+        return this.poemGreeting ;
+     }
+ 
+     getPoemBody(htmlString){
+       return this.poemBody ;
+     }
+ 
+      getPoemSignature(htmlString){
+        return this.poemSignature;
+      }
+
 
     // generatePharagraph(){  
     //   //this method generates whole paragrahs at once if needed
