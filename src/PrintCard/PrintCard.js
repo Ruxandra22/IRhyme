@@ -8,12 +8,54 @@ import{Row, Col} from 'reactstrap';
 import Button from "react-bootstrap/Button";
 import firebase from "../config/dbConfig";
 import img3 from '../images/Overlay.jpg';
+import ReactToPrint from "react-to-print";
 
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
 
+class PrintFront extends Component {  
+
+  render() {
+
+      return(
+          <div className="row">
+                  <div className="col-12" style={{ backgroundImage: 'url(' + require('../images/A4.jpg') + ')', backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
+                              <img className="figureImg11" src={this.props.url}/>
+                  </div> 
+          </div>
+
+      );
+  }
+
+}
+
+class PrintInside extends Component {  
+
+render() {
+
+    return(
+        <div className="row">
+                  <div className="row" style={{ backgroundImage: 'url(' + require('../images/A4.jpg') + ')', backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
+                      <div className="col-6">       
+                              <img className="figureImg12" src={this.props.url}/>
+                      </div>  
+                      <div className="col-6 mt-5">      
+                          <strong className="text-primary">Dear Friend</strong>
+                              <p className="pr-5">{this.props.cardTxt}</p>
+                          <strong className="text-primary">Best Wishes</strong>
+                      </div>       
+                  </div>
+        </div>
+
+    );
+}
+
+}
+
+
 class PrintCard extends Component {
+
 
     constructor(props) {
         super(props);
@@ -27,7 +69,9 @@ class PrintCard extends Component {
   
       componentDidMount = () => {
 
-        modelInstance.getCardImage(this.props.match.params.id).then(card => {
+        modelInstance.setCardImage(this.state.cardId)
+
+        modelInstance.getCardImage().then(card => {
             this.setState({
               status: 'LOADED',
               cardImage: card.src.portrait,
@@ -51,6 +95,7 @@ class PrintCard extends Component {
 
       }
 
+
     addCard = e => {
         e.preventDefault();
         const db = firebase.firestore();
@@ -61,152 +106,46 @@ class PrintCard extends Component {
     };
 
 
-      printDocumentFront() {
-        const input1 = document.getElementById('divToPrint1');
-        html2canvas(input1)
-          .then((canvas) => {
-            const imgData1 = canvas.toDataURL('image/png');
-            const pdf1 = new jsPDF({
-              orientation: 'landscape',
-              unit: 'mm',
-              format: 'a5'
-            });
-            pdf1.addImage(imgData1, 'JPEG', 0, 0, 210, 148);
-            // pdf.output('dataurlnewwindow');
-            pdf1.save("download.pdf");
-          })
-        ;
-      }
-
-      printDocumentInside() {
-        const input2 = document.getElementById('divToPrint2');
-        html2canvas(input2)
-          .then((canvas) => {
-            const imgData2 = canvas.toDataURL('image/png');
-            const pdf2 = new jsPDF({
-              orientation: 'landscape',
-              unit: 'mm',
-              format: 'a5'
-            });
-            pdf2.addImage(imgData2, 'JPEG', 0, 0, 210, 148);
-            // pdf.output('dataurlnewwindow');
-            pdf2.save("download.pdf");
-          })
-        ;
-      }
-
-
     render() {
 
           console.log("Text: " + this.state.cardTxt);
         return(
-            <div className="PrintCard">
-                <div className="PrintCardText">
-                  <h2>Export in PDF and print your card!</h2> 
+
+            <div class="container">
+                <div className="PrintCard">
+                  <div className="row justify-content-center align-items-center mb-3">
+                    <h2>Print your card on A4 paper!</h2> 
+                  </div>
+                <div className="row mb-3 align-items-end justify-content-end">   
+                  <div className="col-lg-10 col-md-12 col-sm-12">
+                    <ReactToPrint
+                      trigger={() => <Button className="p-3" variant="outline-info">Print card front!</Button>}
+                      content={() => this.componentRef1}
+                    />
+                  </div>
+                  <div>
+                    <div className="saveCard">
+                        <Button className="p-3" onClick={this.addCard} variant="outline-info">Save Card</Button>
+                    </div> 
+                  </div>  
                 </div>
 
-          {/*
-            <Row>
-                <Col>
-                    <div style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')', backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
-                                <img className="figureImg" src={this.state.cardImage}/>
-                    </div>
-                </Col>
-                <Col>
-                  <div className="card">
-                      <div className="row no-gutters centered">
-                          <div className="col-xl-6 col-md-12 p-1">
-                            <figure className="figure">
-                              <img className="card-img-right" src={this.state.cardImage}/>
-                            </figure>
-                          </div>
-                          <div className="col-xl-5 col-md-11 mt-3 text">
-                              <strong className="mb-2 text-primary">Dear Friend</strong>
-                              <p></p> */}
-                              {/* <p> {poemGenerator.generatePharagraph()} </p>
-                              <p> {poemGenerator.generatePharagraph()} </p> */}
-                              {/* <p> {poemGenerator.generatePharagraph()} </p> */}
-                              {/* <p>
-                                 {this.state.poemText}
-                              </p> */}
-                              {/* <p>{poemGenerator.p1()}</p>
-                              <p>{poemGenerator.p2()}</p>
-                              <p>{poemGenerator.p3()}</p>
-                              <p>{poemGenerator.p4()}</p>
-                              
-                              <p>{poemGenerator.p1()}</p>
-                              <p>{poemGenerator.p2()}</p>
-                              <p>{poemGenerator.p2()}</p>
-                              <p>{poemGenerator.p4()}</p> */}
-
-                              {/* <p className="mx-auto align-self-center">{this.state.cardTxt}</p> */}
-                              {/* <strong className="mb-2 text-primary">Best Wishes</strong>
-                          </div>
-                      </div>
-                  </div>
-                </Col>
-             </Row>    */}
-             {/* <Row>
-               <p> {poemGenerator.printPoem()}</p>
-               <p> {poemGenerator.generatePoem()}</p>
-             </Row>   */}
-
-              <div>
-                  <div className="mb5">
-                    <Button className="CreateBtn" variant="outline-info" onClick={this.printDocumentFront}>Print Front</Button>
-                  </div>
-                  <div className="saveCard">
-                      <Button onClick={this.addCard} variant="outline-info">Save Card</Button>
-                  </div>
-                  <div id="divToPrint1" className="" style={{
-                    backgroundColor: '#f5f5f5',
-                    width: '210mm',
-                    minHeight: '148mm',
-                    marginLeft: 'auto',
-                    marginRight: 'auto'
-                  }}>
-                    <div>
-                        <img className="figureImg1"   src={this.state.cardImage}/>
-                    </div>
+                <div className="row justify-content-center align-items-center">
+                  <PrintFront url={this.state.cardImage} cardTxt={this.state.cardTxt} ref={el1 => (this.componentRef1 = el1)} />
                 </div>
 
-              </div>
-
-              <div>
-                  <div className="mb5">
-                    <Button className="CreateBtn" variant="outline-info" onClick={this.printDocumentInside}>Print Inside</Button>
-                  </div>
-                  <div id="divToPrint2" className="" style={{
-                    backgroundColor: '#f5f5f5',
-                    width: '210mm',
-                    minHeight: '148mm',
-                    marginLeft: 'auto',
-                    marginRight: 'auto'
-                  }}>
-                    <div className = "row">
-                          <div className = "col-xl-6 col-md-12">
-                            <img className="figureImg2" src={img3} />
-                          </div>
-                          <div className="col-xl-6 col-md-12 mt-3 text">
-                                <strong className="mb-2 text-primary">Dear Friend</strong>
-
-                                <p>{poemGenerator.p1()}</p>
-                                <p>{poemGenerator.p2()}</p>
-                                <p>{poemGenerator.p3()}</p>
-                                <p>{poemGenerator.p4()}</p>
-
-                                <p>{poemGenerator.p1()}</p>
-                                <p>{poemGenerator.p2()}</p>
-                                <p>{poemGenerator.p2()}</p>
-                                <p>{poemGenerator.p4()}</p>
-
-                                <strong className="mb-2 text-primary">Best Wishes</strong>
-                            </div>
-                      </div>
+                <div className="row justify-content-center align-items-center">  
+                  <ReactToPrint
+                    trigger={() => <Button className="mt-5 mb-3 p-3" variant="outline-info">Print card inside!</Button>}
+                    content={() => this.componentRef2}
+                  />
+                </div>
+                <div className="row justify-content-center align-items-center">
+                  <PrintInside url={this.state.cardImage} cardTxt={this.state.cardTxt} ref={el2 => (this.componentRef2 = el2)} />
                 </div>
 
-              </div>
-            {/*<Button onClick={this.addCard} variant="outline-info">Save Card</Button>*/}
+            </div>  
+                    
            </div>
 
         );

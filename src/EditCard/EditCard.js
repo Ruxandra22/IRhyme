@@ -399,7 +399,10 @@ class EditCard extends Component {
     }
 
     componentDidMount = () => {
-      modelInstance.getCardImage(this.state.cardId).then(card => {
+
+      modelInstance.setCardImage(this.state.cardId)
+
+      modelInstance.getCardImage().then(card => {
         this.setState({
           status: 'LOADED',
           url: card.src.portrait
