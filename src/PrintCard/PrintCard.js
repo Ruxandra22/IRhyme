@@ -156,7 +156,7 @@ class PrintCard extends Component {
                     <Button className="CreateBtn" variant="outline-info" onClick={this.printDocumentFront}>Print Front</Button>
                   </div>
                   <div className="saveCard">
-                      <Button onClick={this.addCard} variant="outline-info">Save Card</Button>
+                      <Button onClick={this.addCard} variant="outline-info">Save to Inspiration Board!</Button>
                   </div>
                   <div id="divToPrint1" className="" style={{
                     backgroundColor: '#f5f5f5',
