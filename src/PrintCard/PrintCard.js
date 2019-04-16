@@ -49,9 +49,9 @@ render() {
                           <div className="col-2">
                           </div>    
                           <div className="col-10 pl-5 pr-5 mr-5">
-                              <div dangerouslySetInnerHTML={{__html: this.props.poemGreeting}}></div>
-                              <div dangerouslySetInnerHTML={{__html: this.props.poemBody}}></div>
-                              <div dangerouslySetInnerHTML={{__html: this.props.poemSign}}></div>
+                              <div style={{color: poemGenerator.getPoemColor()}} dangerouslySetInnerHTML={{__html: this.props.poemGreeting}}></div>
+                              <div style={{color: poemGenerator.getPoemColor()}} dangerouslySetInnerHTML={{__html: this.props.poemBody}}></div>
+                              <div style={{color: poemGenerator.getPoemColor()}} dangerouslySetInnerHTML={{__html: this.props.poemSign}}></div>
                           </div>       
                       </div>   
                       <div className="col-2 pl-3 pr-3"></div>    
@@ -141,7 +141,7 @@ class PrintCard extends Component {
                         <Button className="p-3" onClick={this.addCard} variant="outline-info">Save to Inspiration Board!</Button>
                     </div>
                 </div>  
-
+                {console.log("Print View", poemGenerator.getPoemColor())}
                 <div className="row justify-content-center align-items-center">
                   <PrintFront url={this.state.cardImage} ref={el1 => (this.componentRef1 = el1)} />
                 </div>
