@@ -1,3 +1,11 @@
+.searchBar{
+    margin-left: 70px;
+    padding-top: 25px;
+    /* align-content: center; */
+    align-self: center;
+}
+
+
 .themePhoto {
     width: 309px;
     height: 470px;
@@ -25,3 +33,4 @@
     padding-top: 50px;
     padding-left: 100px;
 }
+
