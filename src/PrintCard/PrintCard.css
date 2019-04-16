@@ -1,11 +1,6 @@
 .PrintCard {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin: 40px;
-}
-
-.PrintCardText{
-  padding: 20px;
 }
 
 .OpenCard{

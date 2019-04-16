@@ -106,77 +106,45 @@ class PrintCard extends Component {
     };
 
 
-      printDocumentFront() {
-        const input1 = document.getElementById('divToPrint1');
-        html2canvas(input1)
-          .then((canvas) => {
-            const imgData1 = canvas.toDataURL('image/png');
-            const pdf1 = new jsPDF({
-              orientation: 'landscape',
-              unit: 'mm',
-              format: 'a5'
-            });
-            pdf1.addImage(imgData1, 'JPEG', 0, 0, 210, 148);
-            // pdf.output('dataurlnewwindow');
-            pdf1.save("download.pdf");
-          })
-        ;
-      }
-
-      printDocumentInside() {
-        const input2 = document.getElementById('divToPrint2');
-        html2canvas(input2)
-          .then((canvas) => {
-            const imgData2 = canvas.toDataURL('image/png');
-            const pdf2 = new jsPDF({
-              orientation: 'landscape',
-              unit: 'mm',
-              format: 'a5'
-            });
-            pdf2.addImage(imgData2, 'JPEG', 0, 0, 210, 148);
-            // pdf.output('dataurlnewwindow');
-            pdf2.save("download.pdf");
-          })
-        ;
-      }
-
-
     render() {
 
           console.log("Text: " + this.state.cardTxt);
         return(
-            <div className="PrintCard">
-                <div className="PrintCardText">
-                  <h2>Print your card on A4 paper!</h2> 
-                </div>
 
             <div class="container">
+                <div className="PrintCard">
+                  <div className="row justify-content-center align-items-center mb-3">
+                    <h2>Print your card on A4 paper!</h2> 
+                  </div>
+                <div className="row mb-3 align-items-end justify-content-end">   
+                  <div className="col-lg-10 col-md-12 col-sm-12">
+                    <ReactToPrint
+                      trigger={() => <Button className="p-3" variant="outline-info">Print card front!</Button>}
+                      content={() => this.componentRef1}
+                    />
+                  </div>
+                  <div>
+                    <div className="saveCard">
+                        <Button className="p-3" onClick={this.addCard} variant="outline-info">Save Card</Button>
+                    </div> 
+                  </div>  
+                </div>
 
                 <div className="row justify-content-center align-items-center">
                   <PrintFront url={this.state.cardImage} cardTxt={this.state.cardTxt} ref={el1 => (this.componentRef1 = el1)} />
                 </div>
-                <div className="row justify-content-center align-items-center">   
-                  <ReactToPrint
-                    trigger={() => <Button className="CreateBtn" variant="outline-info">Print card front!</Button>}
-                    content={() => this.componentRef1}
-                  />
-                </div>
 
-                <div className="row justify-content-center align-items-center">
-                  <PrintInside url={this.state.cardImage} cardTxt={this.state.cardTxt} ref={el2 => (this.componentRef2 = el2)} />
-                </div>
                 <div className="row justify-content-center align-items-center">  
                   <ReactToPrint
-                    trigger={() => <Button className="CreateBtn" variant="outline-info">Print card inside!</Button>}
+                    trigger={() => <Button className="mt-5 mb-3 p-3" variant="outline-info">Print card inside!</Button>}
                     content={() => this.componentRef2}
                   />
                 </div>
+                <div className="row justify-content-center align-items-center">
+                  <PrintInside url={this.state.cardImage} cardTxt={this.state.cardTxt} ref={el2 => (this.componentRef2 = el2)} />
+                </div>
 
             </div>  
-
-            <div className="saveCard">
-                      <Button onClick={this.addCard} variant="outline-info">Save Card</Button>
-            </div> 
                     
            </div>
 
