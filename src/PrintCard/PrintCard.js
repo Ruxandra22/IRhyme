@@ -27,7 +27,7 @@ class PrintCard extends Component {
   
       componentDidMount = () => {
 
-        modelInstance.getCardImage(this.props.match.params.id).then(card => {
+        modelInstance.getCardImage().then(card => {
             this.setState({
               status: 'LOADED',
               cardImage: card.src.portrait,

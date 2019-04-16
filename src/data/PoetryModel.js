@@ -30,15 +30,15 @@ class PoetryModel extends ObservableModel {
 
     //method to set the card image what the user wants to use
     //called when the user clicks on the card image in SelectCard view
-    setCardImage(cardImage){
-        this.cardImage = cardImage;
+    setCardImage(id){
+        const url = `${SELECTTHEME_BASE_URL}/photos/`+ id;
+        this.cardImage = fetch(url, httpOptions).then(this.processResponse);
     }
 
     //method to get the card image what the user wants to use
     //called from EditCard and PrintCard
-    getCardImage(id){
-        const url = `${SELECTTHEME_BASE_URL}/photos/`+ id;
-        return fetch(url, httpOptions).then(this.processResponse);
+    getCardImage(){
+        return  this.cardImage;
     }
 
     getPoetryTxt(){
