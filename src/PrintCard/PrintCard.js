@@ -56,6 +56,7 @@ render() {
 
 class PrintCard extends Component {
 
+
     constructor(props) {
         super(props);
         this.state = {
@@ -67,6 +68,8 @@ class PrintCard extends Component {
       }
   
       componentDidMount = () => {
+
+        modelInstance.setCardImage(this.state.cardId)
 
         modelInstance.getCardImage().then(card => {
             this.setState({
@@ -144,143 +147,37 @@ class PrintCard extends Component {
         return(
             <div className="PrintCard">
                 <div className="PrintCardText">
-                  <h2>Export in PDF and print your card!</h2> 
+                  <h2>Print your card on A4 paper!</h2> 
                 </div>
-
-          {/*
-            <Row>
-                <Col>
-                    <div style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')', backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
-                                <img className="figureImg" src={this.state.cardImage}/>
-                    </div>
-                </Col>
-                <Col>
-                  <div className="card">
-                      <div className="row no-gutters centered">
-                          <div className="col-xl-6 col-md-12 p-1">
-                            <figure className="figure">
-                              <img className="card-img-right" src={this.state.cardImage}/>
-                            </figure>
-                          </div>
-                          <div className="col-xl-5 col-md-11 mt-3 text">
-                              <strong className="mb-2 text-primary">Dear Friend</strong>
-                              <p></p> */}
-                              {/* <p> {poemGenerator.generatePharagraph()} </p>
-                              <p> {poemGenerator.generatePharagraph()} </p> */}
-                              {/* <p> {poemGenerator.generatePharagraph()} </p> */}
-                              {/* <p>
-                                 {this.state.poemText}
-                              </p> */}
-                              {/* <p>{poemGenerator.p1()}</p>
-                              <p>{poemGenerator.p2()}</p>
-                              <p>{poemGenerator.p3()}</p>
-                              <p>{poemGenerator.p4()}</p>
-                              
-                              <p>{poemGenerator.p1()}</p>
-                              <p>{poemGenerator.p2()}</p>
-                              <p>{poemGenerator.p2()}</p>
-                              <p>{poemGenerator.p4()}</p> */}
-
-                              {/* <p className="mx-auto align-self-center">{this.state.cardTxt}</p> */}
-                              {/* <strong className="mb-2 text-primary">Best Wishes</strong>
-                          </div>
-                      </div>
-                  </div>
-                </Col>
-             </Row>    */}
-             {/* <Row>
-               <p> {poemGenerator.printPoem()}</p>
-               <p> {poemGenerator.generatePoem()}</p>
-             </Row>   */}
-
-              <div>
-                  <div className="mb5">
-                    <Button className="CreateBtn" variant="outline-info" onClick={this.printDocumentFront}>Print Front</Button>
-                  </div>
-                  <div className="saveCard">
-                      <Button onClick={this.addCard} variant="outline-info">Save Card</Button>
-                  </div>
-                  <div id="divToPrint1" className="" style={{
-                    backgroundColor: '#f5f5f5',
-                    width: '210mm',
-                    minHeight: '148mm',
-                    marginLeft: 'auto',
-                    marginRight: 'auto'
-                  }}>
-                    <div>
-                        <img className="figureImg1"   src={this.state.cardImage}/>
-                    </div>
-                </div>
-
-              </div>
-
-              <div>
-                  <div className="mb5">
-                    <Button className="CreateBtn" variant="outline-info" onClick={this.printDocumentInside}>Print Inside</Button>
-                  </div>
-                  <div id="divToPrint2" className="" style={{
-                    backgroundColor: '#f5f5f5',
-                    width: '210mm',
-                    minHeight: '148mm',
-                    marginLeft: 'auto',
-                    marginRight: 'auto'
-                  }}>
-                    <div className = "row">
-                          <div className = "col-xl-6 col-md-12">
-                            <img className="figureImg2" src={img3} />
-                          </div>
-                          <div className="col-xl-6 col-md-12 mt-3 text">
-                                <strong className="mb-2 text-primary">Dear Friend</strong>
-
-                                <p>{poemGenerator.p1()}</p>
-                                <p>{poemGenerator.p2()}</p>
-                                <p>{poemGenerator.p3()}</p>
-                                <p>{poemGenerator.p4()}</p>
-
-                                <p>{poemGenerator.p1()}</p>
-                                <p>{poemGenerator.p2()}</p>
-                                <p>{poemGenerator.p2()}</p>
-                                <p>{poemGenerator.p4()}</p>
-
-                                <strong className="mb-2 text-primary">Best Wishes</strong>
-                            </div>
-                      </div>
-                </div>
-
-              </div>
-            {/*<Button onClick={this.addCard} variant="outline-info">Save Card</Button>*/}
-
 
             <div class="container">
-                  <div className="row justify-content-center align-items-center">
-                      <h2 >Print Card</h2> 
-                  </div>    
-                  <div className="row justify-content-center align-items-center">    
-                      <p>Use A5 size photo paper to print this card.</p>
-                  </div>
 
                 <div className="row justify-content-center align-items-center">
-                  <PrintFront url={this.state.url} cardTxt={this.state.cardTxt} ref={el1 => (this.componentRef1 = el1)} />
+                  <PrintFront url={this.state.cardImage} cardTxt={this.state.cardTxt} ref={el1 => (this.componentRef1 = el1)} />
                 </div>
                 <div className="row justify-content-center align-items-center">   
                   <ReactToPrint
-                    trigger={() => <button className="PrintBtn">Print card!</button>}
+                    trigger={() => <Button className="CreateBtn" variant="outline-info">Print card front!</Button>}
                     content={() => this.componentRef1}
                   />
                 </div>
 
                 <div className="row justify-content-center align-items-center">
-                  <PrintInside url={this.state.url} cardTxt={this.state.cardTxt} ref={el2 => (this.componentRef2 = el2)} />
+                  <PrintInside url={this.state.cardImage} cardTxt={this.state.cardTxt} ref={el2 => (this.componentRef2 = el2)} />
                 </div>
                 <div className="row justify-content-center align-items-center">  
                   <ReactToPrint
-                    trigger={() => <button className="PrintBtn">Print Inside!</button>}
+                    trigger={() => <Button className="CreateBtn" variant="outline-info">Print card inside!</Button>}
                     content={() => this.componentRef2}
                   />
                 </div>
 
-            </div>      
+            </div>  
 
+            <div className="saveCard">
+                      <Button onClick={this.addCard} variant="outline-info">Save Card</Button>
+            </div> 
+                    
            </div>
 
         );
