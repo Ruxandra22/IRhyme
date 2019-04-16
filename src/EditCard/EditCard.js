@@ -90,20 +90,45 @@ const html = new Html({ rules });
 
 class RichTextEditor extends Component {
 
-  state = {
-    // values of the different parts of the editor
-    value: html.deserialize('<p></p>'),
-    value2: html.deserialize('<p></p>'),
-    value3: html.deserialize('<p></p>'),
-    // html object of the text in the editor
-    htmlString: '<p></p>',
-    htmlString2: '<p></p>',
-    htmlString3: '<p></p>',
-    buttonPressed: false, 
-    active: 1, 
-    // color picker value
-    color: "#00aabb",
-    alignValue: "left",
+  constructor(props) {
+    super(props);
+
+    let htmlStr = localStorage.getItem('poemGreeting') ? localStorage.getItem('poemGreeting') : "<p></p>";
+    let htmlStr2 = localStorage.getItem('poemBody') ? localStorage.getItem('poemBody') : "<p></p>";
+    let htmlStr3 = localStorage.getItem('poemSignature') ? localStorage.getItem('poemSignature') : "<p></p>";
+    let butPressed = localStorage.getItem('poemBody') ? true : false;
+    
+    this.state = {
+      // values of the different parts of the editor
+      value: html.deserialize(htmlStr),
+      value2: html.deserialize(htmlStr2),
+      value3: html.deserialize(htmlStr3),
+      // html object of the text in the editor
+      htmlString: htmlStr,
+      htmlString2: htmlStr2,
+      htmlString3: htmlStr3,
+      buttonPressed: butPressed, 
+      active: 1, 
+      // color picker value
+      color: "#00aabb",
+      alignValue: "left",
+      windowHeight: 0,
+      windowWidth: 0
+    }
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ windowWidth: window.innerWidth, windowHeight: window.innerHeight });
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
   }
 
   //functions for the text editor
@@ -176,19 +201,19 @@ class RichTextEditor extends Component {
   }
   onChange = ({ value }) => {
     let htmlstring = html.serialize(value);
-    poemGenerator.setPoemGreeting(htmlstring);
-    this.setState({ value, htmlString: htmlstring });
     this.setActive(1);
+    localStorage.setItem('poemGreeting', htmlstring);
+    this.setState({ value, htmlString: htmlstring })
   }
   onChange2 = ({ value }) => {
     let htmlstring = html.serialize(value);
-    poemGenerator.setPoemBody(htmlstring);
+    localStorage.setItem('poemBody', htmlstring);
     this.setState({ value2: value, htmlString2: htmlstring });
     this.setActive(2);
   }
   onChange3 = ({ value }) => {
     let htmlstring = html.serialize(value);
-    poemGenerator.setPoemSignature(htmlstring);
+    localStorage.setItem('poemSignature', htmlstring);
     this.setState({ value3: value, htmlString3: htmlstring })
     this.setActive(3);
   }
@@ -285,15 +310,12 @@ class RichTextEditor extends Component {
                   <Icon>{'format_color_text'}</Icon>
                 </ButtonCustom>
               </ColorPicker>
-              <Button className="figure1_button" variant="outline-info" onClick={this.generatePoem}>
-                {/* {this.state.buttonPressed? "Regenerate AI poem": "Generate AI poem"} */}
-                {this.state.buttonPressed? "Generate AI poem": "Generate AI poem"} 
-              </Button>
             </Toolbar>
-            <div className="figure1 white">
-              <div className="figure1_child" style={{color: this.state.color}}>
+            <div className="figure1 white" >
+              <div className="figure1_child" style={(this.state.windowWidth <= 767 ? {color: this.state.color, overflow: "scroll", fontSize: "calc(4vw)"} : {color: this.state.color, overflow: "scroll"})}>
                 <Editor
                   className="pad_50"
+                  style= {(this.state.windowWidth <= 767) ? {paddingTop: "calc(10vw)"}: {paddingTop: "calc(3vw)"}}
                   spellCheck
                   autoFocus
                   placeholder="Insert greeting here"
@@ -306,6 +328,7 @@ class RichTextEditor extends Component {
                 />
                 <Editor
                   className="pad_50"
+                  style= {(this.state.windowWidth <= 767) ? {paddingTop: "calc(10vw)"}: {paddingTop: "calc(3vw)"}}
                   spellCheck
                   autoFocus
                   placeholder="Write a message or generate a poem"
@@ -318,6 +341,7 @@ class RichTextEditor extends Component {
                 />
                 <Editor
                   className="pad_50"
+                  style= {(this.state.windowWidth <= 767) ? {paddingTop: "calc(10vw)"}: {paddingTop: "calc(3vw)"}}
                   spellCheck
                   autoFocus
                   placeholder="Sign your name"
@@ -329,11 +353,14 @@ class RichTextEditor extends Component {
                   renderNode={this.renderNode}
                 />
               </div>
+              <Button className="figure1_button" variant="outline-info" onClick={this.generatePoem}>
+                {/* {this.state.buttonPressed? "Regenerate AI poem": "Generate AI poem"} */}
+                {this.state.buttonPressed? "Regenerate AI poem": "Generate AI poem"} 
+              </Button>
             </div>
       </React.Fragment>
     )
   }
-
   
 }
 
@@ -374,7 +401,7 @@ class EditCard extends Component {
                 <Col md={{span: 4, offset:2}}>
                   <ImageCard cardId={this.state.cardId}/>
                 </Col>
-                <Col md={4}>
+                <Col md={4} style={{textAlign: "left"}}>
                   <RichTextEditor />
                 </Col>
             </Row>
