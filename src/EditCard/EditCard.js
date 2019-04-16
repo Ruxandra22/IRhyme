@@ -97,6 +97,7 @@ class RichTextEditor extends Component {
     let htmlStr2 = localStorage.getItem('poemBody') ? localStorage.getItem('poemBody') : "<p></p>";
     let htmlStr3 = localStorage.getItem('poemSignature') ? localStorage.getItem('poemSignature') : "<p></p>";
     let butPressed = localStorage.getItem('poemBody') ? true : false;
+    let storedColor = localStorage.getItem('poemColor') ? localStorage.getItem('poemColor') : "#00aabb";
     
     this.state = {
       // values of the different parts of the editor
@@ -110,7 +111,7 @@ class RichTextEditor extends Component {
       buttonPressed: butPressed, 
       active: 1, 
       // color picker value
-      color: "#00aabb",
+      color: storedColor,
       alignValue: "left",
       windowHeight: 0,
       windowWidth: 0
@@ -170,8 +171,8 @@ class RichTextEditor extends Component {
     )
   }
   changeHandler = (colors) => {
-    this.setState({ color: colors.color })
-
+    this.setState({ color: colors.color });
+    localStorage.setItem('poemColor', colors.color);
   }
   renderMark = (props, editor, next) => {
     const { children, mark, attributes } = props
@@ -429,11 +430,12 @@ class EditCard extends Component {
         cardId : this.props.cardId,
         url: null
       };
+      modelInstance.setCardImage(this.state.cardId)
     }
 
     componentDidMount = () => {
 
-      modelInstance.setCardImage(this.state.cardId)
+      //modelInstance.setCardImage(this.state.cardId)
 
       modelInstance.getCardImage().then(card => {
         this.setState({

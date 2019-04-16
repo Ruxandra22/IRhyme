@@ -93,17 +93,14 @@ class Poem extends ObservableModel {
 
     setPoemGreeting(htmlString){
      this.poemGreeting = htmlString;
-     localStorage.setItem("poemGreeting", JSON.stringify(htmlString));
     }
 
     setPoemBody(htmlString){
       this.poemBody = htmlString;
-      localStorage.setItem("poemBody", JSON.stringify(htmlString));
     }
 
      setPoemSignature(htmlString){
        this.poemSignature = htmlString;
-       localStorage.setItem("poemSignature", JSON.stringify(htmlString));
      }
 
 

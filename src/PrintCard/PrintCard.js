@@ -37,6 +37,7 @@ class PrintInside extends Component {
 
 render() {
 
+    let cardBodyText = poemGenerator.getPoemBody();
     return(
         <div className="row">
                   <div className="row" style={{ backgroundImage: 'url(' + require('../images/A4.jpg') + ')', backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
@@ -51,7 +52,7 @@ render() {
                           <strong className="text-primary">{this.props.poemSign}</strong>
                       </div>       
                   </div>
-        </div>
+            </div>
 
     );
 }
@@ -127,18 +128,15 @@ class PrintCard extends Component {
                   <div className="row justify-content-center align-items-center mb-3">
                     <h2>Print your card on A4 paper!</h2> 
                   </div>
-                <div className="row mb-3 align-items-end justify-content-end">   
+                <div className="row mb-3 align-items-end justify-content-end">
                   <div className="col-lg-10 col-md-12 col-sm-12">
                     <ReactToPrint
                       trigger={() => <Button className="p-3" variant="outline-info">Print card front!</Button>}
                       content={() => this.componentRef1}
                     />
+                  <div className="saveCard">
+                      <Button onClick={this.addCard} variant="outline-info">Save to Inspiration Board!</Button>
                   </div>
-                  <div>
-                    <div className="saveCard">
-                        <Button className="p-3" onClick={this.addCard} variant="outline-info">Save Card</Button>
-                    </div> 
-                  </div>  
                 </div>
 
                 <div className="row justify-content-center align-items-center">
@@ -158,7 +156,7 @@ class PrintCard extends Component {
             </div>  
                     
            </div>
-
+            </div>
         );
     }
 
