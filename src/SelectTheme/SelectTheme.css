@@ -36,9 +36,9 @@
 
 .button_theme {
     position: absolute;
-    width: 160px;
-    height: 80px;
-    left:95px;
+    width: 130px;
+    height: 70px;
+    left:105px;
     top: 220px;
     text-align: center;
     opacity: 0;

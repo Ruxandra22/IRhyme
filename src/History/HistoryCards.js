@@ -76,7 +76,8 @@ class HistoryCards extends Component {
 
         return (
             <div className="HistoryCards">
-                <h2 className="historyText"> Recent created cards</h2>
+                <h2 className="historyText"> Inspiration Board</h2>
+                <h3 className="history_title"> Here you can see what others created!</h3>
                 <Row className="cards_row">
                     {pictures}
                 </Row>
