@@ -49,6 +49,22 @@
     padding: 40px;
 }
 
+  .figureImg11{
+    width:540px;  
+    margin-left:590px;
+  }
+
+  .figureImg12{
+    width:540px;  
+    opacity:0.2;
+  }
+
+  @media print{
+    @page {
+      size: landscape;
+    }
+  }
+
 /*.saveCard {*/
 /*    float: ;*/
 /*}*/
