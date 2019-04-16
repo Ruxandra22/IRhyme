@@ -11,9 +11,7 @@
     "immutable": "^4.0.0-rc.12",
     "jspdf": "^1.5.3",
     "rc-color-picker": "^1.2.6",
-    "react": "^16.8.1",
     "react-bootstrap": "^1.0.0-beta.5",
-    "react-dom": "^16.8.1",
     "react-emotion": "^10.0.0",
     "react-icons-kit": "^1.2.1",
     "react-lazy-load": "^3.0.13",
@@ -23,12 +21,21 @@
     "reactstrap": "^7.1.0",
     "slate": "^0.44.12",
     "slate-html-serializer": "^0.7.38",
-    "slate-react": "^0.21.18"
+    "slate-react": "^0.21.18",
+    "tether": "^1.4.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "bulma": "^0.7.4",
+    "parcel": "^1.12.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
