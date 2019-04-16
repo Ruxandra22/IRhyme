@@ -48,13 +48,13 @@ render() {
                       <div className="col-4 mt-5 ml-5">  
                           <div className="col-2">
                           </div>    
-                          <div className="col-10 pl-5 pr-5">
+                          <div className="col-10 pl-5 pr-5 mr-5">
                               <div dangerouslySetInnerHTML={{__html: this.props.poemGreeting}}></div>
                               <div dangerouslySetInnerHTML={{__html: this.props.poemBody}}></div>
                               <div dangerouslySetInnerHTML={{__html: this.props.poemSign}}></div>
                           </div>       
                       </div>   
-                      <div className="col-2"></div>    
+                      <div className="col-2 pl-3 pr-3"></div>    
                   </div>
             </div>
 
