@@ -98,6 +98,11 @@ class RichTextEditor extends Component {
     let htmlStr3 = localStorage.getItem('poemSignature') ? localStorage.getItem('poemSignature') : "<p></p>";
     let butPressed = localStorage.getItem('poemBody') ? true : false;
     let storedColor = localStorage.getItem('poemColor') ? localStorage.getItem('poemColor') : "#00aabb";
+
+    poemGenerator.setPoemColor(storedColor);
+    poemGenerator.setPoemGreeting(htmlStr);
+    poemGenerator.setPoemBody(htmlStr2);
+    poemGenerator.setPoemSignature(htmlStr3);
     
     this.state = {
       // values of the different parts of the editor
@@ -173,6 +178,7 @@ class RichTextEditor extends Component {
   changeHandler = (colors) => {
     this.setState({ color: colors.color });
     localStorage.setItem('poemColor', colors.color);
+    poemGenerator.setPoemColor(colors.color);
   }
   renderMark = (props, editor, next) => {
     const { children, mark, attributes } = props
