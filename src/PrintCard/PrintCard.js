@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import firebase from "../config/dbConfig";
 import img3 from '../images/Overlay.jpg';
 import ReactToPrint from "react-to-print";
+import Html from 'slate-html-serializer';
 
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
@@ -30,6 +31,8 @@ class PrintFront extends Component {
 
 }
 
+
+
 class PrintInside extends Component {  
 
 render() {
@@ -41,9 +44,11 @@ render() {
                               <img className="figureImg12" src={this.props.url}/>
                       </div>  
                       <div className="col-6 mt-5">      
-                          <strong className="text-primary">Dear Friend</strong>
-                              <p className="pr-5">{this.props.cardTxt}</p>
-                          <strong className="text-primary">Best Wishes</strong>
+                          <strong className="text-primary">{this.props.poemGreeting}</strong>
+                              <div dangerouslySetInnerHTML={{__html: this.props.poemGreeting}}></div>
+                              <div dangerouslySetInnerHTML={{__html: this.props.poemBody}}></div>
+                              <div dangerouslySetInnerHTML={{__html: this.props.poemSign}}></div>
+                          <strong className="text-primary">{this.props.poemSign}</strong>
                       </div>       
                   </div>
         </div>
@@ -59,11 +64,17 @@ class PrintCard extends Component {
 
     constructor(props) {
         super(props);
+        let htmlStr = localStorage.getItem('poemGreeting') ? localStorage.getItem('poemGreeting') : "<p></p>";
+        let htmlStr2 = localStorage.getItem('poemBody') ? localStorage.getItem('poemBody') : "<p></p>";
+        let htmlStr3 = localStorage.getItem('poemSignature') ? localStorage.getItem('poemSignature') : "<p></p>";
+
         this.state = {
           cardId : this.props.match.params.id,
           url: null,
           cardImage:"",
-          cardTxt:this.props.model.getPoetryTxt()
+          htmlString: htmlStr,
+          htmlString2: htmlStr2,
+          htmlString3: htmlStr3,
         };
       }
   
@@ -131,7 +142,7 @@ class PrintCard extends Component {
                 </div>
 
                 <div className="row justify-content-center align-items-center">
-                  <PrintFront url={this.state.cardImage} cardTxt={this.state.cardTxt} ref={el1 => (this.componentRef1 = el1)} />
+                  <PrintFront url={this.state.cardImage} ref={el1 => (this.componentRef1 = el1)} />
                 </div>
 
                 <div className="row justify-content-center align-items-center">  
@@ -141,7 +152,7 @@ class PrintCard extends Component {
                   />
                 </div>
                 <div className="row justify-content-center align-items-center">
-                  <PrintInside url={this.state.cardImage} cardTxt={this.state.cardTxt} ref={el2 => (this.componentRef2 = el2)} />
+                  <PrintInside url={this.state.cardImage}  poemGreeting={this.state.htmlString}  poemBody={this.state.htmlString2} poemSign={this.state.htmlString3} ref={el2 => (this.componentRef2 = el2)} />
                 </div>
 
             </div>  
