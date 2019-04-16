@@ -15,10 +15,9 @@ So far, we managed to:
 - implement all views.
 - used Pexels API ([Pexels API](https://www.pexels.com/api/)) to make the calls for receiving images needed for the SelectTheme and SelectCard views.
 - have a search function for the card themes.
-- have a text editor which displays generated AI poems, allowes font change between of regular, bold, and italic, as well as allows editing the text colour.
+- have a text editor which displays generated AI poems, allows font change between of regular, bold, and italic, as well as allows editing the text colour.
 - have a preview for the card where the card can be printed out or saved to a PDF.
 - have an option to save the card to our database as an inspiration for other users.
-
 
 
 ### What we plan to do
@@ -31,20 +30,21 @@ For the next steps in or project, we want to:
 
 ### Project file structure 
 
-Our project is divided in separate folders for each view (Welcome, SelectTheme, SelectCard, EditCard and PrintCard) and each of them has separate files for the javascript file and for the css one.
+Our project is divided in separate folders for each view (Welcome, SelectTheme, SelectCard, EditCard, PrintCard and InspirationBoard) and each of them has separate files for the javascript file and for the css one.
 
 - <b><i>Welcome</i></b>: contains the code for the first view, in which the user can see an example of a gift card and a button to preceed in order to edit a new card.
  - <b><i>SelectTheme</i></b>: separate pictures for different themes are shown. The themes can also be searched with the searchbar. The pictures are fetched using an API call and the data from it is retrieved in the componentDidMount() method and saved in the state, which is used in the render method to display all the pictures with a specific theme.
  - <b><i>SelectCard</i></b>: specific pictures with the selected theme are shown in this view. The pictures are fetched from the API and the pictures are displayed in the render method.
  - <b><i>EditCard</i></b>: contains the code for the text editor for the gift cards. The text can be edited to bold, italic and underlined. The text colour can also be changed. An AI poem can be generated and displayed. 
- - <b><i>PrintCard</i></b>: contains the code for the final version of the selected and edited card, seen in two possible views: closed card and open card. In this view the card can be printed out or saved as PDF. 
+ - <b><i>PrintCard</i></b>: contains the code for the final version of the selected and edited card, seen in two possible views: closed card and open card. In this view the card can be printed out and the user adjust the printing settings in a print popup. The users also have the option here to save their card to the inspiration board, so everyone can see what they created.
+ - <b><i>InspirationBoard</i></b>: contains the files for the board where all the saved cards are. The cards can be saved by anyone who accesses the website and clicks on the button "Save" in the PrintView. As database, we used Firestore and we save the card image and its content.
 
 Another folder is ''data'' and contains:
 
   - <b><i>PoetryModel.js</i></b>: takes care of the back-end and API calls.
-  - <b><i>ObservableModel</i></b>: used for the observable pattern.
   - <b><i>Poem</i></b>: this file is responsible for generating randomised AI poems. It generates an unique poem each time the "generate poem" button is clicked. Hence no two poems are ever the same. 
 
+In the folder config - contains the configuration for firebase, which was needed for saving the card into out database.
 Other files:
 
   - <b><i>App.js</i></b>: the file that coordinates what views are displayed.
