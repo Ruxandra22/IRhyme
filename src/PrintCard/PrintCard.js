@@ -138,7 +138,7 @@ class PrintCard extends Component {
                         />
                     </div>   
                     <div className="saveCard">
-                        <Button onClick={this.addCard} variant="outline-info">Save to Inspiration Board!</Button>
+                        <Button className="p-3" onClick={this.addCard} variant="outline-info">Save to Inspiration Board!</Button>
                     </div>
                 </div>  
 
