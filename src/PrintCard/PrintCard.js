@@ -9,10 +9,6 @@ import Button from "react-bootstrap/Button";
 import firebase from "../config/dbConfig";
 import img3 from '../images/Overlay.jpg';
 import ReactToPrint from "react-to-print";
-import Html from 'slate-html-serializer';
-
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
 
 
 class PrintFront extends Component {  
@@ -49,9 +45,9 @@ render() {
                           <div className="col-2">
                           </div>    
                           <div className="col-10 pl-5 pr-5 mr-5">
-                              <div style={{color: poemGenerator.getPoemColor()}} dangerouslySetInnerHTML={{__html: this.props.poemGreeting}}></div>
-                              <div style={{color: poemGenerator.getPoemColor()}} dangerouslySetInnerHTML={{__html: this.props.poemBody}}></div>
-                              <div style={{color: poemGenerator.getPoemColor()}} dangerouslySetInnerHTML={{__html: this.props.poemSign}}></div>
+                              <div style={{color: poemGenerator.getPoemColor(),textAlign: "left"}} dangerouslySetInnerHTML={{__html: this.props.poemGreeting}}></div>
+                              <div style={{color: poemGenerator.getPoemColor(), textAlign: "left"}} dangerouslySetInnerHTML={{__html: this.props.poemBody}}></div>
+                              <div style={{color: poemGenerator.getPoemColor(),textAlign: "left"}} dangerouslySetInnerHTML={{__html: this.props.poemSign}}></div>
                           </div>       
                       </div>   
                       <div className="col-2 pl-3 pr-3"></div>    
