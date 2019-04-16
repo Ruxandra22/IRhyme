@@ -98,6 +98,11 @@ class RichTextEditor extends Component {
     let htmlStr3 = localStorage.getItem('poemSignature') ? localStorage.getItem('poemSignature') : "<p></p>";
     let butPressed = localStorage.getItem('poemBody') ? true : false;
     let storedColor = localStorage.getItem('poemColor') ? localStorage.getItem('poemColor') : "#00aabb";
+
+    poemGenerator.setPoemColor(storedColor);
+    poemGenerator.setPoemGreeting(htmlStr);
+    poemGenerator.setPoemBody(htmlStr2);
+    poemGenerator.setPoemSignature(htmlStr3);
     
     this.state = {
       // values of the different parts of the editor
@@ -173,6 +178,7 @@ class RichTextEditor extends Component {
   changeHandler = (colors) => {
     this.setState({ color: colors.color });
     localStorage.setItem('poemColor', colors.color);
+    poemGenerator.setPoemColor(colors.color);
   }
   renderMark = (props, editor, next) => {
     const { children, mark, attributes } = props
@@ -302,7 +308,7 @@ class RichTextEditor extends Component {
 
     return (
       <React.Fragment>
-
+         <Col>
           <Toolbar clasName="white">
               {this.renderMarkButton('bold', 'format_bold')}
               {this.renderMarkButton('italic', 'format_italic')}
@@ -360,12 +366,17 @@ class RichTextEditor extends Component {
                   renderNode={this.renderNode}
                 />
               </div>
-              <Button className="figure1_button" variant="outline-info" onClick={this.generatePoem}>
-                {/* {this.state.buttonPressed? "Regenerate AI poem": "Generate AI poem"} */}
-                {this.state.buttonPressed? "Regenerate AI poem": "Generate AI poem"} 
-              </Button>
             </div>
+            </Col>
+            <Col>
+                  <Button className="figure1_button" variant="outline-info" onClick={this.generatePoem}>
+                
+                      {this.state.buttonPressed? "Generate AI poem": "Generate AI poem"} 
+                  </Button>
+
+          </Col>
       </React.Fragment>
+      
     )
   }
   
@@ -411,12 +422,17 @@ class EditCard extends Component {
                 <Col md={4} style={{textAlign: "left"}}>
                   <RichTextEditor />
                 </Col>
+                <Col>
+                    <Link to={{pathname: '/PrintCard/' + this.state.cardId}}>
+                      <Button className="CreateBtn" variant="outline-info">Preview Card</Button>
+                    </Link>
+                </Col>
             </Row>
-            <Row noGutters={false} className="pad_10" align="center">
+            {/* <Row noGutters={false} className="pad_10" align="center">
                 <Link to={{pathname: '/PrintCard/' + this.state.cardId}}>
                   <Button className="CreateBtn" variant="outline-info">Preview Card</Button>
                 </Link>
-            </Row>
+            </Row> */}
           {/* </Container> */}
         </div>
       );

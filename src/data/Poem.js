@@ -103,6 +103,10 @@ class Poem extends ObservableModel {
        this.poemSignature = htmlString;
      }
 
+     setPoemColor(string) {
+       this.poemColor = string;
+     }
+
 
 
     getPoemGreeting(htmlString){
@@ -113,9 +117,13 @@ class Poem extends ObservableModel {
        return this.poemBody ;
      }
  
-      getPoemSignature(htmlString){
-        return this.poemSignature;
-      }
+    getPoemSignature(htmlString){
+      return this.poemSignature;
+    }
+
+    getPoemColor(string) {
+      return this.poemColor;
+    }
 
 
     // generatePharagraph(){  
