@@ -19,7 +19,6 @@ class PoetryModel extends ObservableModel {
         this.cardImage;
         this.urlThemePhotosList = [];
         this.poemText = 'I wandered lonely as a cloud. That floats on high o’er vales and hills. When all at once I saw a crowd. A host, of golden daffodils. Beside the lake, beneath the trees,Fluttering and dancing in the breeze.';
-
     }
 
     //method to get cards according to the selected theme
@@ -53,16 +52,6 @@ class PoetryModel extends ObservableModel {
         const url = `${SELECTTHEME_BASE_URL}/search?query=` + theme + `&per_page=1&page=1`;
         return fetch(url, httpOptions).then(this.processResponse);
     }
-
-    //FETCHING WORDS FROM EXTERNAL API FOR THE POEM - NOT WORKING ATM
-    // getWord(wordTheme){
-    //     var request = new Request(`${WORD_BASE_URL}topics=` + wordTheme, {
-    //     method: 'GET'
-    //    // mode: "no-cors"
-    //    });
-    //    // const url = `${WORD_BASE_URL}topics=` + wordTheme;
-    //     return fetch(request).then(this.processResponse);
-    // }
 
     processResponse(response) {
         if (response.ok) {
