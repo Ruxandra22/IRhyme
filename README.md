@@ -42,8 +42,8 @@ Our project is divided in separate folders for each view (Welcome, SelectTheme, 
 Another folder is ''data'' and contains:
 
   - <b><i>PoetryModel.js</i></b>: takes care of the back-end and API calls.
-  - <b><i>ObservableModel:</i></b>: used for the observable pattern.
-  - <b><i>Poem:</i></b>: this file is responsible for generating randomised AI poems. It generates an unique poem each time the "generate poem" button is clicked. Hence no two poems are ever the same. 
+  - <b><i>ObservableModel</i></b>: used for the observable pattern.
+  - <b><i>Poem</i></b>: this file is responsible for generating randomised AI poems. It generates an unique poem each time the "generate poem" button is clicked. Hence no two poems are ever the same. 
 
 Other files:
 
