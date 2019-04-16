@@ -44,15 +44,19 @@ render() {
                       <div className="col-6">       
                               <img className="figureImg12" src={this.props.url}/>
                       </div>  
-                      <div className="col-6 mt-5">      
-                          <strong className="text-primary">{this.props.poemGreeting}</strong>
+                      <div className="col-6 mt-5">  
+                          <div className="col-3">
+                          </div>    
+                          <div className="col-6 p-5">
                               <div dangerouslySetInnerHTML={{__html: this.props.poemGreeting}}></div>
                               <div dangerouslySetInnerHTML={{__html: this.props.poemBody}}></div>
                               <div dangerouslySetInnerHTML={{__html: this.props.poemSign}}></div>
-                          <strong className="text-primary">{this.props.poemSign}</strong>
+                          </div>     
+                          <div className="col-3"></div>     
                       </div>       
                   </div>
             </div>
+
 
     );
 }
@@ -65,17 +69,14 @@ class PrintCard extends Component {
 
     constructor(props) {
         super(props);
-        let htmlStr = localStorage.getItem('poemGreeting') ? localStorage.getItem('poemGreeting') : "<p></p>";
-        let htmlStr2 = localStorage.getItem('poemBody') ? localStorage.getItem('poemBody') : "<p></p>";
-        let htmlStr3 = localStorage.getItem('poemSignature') ? localStorage.getItem('poemSignature') : "<p></p>";
 
         this.state = {
           cardId : this.props.match.params.id,
           url: null,
           cardImage:"",
-          htmlString: htmlStr,
-          htmlString2: htmlStr2,
-          htmlString3: htmlStr3,
+          htmlString: poemGenerator.getPoemGreeting(),
+          htmlString2: poemGenerator.getPoemBody(),
+          htmlString3: poemGenerator.getPoemSignature(),
         };
       }
   
