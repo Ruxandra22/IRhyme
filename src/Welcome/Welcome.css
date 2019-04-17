@@ -10,16 +10,6 @@
     margin-top: 20px;
 }
 
-.CreateBtn{
-    margin: 15px 5px 15px 5px;
-    padding: 15px 20px 15px 20px;
-    font-size: 16px; 
-    color: white;
-    background-color: #6698cb;
-    border-radius: 4px;
-    border-color: white;
-}
-
 .OpenCardWelcome{
     margin-top:20px;
  }
@@ -28,10 +18,4 @@
     width: 280px;
     margin-left: -150px;
     margin-right: -75px;
-}
-
-.ClosedCard{
-   height: 400px;
-   margin:20px;
-   padding: 20px
 }
