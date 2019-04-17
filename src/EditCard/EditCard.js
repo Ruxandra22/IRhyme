@@ -389,7 +389,6 @@ class EditCard extends Component {
     }
 
     render() {
-      console.log(this.state.cardId);
       return (
         <div className="PrintCard">
           <Row>

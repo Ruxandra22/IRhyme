@@ -50,7 +50,6 @@ class InspirationBoard extends Component {
     render() {
 
         let pictures;
-        console.log(this.state.cardId);
         if(this.state.cardsList != null) {
             pictures = Array.from(this.state.cardsList).map((card) =>
                     <div className="background_card" style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')',

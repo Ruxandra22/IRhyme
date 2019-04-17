@@ -12,8 +12,6 @@ class PoetryModel {
     
     constructor() {
         this.cardImage;
-        this.urlThemePhotosList = [];
-        this.poemText = 'I wandered lonely as a cloud. That floats on high o’er vales and hills. When all at once I saw a crowd. A host, of golden daffodils. Beside the lake, beneath the trees,Fluttering and dancing in the breeze.';
     }
 
     //method to get cards according to the selected theme
@@ -36,7 +34,6 @@ class PoetryModel {
     }
 
     getThemePhoto(theme) {
-        console.log("call");
         const url = `${SELECTTHEME_BASE_URL}/search?query=` + theme + `&per_page=1&page=1`;
         return fetch(url, httpOptions).then(this.processResponse);
     }
