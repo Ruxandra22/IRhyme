@@ -400,6 +400,12 @@ class EditCard extends Component {
                   <RichTextEditor />
                 </Col>
                 <Col>
+                    <div className="tooltip_inspiration">
+                      <Link to="/inspirationBoard">
+                        <Button className="inspiration_board" variant="outline-info">Inspiration Board</Button>
+                      </Link>
+                      <span className="tooltiptext">Don't know what to write? Look here!</span>
+                    </div>
                     <Link to={{pathname: '/PrintCard/' + this.state.cardId}}>
                       <Button className="CreateBtn" variant="outline-info">Preview Card</Button>
                     </Link>
@@ -440,9 +446,6 @@ class EditCard extends Component {
         <div>
           <React.Fragment>
             <div className="high"></div><div className="figure1 image_bcg" style={{backgroundImage : `url(${this.state.url})`}}>
-              <div className="figure1_child">
-                
-              </div>
             </div>
           </React.Fragment>
         </div>

@@ -75,7 +75,7 @@ class InspirationBoard extends Component {
         return (
             <div className="HistoryCards">
                 <h2 className="historyText"> Inspiration Board</h2>
-                <h3 className="history_title"> Here you can see what others created!</h3>
+                <h3 className="history_title"> Here you can see what others have created!</h3>
                 <Row className="cards_row">
                     {pictures}
                 </Row>

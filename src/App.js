@@ -26,9 +26,9 @@ class App extends Component {
                       <img src={logoImg} width={110} className="logo d-inline-block align-top" alt=""/>
                   </Link>
               </a>
-              <Link to="/history">
-                  <div className="inspiration_board">Inspiration Board</div>
-              </Link>
+              {/*<Link to="/history">*/}
+              {/*    <div className="inspiration_board">Inspiration Board</div>*/}
+              {/*</Link>*/}
           </nav>
           <Route exact path="/" component={Welcome} />
           <Route
@@ -43,7 +43,7 @@ class App extends Component {
           />
           <Route path="/PrintCard/:id" render={(props) => <PrintCard {...props} model={modelInstance}/>}/>
 
-          <Route exact path="/history" component={InspirationBoard} />
+          <Route exact path="/inspirationBoard" component={InspirationBoard} />
       </div>
     );
   }
