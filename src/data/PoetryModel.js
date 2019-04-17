@@ -1,8 +1,7 @@
-import ObservableModel from "./ObservableModel";
 import API_KEY_PHOTOS from "./ApiKey";
 
 const SELECTTHEME_BASE_URL= "https://api.pexels.com/v1";
-const SELECTCARD_BASE_URL = "https://api.pexels.com/v1/search?per_page=10&page=1";
+const SELECTCARD_BASE_URL = "https://api.pexels.com/v1/search?per_page=30&page=1";
 const WORD_BASE_URL = "https://api.datamuse.com/words?";
 const httpOptions = {
     headers: { "Authorization": API_KEY_PHOTOS}
@@ -11,11 +10,11 @@ const httpOptions2 = {
     headers: { "Authorization": null}
 };
 
-class PoetryModel extends ObservableModel {
-    themes = ["birthday", "wedding", "love", "travel", "mother's Day", "christmas"];
+class PoetryModel {
+    //, "new home", "friendship", "easter"
+    themes = ["birthday", "wedding", "love", "travel", "easter", "christmas", "new home", "newborn"];
     
     constructor() {
-        super();
         this.cardImage;
         this.urlThemePhotosList = [];
         this.poemText = 'I wandered lonely as a cloud. That floats on high o’er vales and hills. When all at once I saw a crowd. A host, of golden daffodils. Beside the lake, beneath the trees,Fluttering and dancing in the breeze.';
@@ -50,6 +49,7 @@ class PoetryModel extends ObservableModel {
     }
 
     getThemePhoto(theme) {
+        console.log("call");
         const url = `${SELECTTHEME_BASE_URL}/search?query=` + theme + `&per_page=1&page=1`;
         return fetch(url, httpOptions).then(this.processResponse);
     }

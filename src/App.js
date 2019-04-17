@@ -8,7 +8,7 @@ import EditCard from "./EditCard/EditCard";
 import PrintCard from "./PrintCard/PrintCard";
 import "./App.css";
 import logoImg from "./images/logo.png"
-import HistoryCards from "./History/HistoryCards";
+import InspirationBoard from "./InspirationBoard/InspirationBoard";
 
 class App extends Component {
     constructor(props) {
@@ -43,7 +43,7 @@ class App extends Component {
           />
           <Route path="/PrintCard/:id" render={(props) => <PrintCard {...props} model={modelInstance}/>}/>
 
-          <Route exact path="/history" component={HistoryCards} />
+          <Route exact path="/history" component={InspirationBoard} />
       </div>
     );
   }

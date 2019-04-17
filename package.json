@@ -1,5 +1,5 @@
 {
-  "name": "dinnerplanner-html-react",
+  "name": "IRhyme",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,6 +11,7 @@
     "html2canvas": "^1.0.0-rc.1",
     "immutable": "^4.0.0-rc.12",
     "jspdf": "^1.5.3",
+    "mdbreact": "^4.13.0",
     "rc-color-picker": "^1.2.6",
     "react-bootstrap": "^1.0.0-beta.5",
     "react-emotion": "^10.0.0",

@@ -205,23 +205,20 @@ class RichTextEditor extends Component {
     this.setActive(1);
     localStorage.setItem('poemGreeting', htmlstring);
     poemGenerator.setPoemGreeting(htmlstring);
-    console.log("test get poem methods ", poemGenerator.getPoemGreeting());
-    this.setState({ value, htmlString: htmlstring })
+    this.setState({ value, poemGreeting: htmlstring })
   }
   onChange2 = ({ value }) => {
     let htmlstring = html.serialize(value);
     localStorage.setItem('poemBody', htmlstring);
     poemGenerator.setPoemBody(htmlstring);
-    console.log("test get poem methods ", poemGenerator.getPoemBody());
-    this.setState({ value2: value, htmlString2: htmlstring });
+    this.setState({ value2: value, poemBody: htmlstring });
     this.setActive(2);
   }
   onChange3 = ({ value }) => {
     let htmlstring = html.serialize(value);
     localStorage.setItem('poemSignature', htmlstring);
     poemGenerator.setPoemSignature(htmlstring);
-    console.log("test get poem methods ", poemGenerator.getPoemSignature());
-    this.setState({ value3: value, htmlString3: htmlstring })
+    this.setState({ value3: value, poemSignature: htmlstring })
     this.setActive(3);
   }
 
@@ -291,11 +288,11 @@ class RichTextEditor extends Component {
 
     this.setState({
       value2: val,
-      htmlString2: htmlStringFinal,
+      poemBody: htmlStringFinal,
       buttonPressed: true,
       active: 2,
     });
-    console.log(this.state.htmlString2);
+    console.log(this.state.poemBody);
   }
 
   render() {

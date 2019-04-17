@@ -5,10 +5,8 @@ import "../App.css"
 import img2 from '../images/OpenCard.jpg';
 import img3 from '../images/Overlay.jpg';
 import 'bootstrap/dist/css/bootstrap.css' ;
-import{Row, Col} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import Button from "react-bootstrap/Button";
-import {Toolbar} from "../EditCard/Comps";
 
 class Welcome extends Component {
 
