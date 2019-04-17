@@ -388,12 +388,14 @@ class EditCard extends Component {
         cardId: this.props.match.params.id
      });
     }
-  
+
     render() {
+      console.log("here");
+      console.log(poemGenerator.getPoemGreeting());
       return (
         <div className="PrintCard">
             <Row noGutters={false} className="pad_10">
-                <Col md={{span: 4, offset:2}}>
+                <Col md={{span: 4, offset:1}}>
                   <ImageCard cardId={this.state.cardId}/>
                 </Col>
                 <Col md={4} style={{textAlign: "left"}}>

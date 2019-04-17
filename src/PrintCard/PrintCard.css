@@ -60,7 +60,14 @@
     }
   }
 
-/*.saveCard {*/
-/*    float: ;*/
-/*}*/
+.popup_save {
+    text-align: center;
+    /*padding-bottom: 30px;*/
+    color: #138496;
+    font-style: italic;
+}
+
+.new_card {
+    margin-left: 20px;
+}
 

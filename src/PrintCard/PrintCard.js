@@ -4,10 +4,8 @@ import "./PrintCard.css";
 import { modelInstance } from '../data/PoetryModel';
 import { poemGenerator } from '../data/Poem';
 import 'bootstrap/dist/css/bootstrap.css' ;
-import{Row, Col} from 'reactstrap';
 import Button from "react-bootstrap/Button";
 import firebase from "../config/dbConfig";
-import img3 from '../images/Overlay.jpg';
 import ReactToPrint from "react-to-print";
 
 
@@ -86,18 +84,6 @@ class PrintCard extends Component {
                 status: 'ERROR',
             })
         })
-
-        // poemGenerator.getWords("love").then(word => {
-        //   this.setState({
-        //     status: 'LOADED',
-        //     poemText: word.word,
-        //   })
-        // }).catch(() => {
-        //   this.setState({
-        //     status: 'ERROR',
-        //   })
-        // })
-
     }
 
 
@@ -114,9 +100,7 @@ class PrintCard extends Component {
 
     render() {
 
-        console.log("Text: " + this.state.cardTxt);
         return(
-
             <div class="container">
                 <div className="PrintCard">
                     <div className="row justify-content-center align-items-center mb-3">
@@ -129,11 +113,11 @@ class PrintCard extends Component {
                               content={() => this.componentRef1}
                             />
                         </div>
-                        <div className="saveCard">
-                            <Button className="p-3" onClick={this.addCard} variant="outline-info">Save to Inspiration Board!</Button>
-                        </div>
+                        <Button className="saveCard p-3" onClick={this.addCard} variant="outline-info">Save to Inspiration Board!</Button>
+                        <Link to="/SelectTheme">
+                            <Button className="new_card p-3" variant="outline-info">Create a new card!</Button>
+                        </Link>
                     </div>
-                    {console.log("Print View", poemGenerator.getPoemColor())}
                     <div className="row justify-content-center align-items-center">
                       <PrintFront url={this.state.cardImage} ref={el1 => (this.componentRef1 = el1)} />
                     </div>
