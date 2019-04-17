@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./HistoryCards.css";
+import "./InspirationBoard.css";
 import 'bootstrap/dist/css/bootstrap.css' ;
 import 'bootstrap/dist/css/bootstrap.css';
 import firebase from "../config/dbConfig";
@@ -10,7 +10,7 @@ import img3 from "../images/Overlay.jpg";
 import {poemGenerator} from "../data/Poem";
 import Button from "react-bootstrap/Button";
 
-class HistoryCards extends Component {
+class InspirationBoard extends Component {
 
     constructor(props) {
         super(props);
@@ -63,9 +63,7 @@ class HistoryCards extends Component {
                                         <img className="figureImg2" src={card.picture} />
                                     </div>
                                     <div className="col-xl-6 col-md-12 mt-3 text">
-                                        <p>{card.cardText}</p>
-                                        <p>The text</p>
-                                        <p>Poem Signature</p>
+                                        <div dangerouslySetInnerHTML={{__html: card.cardText}}></div>
                                     </div>
                                 </div>
                             </span>
@@ -86,4 +84,4 @@ class HistoryCards extends Component {
     }
 }
 
-export default HistoryCards;
+export default InspirationBoard;

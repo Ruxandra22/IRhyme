@@ -1,9 +1,7 @@
-import ObservableModel from "./ObservableModel";
-
-class Poem extends ObservableModel {
+//const WORDS_BASE_URL= "api.datamuse.com/words?";
+class Poem {
 
     constructor() {
-        super();
         //vocabulary of the poem generator
         this.verbs = ["feel ", "love ", "embrace " , "wish ", "swim ", "jump ", "smile " , "live " , "be " , "being " , "wishing " , "hoping " , "caring "];
         this.adverbs = ["softly ", "gently ", "joyfully " , "happily ", "gracefully "];

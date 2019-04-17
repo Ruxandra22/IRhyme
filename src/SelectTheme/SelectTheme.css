@@ -1,18 +1,7 @@
-.searchBar{
-    margin-left: 70px;
-    padding-top: 25px;
-    /* align-content: center; */
-    align-self: center;
-}
-
-
 .themePhoto {
     width: 309px;
     height: 470px;
     overflow: hidden;
-    /*margin-left: 50px;*/
-    /*padding-top: 25px;*/
-    /*padding-right: 30px;*/
 }
 
 .theme_details {
@@ -31,7 +20,7 @@
 
 .row_theme {
     padding-top: 50px;
-    padding-left: 100px;
+    padding-left: 80px;
 }
 
 .button_theme {
@@ -52,4 +41,15 @@
 
 .theme_details {
     position: relative;
+}
+
+.no_themes_found {
+    padding: 0 0 30px 500px;
+    text-align: center;
+    color: #138496;
+    font-style: italic;
+}
+
+.searchBar{
+    padding: 50px 0 0 480px;
 }
