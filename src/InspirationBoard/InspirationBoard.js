@@ -61,10 +61,10 @@ class InspirationBoard extends Component {
                             closeOnDocumentClick>
                             <span>
                                 <div className = "row">
-                                    <div className = "col-xl-6 col-md-12">
+                                    <div className = "col-xl-6 col-md-6">
                                         <img className="figureImg2" src={card.picture} />
                                     </div>
-                                    <div className="col-xl-6 col-md-12 mt-3 text">
+                                    <div className="col-xl-6 col-md-9 mt-3 text">
                                         <div dangerouslySetInnerHTML={{__html: card.cardText}}></div>
                                     </div>
                                 </div>
