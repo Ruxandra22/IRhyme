@@ -401,10 +401,10 @@ class EditCard extends Component {
                 </Col>
                 <Col>
                     <div className="tooltip_inspiration">
-                      <Link to="/inspirationBoard">
+                      <Link to={{pathname: '/inspirationBoard/' + this.state.cardId}}>
                         <Button className="inspiration_board" variant="outline-info">Inspiration Board</Button>
                       </Link>
-                      <span className="tooltiptext">Don't know what to write? Look here!</span>
+                      <span className="tooltip_text">Don't know what to write? Look here!</span>
                     </div>
                     <Link to={{pathname: '/PrintCard/' + this.state.cardId}}>
                       <Button className="CreateBtn" variant="outline-info">Preview Card</Button>

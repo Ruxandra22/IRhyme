@@ -1,6 +1,6 @@
 .historyText {
     text-align: center;
-    padding: 30px 0 40px 0;
+    margin: 80px 0 30px 0;
     font-style: italic;
 }
 
@@ -29,4 +29,10 @@
     padding-bottom: 30px;
     color: #138496;
     font-style: italic;
+}
+
+.back_button {
+    position: absolute;
+    top: 20%;
+    left: 6.2%;
 }

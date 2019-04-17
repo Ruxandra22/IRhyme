@@ -79,7 +79,7 @@ body {
     position: relative;
 }
 
-.tooltip_inspiration .tooltiptext {
+.tooltip_inspiration .tooltip_text {
     visibility: hidden;
     width: 200px;
     background-color: #474e54;
@@ -96,7 +96,7 @@ body {
     transition: opacity 0.3s;
 }
 
-.tooltip_inspiration .tooltiptext::after {
+.tooltip_inspiration .tooltip_text::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -107,7 +107,7 @@ body {
     border-color: #555 transparent transparent transparent;
 }
 
-.tooltip_inspiration:hover .tooltiptext {
+.tooltip_inspiration:hover .tooltip_text {
     visibility: visible;
     opacity: 1;
 }

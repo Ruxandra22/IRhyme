@@ -10,6 +10,7 @@ import "./App.css";
 import logoImg from "./images/logo.png"
 import InspirationBoard from "./InspirationBoard/InspirationBoard";
 
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -42,8 +43,7 @@ class App extends Component {
               render={(props) => <EditCard {...props} model={modelInstance} />}
           />
           <Route path="/PrintCard/:id" render={(props) => <PrintCard {...props} model={modelInstance}/>}/>
-
-          <Route exact path="/inspirationBoard" component={InspirationBoard} />
+          <Route path="/inspirationBoard/:id" render={(props) => <InspirationBoard {...props} model={modelInstance}/>}/>
       </div>
     );
   }
