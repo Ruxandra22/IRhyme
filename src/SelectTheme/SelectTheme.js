@@ -51,7 +51,7 @@ class SelectTheme extends Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-        filtered: nextProps.items
+            filtered: nextProps.items
         });
     }
 

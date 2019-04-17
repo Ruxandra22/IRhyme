@@ -23,9 +23,16 @@
 }
 
 .cards_row {
-    padding-left: 100px;
+    padding: 50px 0 0 100px;
 }
 
 .title_select_card {
+    padding-top: 20px;
     text-align: center;
+}
+
+.go_back_themes {
+    position: absolute;
+    top: 20%;
+    left: 7%;
 }

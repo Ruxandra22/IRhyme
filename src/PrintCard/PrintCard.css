@@ -3,25 +3,24 @@
     text-align: center;
 }
 
-  .figureImg11{
-    width:540px;  
+.figureImg11{
+    width:540px;
     margin-left:590px;
-  }
+}
 
-  .figureImg12{
-    width:540px;  
+.figureImg12{
+    width:540px;
     opacity:0.2;
-  }
+}
 
-  @media print{
+@media print{
     @page {
       size: landscape;
     }
-  }
+}
 
-  .popup_save {
+.popup_save {
     text-align: center;
-    /*padding-bottom: 30px;*/
     color: #138496;
     font-style: italic;
 }
@@ -37,10 +36,15 @@
     border-radius: 4px;
     color: black;
     background-color: #dff0d8;
-    /*border-color: #d6e9c6;*/
     display: none;
 }
 
 .save_card {
     padding-left: 150px;
+}
+
+.go_back_editor {
+    position: absolute;
+    top: -1%;
+    left: -10%;
 }

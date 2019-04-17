@@ -6,6 +6,7 @@ import {Row} from "reactstrap";
 import Popup from 'reactjs-popup'
 import Button from "react-bootstrap/Button";
 import Link from "react-router-dom/es/Link";
+import {poemGenerator} from "../data/Poem";
 
 
 class InspirationBoard extends Component {
@@ -13,16 +14,15 @@ class InspirationBoard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            historyData:"",
             cardsList: [],
-            open: false
         }
     }
 
     componentWillMount() {
 
         this.setState({
-            cardId: this.props.match.params.id
+            cardId: this.props.match.params.id.split("&")[1],
+            cardTheme: this.props.match.params.id.split("&")[0]
         });
 
         const db = firebase.firestore();
@@ -50,6 +50,7 @@ class InspirationBoard extends Component {
     render() {
 
         let pictures;
+        console.log(this.state.cardId);
         if(this.state.cardsList != null) {
             pictures = Array.from(this.state.cardsList).map((card) =>
                     <div className="background_card" style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')',
@@ -65,7 +66,8 @@ class InspirationBoard extends Component {
                                         <img className="figureImg2" src={card.picture} />
                                     </div>
                                     <div className="col-xl-6 col-md-9 mt-3 text">
-                                        <div dangerouslySetInnerHTML={{__html: card.cardText}}></div>
+                                        <div style={{color: poemGenerator.getPoemColor(),textAlign: "left"}}
+                                             dangerouslySetInnerHTML={{__html: card.cardText}}></div>
                                     </div>
                                 </div>
                             </span>
@@ -77,7 +79,7 @@ class InspirationBoard extends Component {
         return (
             <div className="HistoryCards">
                 <Row>
-                    <Link to={{pathname: '/EditCard/' + this.state.cardId}}>
+                    <Link to={{pathname: '/EditCard/' + this.state.cardTheme + "&" + this.state.cardId}}>
                         <Button className="back_button" variant="outline-info">Go back to edit the card</Button>
                     </Link>
                 </Row>

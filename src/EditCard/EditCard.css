@@ -45,7 +45,6 @@ body {
     align-items: center;
 }
 .figure1_button {
-    /* position: absolute; */
     bottom: 5px;
     right: 5px;
     align-content: center;
@@ -72,6 +71,12 @@ body {
 
 .inspiration_board {
     margin-top: 50px;
+}
+
+.go_back_pictures {
+    position: absolute;
+    top: 15%;
+    left: 11.3%;
 }
 
 /* The tooltip for the inspiration board button*/

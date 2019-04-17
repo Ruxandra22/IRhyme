@@ -5,7 +5,6 @@ import { poemGenerator } from '../data/Poem';
 import "./EditCard.css";
 
 // imports for Bootstrap
-import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
@@ -18,10 +17,8 @@ import { isKeyHotkey } from 'is-hotkey'
 import { ButtonCustom, Icon, Toolbar } from './Comps';
 import 'rc-color-picker/assets/index.css';
 import ColorPicker from 'rc-color-picker';
-import { set } from "immutable";
 
 // constants for text editor initialization 
-const DEFAULT_NODE = 'paragraph';
 const isBoldHotkey = isKeyHotkey('mod+b');
 const isItalicHotkey = isKeyHotkey('mod+i');
 const isUnderlinedHotkey = isKeyHotkey('mod+u');
@@ -378,23 +375,29 @@ class EditCard extends Component {
       super(props);
       this.state = {
         status: 'INITIAL',
-        cardId: this.props.match.params.id,
+        cardId: this.props.match.params.id.split("&")[1],
+        cardTheme: this.props.match.params.id.split("&")[0]
       };
     }
 
     componentDidMount = () => {
       this.setState({
         status: 'LOADED',
-        cardId: this.props.match.params.id
+        cardId: this.props.match.params.id.split("&")[1],
+        cardTheme: this.props.match.params.id.split("&")[0]
      });
     }
 
     render() {
-      console.log("here");
-      console.log(poemGenerator.getPoemGreeting());
+      console.log(this.state.cardId);
       return (
         <div className="PrintCard">
-            <Row noGutters={false} className="pad_10">
+          <Row>
+            <Link to={{pathname: '/SelectCard/' + this.state.cardTheme}}>
+              <Button className="go_back_pictures" variant="outline-info">Choose another picture</Button>
+            </Link>
+          </Row>
+          <Row noGutters={false} className="pad_10">
                 <Col md={{span: 4, offset:1}}>
                   <ImageCard cardId={this.state.cardId}/>
                 </Col>
@@ -403,12 +406,12 @@ class EditCard extends Component {
                 </Col>
                 <Col>
                     <div className="tooltip_inspiration">
-                      <Link to={{pathname: '/inspirationBoard/' + this.state.cardId}}>
+                      <Link to={{pathname: '/inspirationBoard/' + this.state.cardTheme + "&" + this.state.cardId}}>
                         <Button className="inspiration_board" variant="outline-info">Inspiration Board</Button>
                       </Link>
                       <span className="tooltip_text">Don't know what to write? Look here!</span>
                     </div>
-                    <Link to={{pathname: '/PrintCard/' + this.state.cardId}}>
+                    <Link to={{pathname: '/PrintCard/' + this.state.cardTheme + "&" + this.state.cardId}}>
                       <Button className="CreateBtn" variant="outline-info">Preview Card</Button>
                     </Link>
                 </Col>

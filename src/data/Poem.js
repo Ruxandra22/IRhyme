@@ -1,4 +1,3 @@
-//const WORDS_BASE_URL= "api.datamuse.com/words?";
 class Poem {
 
     constructor() {
@@ -12,20 +11,17 @@ class Poem {
         this.prepositions = ["of ", "with ", "to " , "on " , "in " , "for " , "within"];
         this.adjectives = ["aromatic ","happy ", "peaceful " ,"wonderful ","soft ", "calm " , "beautiful " , "fragile ", "powerful ", "sensitive ","bright " , "great " , "cozy ", "amazing " , "most geniune ", "less travelled "];
         this.punctuations = [". " ,", " , "! "];
-        this.newline = ["\n"];
-        this.randomWords = [];
-        this.poemText = 'I wandered lonely as a cloud. That floats on high o’er vales and hills. When all at once I saw a crowd. A host, of golden daffodils. Beside the lake, beneath the trees,Fluttering and dancing in the breeze.';
      }
 
     random(arraySize){
-        var min=0; 
-        var max=arraySize-1;  
-        var random =Math.floor(Math.random() * (+max - +min)) + +min;   
+        let min=0;
+        let max=arraySize-1;
+        let random =Math.floor(Math.random() * (+max - +min)) + +min;
         return random;
     }
 
     p1(){
-      var p1 = new String();
+      let p1 = new String();
       p1 = this.verbs[this.random(this.verbs.length)];
       p1 = p1.charAt(0).toUpperCase() + p1.slice(1);
       p1 = p1.concat( this.determinants[this.random(this.determinants.length)], this.pluralnouns[this.random(this.pluralnouns.length)], 
@@ -35,7 +31,7 @@ class Poem {
       return p1;
     }
     p2(){
-      var p2 = new String();
+      let p2 = new String();
       p2 = this.verbs[this.random(this.verbs.length)];
       p2 = p2.charAt(0).toUpperCase() + p2.slice(1);
       p2 = p2.concat( this.prepositions[this.random(this.prepositions.length)], this.determinants[this.random(this.determinants.length)],
@@ -44,7 +40,7 @@ class Poem {
       return p2;
     }
     p3(){
-      var p3 = new String();
+      let p3 = new String();
       p3 = this.prepositions[this.random(this.prepositions.length)];
       p3 = p3.charAt(0).toUpperCase() + p3.slice(1);
       p3 = p3.concat(this.determinants[this.random(this.determinants.length)],
@@ -54,7 +50,7 @@ class Poem {
       return p3;
     }
     p4(){
-      var p4 = new String();
+      let p4 = new String();
       p4 = this.determinants[this.random(this.determinants.length)];
       p4 = p4.charAt(0).toUpperCase() + p4.slice(1);
       p4 = p4.concat(this.nouns[this.random(this.nouns.length)], 
@@ -80,19 +76,19 @@ class Poem {
        this.poemColor = string;
      }
 
-    getPoemGreeting(htmlString){
+    getPoemGreeting(){
         return this.poemGreeting ;
      }
  
-     getPoemBody(htmlString){
+     getPoemBody(){
        return this.poemBody ;
      }
  
-    getPoemSignature(htmlString){
+    getPoemSignature(){
       return this.poemSignature;
     }
 
-    getPoemColor(string) {
+    getPoemColor() {
       return this.poemColor;
     }   
 }

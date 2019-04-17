@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css' ;
 import Button from "react-bootstrap/Button";
 import firebase from "../config/dbConfig";
 import ReactToPrint from "react-to-print";
-import Popup from "reactjs-popup";
+import Row from "react-bootstrap/Row";
 
 
 class PrintFront extends Component {
@@ -49,7 +49,6 @@ class PrintInside extends Component {
 
     );
 }
-
 }
 
 
@@ -61,7 +60,8 @@ class PrintCard extends Component {
 
         this.state = {
           status: 'INITIAL',
-          cardId : this.props.match.params.id,
+          cardId : this.props.match.params.id.split("&")[1],
+          cardTheme : this.props.match.params.id.split("&")[0],
           htmlString: poemGenerator.getPoemGreeting(),
           htmlString2: poemGenerator.getPoemBody(),
           htmlString3: poemGenerator.getPoemSignature(),
@@ -123,8 +123,8 @@ class PrintCard extends Component {
                             <Button className="new_card p-3" variant="outline-info">Create a new card!</Button>
                         </Link>
                     </div>
-                    <p id="success"></p>    
                 </div>
+                <p id="success"></p>
                 <div className="row justify-content-center align-items-center">
                   <PrintFront url={this.state.cardImage}  ref={el1 => (this.componentRef1 = el1)} />
                 </div> 
@@ -148,16 +148,19 @@ class PrintCard extends Component {
 
             <div class="container">
                 <div className="PrintCard">
-                  <div className="row justify-content-center align-items-center mb-3">
-                    <h2>Print your card on A4 paper!</h2> 
-                  </div>
-                    {printCard}    
+                    <div className="row justify-content-center align-items-center mb-3">
+                        <Row>
+                            <Link to={{pathname: '/EditCard/' + this.state.cardTheme + "&" + this.state.cardId}}>
+                                <Button className="go_back_editor" variant="outline-info">Go back to the editor</Button>
+                            </Link>
+                        </Row>
+                        <h2>Print your card on A4 paper!</h2>
+                    </div>
+                    {printCard}
                 </div>
             </div>
         );
     }
-
 }
-
 
 export default PrintCard;

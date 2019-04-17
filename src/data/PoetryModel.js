@@ -2,16 +2,12 @@ import API_KEY_PHOTOS from "./ApiKey";
 
 const SELECTTHEME_BASE_URL= "https://api.pexels.com/v1";
 const SELECTCARD_BASE_URL = "https://api.pexels.com/v1/search?per_page=30&page=1";
-const WORD_BASE_URL = "https://api.datamuse.com/words?";
 const httpOptions = {
     headers: { "Authorization": API_KEY_PHOTOS}
 };
-const httpOptions2 = {
-    headers: { "Authorization": null}
-};
+
 
 class PoetryModel {
-    //, "new home", "friendship", "easter"
     themes = ["birthday", "wedding", "love", "travel", "easter", "christmas", "new home", "newborn"];
     
     constructor() {
@@ -39,14 +35,6 @@ class PoetryModel {
         return  this.cardImage;
     }
 
-    getPoetryTxt(){
-        return this.poemText;
-    }
-
-    getUrlThemePhotosList() {
-        return this.urlThemePhotosList;
-    }
-
     getThemePhoto(theme) {
         console.log("call");
         const url = `${SELECTTHEME_BASE_URL}/search?query=` + theme + `&per_page=1&page=1`;
@@ -58,10 +46,6 @@ class PoetryModel {
             return response.json();
         }
         throw response;
-    }
-
-    processResponse2(response) {
-            return response.json();
     }
 }
 

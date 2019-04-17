@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import "./SelectCard.css";
 
 import 'bootstrap/dist/css/bootstrap.css' ;
-import{Container, Row, Col} from 'reactstrap';
+import{Row} from 'reactstrap';
 import { modelInstance } from '../data/PoetryModel';
 import '../App.css';
+import Button from "react-bootstrap/Button";
   
 class Cards extends Component {
     constructor(props) {
@@ -41,8 +42,7 @@ class Cards extends Component {
 
     render() {
       let cardsList = null;
-      let imageUrl = null;
-  
+
       // depending on the state we either generate
       // useful message to the user or show the list
       // of returned cards
@@ -55,7 +55,7 @@ class Cards extends Component {
                 <div key = {card.id} className="p-3">
                     <div className="background_card" style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')',
                         backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
-                        <Link to={{pathname: '/EditCard/' + card.id}}>
+                        <Link to={{pathname: '/EditCard/' + this.state.theme + "&" + card.id}}>
                             <img className="photo" src={card.src.portrait}/>
                         </Link>
                     </div>
@@ -69,6 +69,11 @@ class Cards extends Component {
   
       return (
         <div className="Cards">
+            <Row>
+                <Link to="/SelectTheme/">
+                    <Button className="go_back_themes" variant="outline-info">Choose another theme</Button>
+                </Link>
+            </Row>
             <h1 className={"title_select_card"}> {this.state.theme} </h1>
             <Row className="cards_row">
                  {cardsList}
@@ -77,5 +82,5 @@ class Cards extends Component {
       );
     }
   }
-  
+
   export default Cards;
