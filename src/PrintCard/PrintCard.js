@@ -139,7 +139,7 @@ class PrintCard extends Component {
                     </div>
                 </div>
                 <div className="row justify-content-center align-items-center">
-                  <PrintInside url={this.state.cardImage}  poemGreeting={this.state.htmlString}  poemBody={this.state.htmlString2} poemSign={this.state.htmlString3} ref={el2 => (this.componentRef2 = el2)} />
+                  <PrintInside url={this.state.cardImage}  poemGreeting={this.state.poemGreeting}  poemBody={this.state.poemBody} poemSign={this.state.poemSignature} ref={el2 => (this.componentRef2 = el2)} />
                 </div>
            </div>
         );
