@@ -17,6 +17,7 @@ import { isKeyHotkey } from 'is-hotkey'
 import { ButtonCustom, Icon, Toolbar } from './Comps';
 import 'rc-color-picker/assets/index.css';
 import ColorPicker from 'rc-color-picker';
+import ScrollToTop from "react";
 
 // constants for text editor initialization 
 const isBoldHotkey = isKeyHotkey('mod+b');

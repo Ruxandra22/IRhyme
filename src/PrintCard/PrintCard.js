@@ -91,7 +91,8 @@ class PrintCard extends Component {
         let poemText = poemGenerator.poemGreeting + poemGenerator.poemBody + poemGenerator.poemSignature;
         db.collection("cards").add({
             picture: this.state.cardImage,
-            cardText: poemText
+            cardText: poemText,
+            textColor: poemGenerator.getPoemColor()
         });
         document.getElementById("success").style.display = "block";
         document.getElementById("success").innerHTML = "Saved successfully! You can see it in the Inspiration Board" +

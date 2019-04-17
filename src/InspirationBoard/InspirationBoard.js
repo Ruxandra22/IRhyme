@@ -65,7 +65,7 @@ class InspirationBoard extends Component {
                                         <img className="figureImg2" src={card.picture} />
                                     </div>
                                     <div className="col-xl-6 col-md-9 mt-3 text">
-                                        <div style={{color: poemGenerator.getPoemColor(),textAlign: "left"}}
+                                        <div style={{color: card.textColor,textAlign: "left"}}
                                              dangerouslySetInnerHTML={{__html: card.cardText}}></div>
                                     </div>
                                 </div>
