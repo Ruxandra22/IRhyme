@@ -3,38 +3,6 @@
     text-align: center;
 }
 
-.OpenCard{
-    height: 420px;
-    margin:100px;
-    padding: 20px;
- }
-
-.ClosedCard{
-   height: 400px;
-   margin:20px;
-   padding: 20px
-  }
-
-.figure{
-    width:300px;
-    overflow: hidden;
-    margin:0;  
-    margin-left: -75px;
-    opacity:0.2;
-  }
-
-.figureImg1{
-    width:360px;
-    margin-top: 10px;
-    margin-left:415px;
-}
-
-.figureImg2{
-    width:360px;
-    margin-top: 10px;
-    opacity:0.2;
-}
-
 .card{
     margin-left: -80px;
 }
@@ -59,8 +27,4 @@
       size: landscape;
     }
   }
-
-/*.saveCard {*/
-/*    float: ;*/
-/*}*/
 
