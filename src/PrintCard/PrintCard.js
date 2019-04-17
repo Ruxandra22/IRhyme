@@ -4,9 +4,12 @@ import "./PrintCard.css";
 import { modelInstance } from '../data/PoetryModel';
 import { poemGenerator } from '../data/Poem';
 import 'bootstrap/dist/css/bootstrap.css' ;
+import{Row, Col} from 'reactstrap';
 import Button from "react-bootstrap/Button";
 import firebase from "../config/dbConfig";
+import img3 from '../images/Overlay.jpg';
 import ReactToPrint from "react-to-print";
+import Popup from "reactjs-popup";
 
 
 class PrintFront extends Component {
@@ -95,6 +98,9 @@ class PrintCard extends Component {
             picture: this.state.cardImage,
             cardText: poemText
         });
+        document.getElementById("success").style.display = "block";
+        document.getElementById("success").innerHTML = "Saved successfully! You can see it in the Inspiration Board" +
+            " if you create another card!";
     };
 
 
@@ -113,14 +119,21 @@ class PrintCard extends Component {
                               content={() => this.componentRef1}
                             />
                         </div>
-                        <Button className="saveCard p-3" onClick={this.addCard} variant="outline-info">Save to Inspiration Board!</Button>
+                        <Button className="save_card p-3" onClick={this.addCard} variant="outline-info">Save to Inspiration Board!</Button>
                         <Link to="/SelectTheme">
                             <Button className="new_card p-3" variant="outline-info">Create a new card!</Button>
                         </Link>
                     </div>
+                    <p id="success"></p>
                     <div className="row justify-content-center align-items-center">
                       <PrintFront url={this.state.cardImage} ref={el1 => (this.componentRef1 = el1)} />
                     </div>
+                </div>
+                <div className="row justify-content-center align-items-center">
+                    <ReactToPrint
+                        trigger={() => <Button className="mt-5 mb-3 p-3" variant="outline-info">Print card inside!</Button>}
+                        content={() => this.componentRef2}
+                    />
                 </div>
                 <div className="row justify-content-center align-items-center">
                   <PrintInside url={this.state.cardImage}  poemGreeting={this.state.poemGreeting}  poemBody={this.state.poemBody} poemSign={this.state.poemSignature} ref={el2 => (this.componentRef2 = el2)} />
