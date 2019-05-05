@@ -6,7 +6,6 @@ import {Row} from "reactstrap";
 import Popup from 'reactjs-popup'
 import Button from "react-bootstrap/Button";
 import Link from "react-router-dom/es/Link";
-import {poemGenerator} from "../data/Poem";
 
 
 class InspirationBoard extends Component {
@@ -56,7 +55,7 @@ class InspirationBoard extends Component {
                         backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
                         <img className="photo" src={card.picture}/>
                         <Popup
-                            trigger={<Button className="button" variant="outline-info"><strong>See Details</strong></Button>}
+                            trigger={<Button className="button" variant="info"><strong>See Details</strong></Button>}
                             modal
                             closeOnDocumentClick>
                             <span>

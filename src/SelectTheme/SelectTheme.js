@@ -127,7 +127,7 @@ class SelectTheme extends Component {
                             <Link to={{pathname: '/SelectCard/' + themeKey}}>
                                 <img className="themePhoto" src={valuePhoto.src.portrait}/>
                                 <Button className="button_theme"
-                                        variant="outline-info"><strong>{themeKey}</strong></Button>
+                                        variant="info"><strong>{themeKey}</strong></Button>
                             </Link>
                         </div>
                     </div>

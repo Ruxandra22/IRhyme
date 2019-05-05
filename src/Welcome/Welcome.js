@@ -39,7 +39,7 @@ class Welcome extends Component {
             </div>
         </div>   
         <Link to="/SelectTheme">
-            <Button className="pt-2 pb-2 pr-5 pl-5 mt-4" variant="outline-info">Make Card</Button>
+            <Button className="pt-2 pb-2 pr-5 pl-5 mt-4 create_card" variant="info">Make Card</Button>
         </Link>
         <div>
             <div>
