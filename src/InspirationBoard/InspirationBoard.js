@@ -50,8 +50,8 @@ class InspirationBoard extends Component {
 
         let pictures;
         if(this.state.cardsList != null) {
-            pictures = Array.from(this.state.cardsList).map((card) =>
-                    <div className="background_card" style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')',
+            pictures = Array.from(this.state.cardsList).map((card, index) =>
+                    <div key={index} className="background_card" style={{ backgroundImage: 'url(' + require('../images/EmptyCard280x420.png') + ')',
                         backgroundRepeat: 'no-repeat',  backgroundPosition: 'center'}}>
                         <img className="photo" src={card.picture}/>
                         <Popup
