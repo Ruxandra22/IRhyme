@@ -22,11 +22,11 @@ class App extends Component {
     return (
       <div className="App">
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-              <a className="navbar-brand">
+              <nav className="navbar-brand">
                   <Link to="/">
                       <img src={logoImg} width={110} className="logo d-inline-block align-top" alt=""/>
                   </Link>
-              </a>
+              </nav>
           </nav>
           <Route exact path="/" component={Welcome} />
           <Route
