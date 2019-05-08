@@ -147,7 +147,7 @@ class PrintCard extends Component {
       }
         return(
 
-            <div class="container">
+            <div className="container">
                 <div className="PrintCard">
                     <div className="row justify-content-center align-items-center mb-3">
                         <Row>

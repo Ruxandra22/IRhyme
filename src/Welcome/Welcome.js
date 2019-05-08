@@ -41,13 +41,6 @@ class Welcome extends Component {
         <Link to="/SelectTheme">
             <Button className="pt-2 pb-2 pr-5 pl-5 mt-4 create_card" variant="info">Make Card</Button>
         </Link>
-        <div>
-            <div>
-                <rect width="100" height="200" x="50" y="20" />
-            </div>
-            <div>
-            </div>
-        </div>
 
       </div>
     );
